@@ -15,9 +15,14 @@ public class MovementSystem : MonoBehaviour
     //flags
     private bool isGrounded = false;
     private bool inSlam = false;
+    private bool isSliding = false;
+    private bool facingRight = true;
     
     // define comp
     private Rigidbody2D rb;
+
+    // i guess i need this?
+    private GameObject objectLastTouched;
     void Start()
     {
         //comps
@@ -26,120 +31,182 @@ public class MovementSystem : MonoBehaviour
 
     void Update()
     {
+        // Check if grounded before executing slide
         if (isGrounded)
         {
             inSlam = false;
-            checkAndExecuteJump();
+            CheckSlide();
+            CheckJump();
         }
-        else if (isGrounded == false)
+        else
         {
-            checkAndExecuteSlam();
+            CheckSlam();
         }
-        checkAndMoveRight();
-        checkAndMoveLeft();
+
+        TurnToLook();
+        CheckMoveRight();
+        CheckMoveLeft();
+
+        print($"in slide is {isSliding}");
+        print($"Is grounded is {isGrounded}");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        objectLastTouched = collision.gameObject;
+        if (objectLastTouched.CompareTag("Ground"))
         {
             isGrounded = true;
+            ResetSlideToIdle();
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        objectLastTouched = null;
+        if (collision.gameObject.CompareTag("Ground") && isSliding == true)
         {
-            isGrounded = false;
+            ResetSlideToIdle();
         }
+        isGrounded = false;
     }
 
-    private void checkAndExecuteSlam()
+    private void TurnToLook()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (facingRight)
         {
-            inSlam = true;
-            rb.velocity = new Vector2(rb.velocity.x, -20);
+            transform.rotation = Quaternion.identity;
+        }
+        else if (!facingRight)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
-    private void checkAndExecuteJump()
+    private void CheckSlam()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl) && isGrounded == false)
+        {
+            ExecuteSlam();
+        }
+    }
+    private void ExecuteSlam()
+    {
+        inSlam = true;
+        rb.velocity = new Vector2(rb.velocity.x, -20);
+    }
+    private void CheckSlide()
+    {
+        if (isGrounded && Input.GetKey(KeyCode.LeftControl)) // Ensure sliding only when grounded
+        {
+            ExecuteSlide();
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            ResetSlideToIdle();
+        }
+    }
+    void ExecuteSlide()
+    {
+        isSliding = true;
+        SlidePosture();
+        if (facingRight)
+        {
+            rb.velocity = new Vector2(maxSpeed * 1.5f, rb.velocity.y);
+        }
+        else if (!facingRight)
+        {
+            rb.velocity = new Vector2(maxSpeed * -1.5f, rb.velocity.y);
+        }
+    }
+    private void ResetSlideToIdle()
+    {
+        // Reset posture only if not sliding
+        if (!isSliding)
+        {
+            transform.rotation = Quaternion.identity; // Reset to default rotation
+        }
+        isSliding = false; // Reset sliding state
+    }
+    private void SlidePosture()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, 80); // Set to desired slide posture
+    }
+    private void CheckJump()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.velocity += new Vector2(0, jumpHeight);
+            if (isSliding)
+            {
+                ResetSlideToIdle(); // Transition to idle state before jumping
+            }
+            if (isGrounded) // Ensure the character can only jump when grounded
+            {
+                ExecuteJump(); // Allow jumping
+            }
         }
     }
-    private void checkAndMoveRight()
+    void ExecuteJump()
+    {
+        rb.velocity += new Vector2(0, jumpHeight);
+    }
+    private void CheckMoveRight()
     {
         if (inSlam) //right movement strength if mid-slam
         {
-            if (Input.GetKey(KeyCode.D))
-            {
-                if (rb.velocity.x < maxSpeed / 3)
-                {
-                    rb.velocity += new Vector2(Acceleration, 0) / 3;
-                }
-            }
-            else if (Input.GetKeyUp(KeyCode.D))
-            {
-                if (rb.velocity.x > 0)
-                {
-                    rb.velocity -= new Vector2(Deacceleration, 0);
-                }
-            }
+            MoveRightWithMultiplier(1 / 3);
         }
-        else if (inSlam == false) //grounded and airborne right movement strength
+        else if (!inSlam && isSliding) //grounded and airborne right movement strength
         {
-            if (Input.GetKey(KeyCode.D))
-            {
-                if (rb.velocity.x < maxSpeed)
-                {
-                    rb.velocity += new Vector2(Acceleration, 0);
-                }
-            }
-            else if (Input.GetKeyUp(KeyCode.D))
-            {
-                if (rb.velocity.x > 0)
-                {
-                    rb.velocity -= new Vector2(Deacceleration, 0);
-                }
-            }
+
+        }
+        else if (!inSlam && !isSliding)
+        {
+            MoveRightWithMultiplier(1);
         }
     }
-    private void checkAndMoveLeft()
+    void MoveRightWithMultiplier(float mult)
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            facingRight = true;
+            if (rb.velocity.x < maxSpeed * mult)
+            {
+                rb.velocity += new Vector2(Acceleration, 0) * mult;
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            facingRight = true;
+            rb.velocity = new Vector2(Mathf.Max(rb.velocity.x - Deacceleration * Time.deltaTime, 0), rb.velocity.y);
+        }
+    }
+    private void CheckMoveLeft()
     { 
         if (inSlam)
         {
-            if (Input.GetKey(KeyCode.A))
+            MoveLeftWithMultiplier(1 / 3);
+        }
+        else if (!inSlam && isSliding) //grounded and airborne right movement strength
+        {
+
+        }
+        else if (!inSlam && !isSliding)
+        {
+            MoveLeftWithMultiplier(1);
+        }
+    }
+    void MoveLeftWithMultiplier(float mult)
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            facingRight = false;
+            if (rb.velocity.x > -maxSpeed * mult)
             {
-                if (rb.velocity.x > -maxSpeed / 3 )
-                {
-                    rb.velocity -= new Vector2(Acceleration, 0) / 3;
-                }
-            }
-            else if (Input.GetKeyUp(KeyCode.A))
-            {
-                if (rb.velocity.x < 0)
-                {
-                    rb.velocity += new Vector2(Deacceleration, 0);
-                }
+                rb.velocity -= new Vector2(Acceleration, 0) * mult;
             }
         }
-        else if (inSlam == false) //grounded and airborne left movement strength
+        else if (Input.GetKeyUp(KeyCode.A))
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                if (rb.velocity.x > -maxSpeed)
-                {
-                    rb.velocity -= new Vector2(Acceleration, 0);
-                }
-            }
-            else if (Input.GetKeyUp(KeyCode.A))
-            {
-                if (rb.velocity.x < 0)
-                {
-                    rb.velocity += new Vector2(Deacceleration, 0);
-                }
-            }
+            facingRight = false;
+            rb.velocity = new Vector2(Mathf.Min(rb.velocity.x + Deacceleration * Time.deltaTime, 0), rb.velocity.y);
         }
     }
 }
