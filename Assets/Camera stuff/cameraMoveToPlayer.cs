@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class cameraMoveToPlayer : MonoBehaviour
 {
-    [SerializeField] private Transform player; // Reference to the player's transform
+    private Transform player; // Reference to the player's transform
     [SerializeField] private float smoothSpeed = 0.125f; // Speed of the camera movement
     [SerializeField] private Vector3 offset; // Offset from the player position
 
@@ -14,7 +14,7 @@ public class cameraMoveToPlayer : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         Vector3 desiredPosition = player.position + offset; // Calculate desired position
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed); // Smoothly interpolate to the desired position

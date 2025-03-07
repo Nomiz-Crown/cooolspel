@@ -12,11 +12,16 @@ public class MovementSystem : MonoBehaviour
     public float Deacceleration; // 2
     public float jumpHeight; // 8??
 
+    //jumpcount
+    public int maxWallJumpCount;
+    private int wallJumpsUsed = 0;
+
     //flags
     private bool isGrounded = false;
     private bool inSlam = false;
     private bool isSliding = false;
     private bool facingRight = true;
+    private bool touchingWall = false;
     
     // define comp
     private Rigidbody2D rb;
@@ -38,6 +43,13 @@ public class MovementSystem : MonoBehaviour
             CheckSlide();
             CheckJump();
         }
+        else if (touchingWall)
+        {
+            if (!isGrounded && maxWallJumpCount - wallJumpsUsed > 0)
+            {
+                WallJump();
+            }
+        }
         else
         {
             CheckSlam();
@@ -52,8 +64,13 @@ public class MovementSystem : MonoBehaviour
         objectLastTouched = collision.gameObject;
         if (objectLastTouched.CompareTag("Ground"))
         {
+            wallJumpsUsed = 0;
             isGrounded = true;
             ResetSlideToIdle();
+        }
+        else if (objectLastTouched.CompareTag("Wall"))
+        {
+            touchingWall = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -62,10 +79,34 @@ public class MovementSystem : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground") && isSliding == true)
         {
             ResetSlideToIdle();
+            isGrounded = false;
         }
-        isGrounded = false;
+        else if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+        else if (collision.gameObject.CompareTag("Wall"))
+        {
+            touchingWall = false;
+        }
     }
 
+    private void WallJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (facingRight)
+            {
+                wallJumpsUsed++;
+                rb.velocity = new Vector2(-maxSpeed*2, jumpHeight * 1);
+            }
+            else if (!facingRight)
+            {
+                wallJumpsUsed++;
+                rb.velocity = new Vector2(maxSpeed*2, jumpHeight * 1);
+            }
+        }
+    }
     private void TurnToLook()
     {
         if (facingRight)
@@ -106,11 +147,11 @@ public class MovementSystem : MonoBehaviour
         SlidePosture();
         if (facingRight)
         {
-            rb.velocity = new Vector2(maxSpeed * 1.5f, rb.velocity.y);
+            rb.velocity = new Vector2(maxSpeed * 2f, rb.velocity.y);
         }
         else if (!facingRight)
         {
-            rb.velocity = new Vector2(maxSpeed * -1.5f, rb.velocity.y);
+            rb.velocity = new Vector2(maxSpeed * -2f, rb.velocity.y);
         }
     }
     private void ResetSlideToIdle()
