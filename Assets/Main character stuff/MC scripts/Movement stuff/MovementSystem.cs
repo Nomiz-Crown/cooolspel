@@ -46,9 +46,6 @@ public class MovementSystem : MonoBehaviour
         TurnToLook();
         CheckMoveRight();
         CheckMoveLeft();
-
-        print($"in slide is {isSliding}");
-        print($"Is grounded is {isGrounded}");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
