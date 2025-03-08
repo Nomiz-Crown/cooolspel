@@ -1,15 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class MovementSystem : MonoBehaviour
 {
     // movement stuff
     public float maxSpeed; //5-8 funkar bra
     public float Acceleration; // 0.7f
-    public float Deacceleration; // 2
+    public float Deacceleration; // 1250??
     public float jumpHeight; // 8??
 
     //jumpcount
@@ -17,10 +13,13 @@ public class MovementSystem : MonoBehaviour
     private int wallJumpsUsed = 0;
 
     //flags
-    private bool isGrounded = false;
-    private bool inSlam = false;
-    private bool isSliding = false;
+    [HideInInspector] public bool isGrounded = false;
+    [HideInInspector] public bool isWalking = false;
+    [HideInInspector] public bool inSlam = false;
+    [HideInInspector] public bool isSliding = false;
+
     private bool facingRight = true;
+
     private bool touchingWall = false;
     
     // define comp
@@ -58,6 +57,7 @@ public class MovementSystem : MonoBehaviour
         TurnToLook();
         CheckMoveRight();
         CheckMoveLeft();
+        IsWalkingUpdate();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -245,6 +245,17 @@ public class MovementSystem : MonoBehaviour
         {
             facingRight = false;
             rb.velocity = new Vector2(Mathf.Min(rb.velocity.x + Deacceleration * Time.deltaTime, 0), rb.velocity.y);
+        }
+    }
+    void IsWalkingUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+        {
+            isWalking = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
+        {
+            isWalking = false;
         }
     }
 }
