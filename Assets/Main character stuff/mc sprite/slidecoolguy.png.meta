@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa2a4b9fd3784e14fa0b7e0955ce1ceb
+guid: 9b36cc1ceeace054181930ba7bb056fe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,30 +93,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: helmihelmiman_0
+      name: slidecoolguy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 64
+        width: 64
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41f90a7cb25913449f76887d7769d0c
-      internalID: -914985988
+      spriteID: d0aea6a8913fe8e40855831441952c50
+      internalID: 1005019940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_1
+      name: slidecoolguy_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 71
         y: 0
-        width: 32
-        height: 64
+        width: 65
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23f31065d0ca8564088b757f967f4666
-      internalID: -2147191818
+      spriteID: b8a6dc5190b8bf64a81e25a9315462d4
+      internalID: -2015099801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_2
+      name: slidecoolguy_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 141
         y: 0
-        width: 32
-        height: 64
+        width: 64
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b1cd933a7588840aa86a5f2892865f
-      internalID: 1960607217
+      spriteID: 102057d8274e4ac42ad38395da1a4654
+      internalID: -2123953488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_3
+      name: slidecoolguy_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 210
         y: 0
-        width: 32
-        height: 64
+        width: 66
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +174,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 051a2f3733bd50f4eb6124fcbff6aef3
-      internalID: -1596829730
+      spriteID: 712276c245fadc44a94ef2ac06f2ebd5
+      internalID: -549140171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slidecoolguy_4
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 70
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fa87094be6e03b4eae203180f6c0808
+      internalID: 366773443
       vertices: []
       indices: 
       edges: []
@@ -197,17 +205,18 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      helmihelmiman_0: -914985988
-      helmihelmiman_1: -2147191818
-      helmihelmiman_2: 1960607217
-      helmihelmiman_3: -1596829730
+      slidecoolguy_0: 1005019940
+      slidecoolguy_1: -2015099801
+      slidecoolguy_2: -2123953488
+      slidecoolguy_3: -549140171
+      slidecoolguy_4: 366773443
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

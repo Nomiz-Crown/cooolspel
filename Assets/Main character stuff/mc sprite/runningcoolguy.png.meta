@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa2a4b9fd3784e14fa0b7e0955ce1ceb
+guid: 64acfe84037e3034d9bbd540b1c5c67a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,29 +93,16 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: helmihelmiman_0
+      name: runningcoolguy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -124,19 +111,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41f90a7cb25913449f76887d7769d0c
-      internalID: -914985988
+      spriteID: afc85243a71806e4db918f214c9c6665
+      internalID: 1213727189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_1
+      name: runningcoolguy_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -145,19 +132,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23f31065d0ca8564088b757f967f4666
-      internalID: -2147191818
+      spriteID: d1efdb3bc07ae9a41b2c1f3785ddf905
+      internalID: 2085921816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_2
+      name: runningcoolguy_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -166,19 +153,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b1cd933a7588840aa86a5f2892865f
-      internalID: 1960607217
+      spriteID: baf303203d102f34abb7a54fa90295be
+      internalID: 320301668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_3
+      name: runningcoolguy_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -187,8 +174,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 051a2f3733bd50f4eb6124fcbff6aef3
-      internalID: -1596829730
+      spriteID: 89ef3667a674526478399593ea38f74a
+      internalID: -435259801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runningcoolguy_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7825212fea9f5bf43b4909661b49bfbb
+      internalID: -1344641045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runningcoolguy_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6bb7107521c224caabe2b2d036ef90
+      internalID: 646291947
       vertices: []
       indices: 
       edges: []
@@ -197,17 +226,19 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      helmihelmiman_0: -914985988
-      helmihelmiman_1: -2147191818
-      helmihelmiman_2: 1960607217
-      helmihelmiman_3: -1596829730
+      runningcoolguy_0: 1213727189
+      runningcoolguy_1: 2085921816
+      runningcoolguy_2: 320301668
+      runningcoolguy_3: -435259801
+      runningcoolguy_4: -1344641045
+      runningcoolguy_5: 646291947
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

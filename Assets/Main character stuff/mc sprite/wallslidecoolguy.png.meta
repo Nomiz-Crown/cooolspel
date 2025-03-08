@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa2a4b9fd3784e14fa0b7e0955ce1ceb
+guid: 8390b55e86ba50647a627c3c6905bb22
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,30 +93,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: helmihelmiman_0
+      name: wallslidecoolguy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 64
+        height: 60
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,71 +111,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41f90a7cb25913449f76887d7769d0c
-      internalID: -914985988
+      spriteID: 92ba30cc846985c47b59fe9a23f89cac
+      internalID: -1411032188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_1
+      name: wallslidecoolguy_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 60
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a66d83c994adb824abc4443c828e07ec
+      internalID: -661621063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wallslidecoolguy_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 60
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23f31065d0ca8564088b757f967f4666
-      internalID: -2147191818
+      spriteID: e6cec61ab3136c34fb118d57435ec798
+      internalID: 550735434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_2
+      name: wallslidecoolguy_3
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 0
         width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 60
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b1cd933a7588840aa86a5f2892865f
-      internalID: 1960607217
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: helmihelmiman_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 051a2f3733bd50f4eb6124fcbff6aef3
-      internalID: -1596829730
+      spriteID: 32e5aeeee8e8ad1429fd9a124417c326
+      internalID: -2066549953
       vertices: []
       indices: 
       edges: []
@@ -197,17 +184,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      helmihelmiman_0: -914985988
-      helmihelmiman_1: -2147191818
-      helmihelmiman_2: 1960607217
-      helmihelmiman_3: -1596829730
+      wallslidecoolguy_0: -1411032188
+      wallslidecoolguy_1: -661621063
+      wallslidecoolguy_2: 550735434
+      wallslidecoolguy_3: -2066549953
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

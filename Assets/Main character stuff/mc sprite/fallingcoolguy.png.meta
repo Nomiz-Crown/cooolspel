@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa2a4b9fd3784e14fa0b7e0955ce1ceb
+guid: ccbc974cade61f341aa345a6e56a1523
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,24 +93,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: helmihelmiman_0
+      name: fallingcoolguy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +111,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41f90a7cb25913449f76887d7769d0c
-      internalID: -914985988
+      spriteID: 68ca2574d6c1d314198d03e7532223bd
+      internalID: -752821653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_1
+      name: fallingcoolguy_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d123efb59e090dd41a35ba972801bff2
+      internalID: 1025675455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingcoolguy_2
       rect:
         serializedVersion: 2
         x: 64
@@ -145,14 +153,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23f31065d0ca8564088b757f967f4666
-      internalID: -2147191818
+      spriteID: a68ef63851b1eca479d7c731e7e51608
+      internalID: -1391522030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_2
+      name: fallingcoolguy_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d6e27591f906542aeaa0ed1c7ec294
+      internalID: -42992902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingcoolguy_4
       rect:
         serializedVersion: 2
         x: 128
@@ -166,29 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b1cd933a7588840aa86a5f2892865f
-      internalID: 1960607217
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: helmihelmiman_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 051a2f3733bd50f4eb6124fcbff6aef3
-      internalID: -1596829730
+      spriteID: 3a1e0f2fe3ed3cf47a71841eab25b44d
+      internalID: 2077067552
       vertices: []
       indices: 
       edges: []
@@ -197,17 +205,18 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      helmihelmiman_0: -914985988
-      helmihelmiman_1: -2147191818
-      helmihelmiman_2: 1960607217
-      helmihelmiman_3: -1596829730
+      fallingcoolguy_0: -752821653
+      fallingcoolguy_1: 1025675455
+      fallingcoolguy_2: -1391522030
+      fallingcoolguy_3: -42992902
+      fallingcoolguy_4: 2077067552
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

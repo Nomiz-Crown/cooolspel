@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa2a4b9fd3784e14fa0b7e0955ce1ceb
+guid: 7129badbaa21faa4aae6d988624284cb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,29 +93,16 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: helmihelmiman_0
+      name: flippyflippycoolguystuff_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -124,19 +111,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41f90a7cb25913449f76887d7769d0c
-      internalID: -914985988
+      spriteID: 5581dda3c9f954e4d83ebdbe4eaa7e47
+      internalID: -1291435152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_1
+      name: flippyflippycoolguystuff_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -145,19 +132,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23f31065d0ca8564088b757f967f4666
-      internalID: -2147191818
+      spriteID: fc44eb1f24b3e1641bda0c231410cd4d
+      internalID: -1386477043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_2
+      name: flippyflippycoolguystuff_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -166,19 +153,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b1cd933a7588840aa86a5f2892865f
-      internalID: 1960607217
+      spriteID: ab80a4e07f58fa241aae7cb202a22631
+      internalID: 455573056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: helmihelmiman_3
+      name: flippyflippycoolguystuff_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -187,8 +174,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 051a2f3733bd50f4eb6124fcbff6aef3
-      internalID: -1596829730
+      spriteID: d26d514bebd15e2469c7e8ca9e458750
+      internalID: 608252432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flippyflippycoolguystuff_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0640312a201d80e42a525d4c3aa3eca5
+      internalID: 1093183067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flippyflippycoolguystuff_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3c892715702db4d84e05e53ad9c228
+      internalID: 480787976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flippyflippycoolguystuff_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ac8736aa04bb94fad5ef31ebbd0013
+      internalID: 158676886
       vertices: []
       indices: 
       edges: []
@@ -197,17 +247,20 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      helmihelmiman_0: -914985988
-      helmihelmiman_1: -2147191818
-      helmihelmiman_2: 1960607217
-      helmihelmiman_3: -1596829730
+      flippyflippycoolguystuff_0: -1291435152
+      flippyflippycoolguystuff_1: -1386477043
+      flippyflippycoolguystuff_2: 455573056
+      flippyflippycoolguystuff_3: 608252432
+      flippyflippycoolguystuff_4: 1093183067
+      flippyflippycoolguystuff_5: 480787976
+      flippyflippycoolguystuff_6: 158676886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
