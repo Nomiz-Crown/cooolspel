@@ -32,12 +32,6 @@ public class MovementSystem : MonoBehaviour
     [HideInInspector] public float durationOfJump;
     [HideInInspector] public float jumpTimer;
 
-    private bool isGrounded = false;
-    private bool inSlam = false;
-    private bool isSliding = false;
-    private bool facingRight = true;
-    private bool touchingWall = false;
-    
     // define comp
     private Rigidbody2D rb;
 
