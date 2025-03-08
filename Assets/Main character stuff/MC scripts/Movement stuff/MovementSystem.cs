@@ -1,11 +1,15 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MovementSystem : MonoBehaviour
 {
     // movement stuff
     public float maxSpeed; //5-8 funkar bra
     public float Acceleration; // 0.7f
-    public float Deacceleration; // 1250??
+    public float Deacceleration; // 2
     public float jumpHeight; // 8??
 
     //jumpcount
@@ -28,10 +32,16 @@ public class MovementSystem : MonoBehaviour
     [HideInInspector] public float durationOfJump;
     [HideInInspector] public float jumpTimer;
 
+    private bool isGrounded = false;
+    private bool inSlam = false;
+    private bool isSliding = false;
+    private bool facingRight = true;
+    private bool touchingWall = false;
+    
     // define comp
     private Rigidbody2D rb;
 
-    // i guess i need this?
+    // i guess i need this? 
     private GameObject objectLastTouched;
     void Start()
     {
@@ -69,7 +79,6 @@ public class MovementSystem : MonoBehaviour
         TurnToLook();
         CheckMoveRight();
         CheckMoveLeft();
-        IsWalkingUpdate();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
