@@ -100,12 +100,12 @@ TextureImporter:
       name: wallslidecoolguy_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 32
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 28
+        height: 59
+      alignment: 9
+      pivot: {x: 0.67857146, y: 0.5254237}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: wallslidecoolguy_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 36
         y: 0
-        width: 32
-        height: 60
+        width: 28
+        height: 59
       alignment: 9
-      pivot: {x: 0.7, y: 0.5}
+      pivot: {x: 0.67857146, y: 0.5254237}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: wallslidecoolguy_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 68
         y: 0
-        width: 32
-        height: 60
+        width: 28
+        height: 59
       alignment: 9
-      pivot: {x: 0.7, y: 0.5}
+      pivot: {x: 0.67857146, y: 0.5254237}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,22 +160,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wallslidecoolguy_3
+      name: wallslidecoolguy_4
       rect:
         serializedVersion: 2
-        x: 96
+        x: 100
         y: 0
-        width: 32
-        height: 60
+        width: 28
+        height: 59
       alignment: 9
-      pivot: {x: 0.7, y: 0.5}
+      pivot: {x: 0.67857146, y: 0.5254237}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32e5aeeee8e8ad1429fd9a124417c326
-      internalID: -2066549953
+      spriteID: e8b7093dc472a274184344bab469d36a
+      internalID: -1087211300
       vertices: []
       indices: 
       edges: []
@@ -195,6 +195,7 @@ TextureImporter:
       wallslidecoolguy_1: -661621063
       wallslidecoolguy_2: 550735434
       wallslidecoolguy_3: -2066549953
+      wallslidecoolguy_4: -1087211300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

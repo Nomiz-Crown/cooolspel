@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,41 +9,38 @@ public class PlayerAnimatorLogic : MonoBehaviour
     Animator anim;
 
     [SerializeField] private string nameOfIdleAnim;
-    [SerializeField] private float lengthOfIdleAnim;
                      private bool isAnimatingIdle = false;
 
     [SerializeField] private string nameOfWalkAnim;
-    [SerializeField] private float lengthOfWalkAnim;
                      private bool isAnimatingWalk = false;
 
     [SerializeField] private string nameOfSlideAnim;
-    [SerializeField] private float lengthOfSlideAnim;
                      private bool isAnimatingSlide = false;
 
     [SerializeField] private string nameOfFallAnim;
-    [SerializeField] private float lengthOfFallAnim;
                      private bool isAnimatingFall = false;
 
     [SerializeField] private string nameOfJumpAnim;
-    [SerializeField] private float lengthOfJumpAnim;
                      private bool isAnimatingJump = false;
 
     [SerializeField] private string nameOfGrindAnim;
-    [SerializeField] private float lengthOfGrindAnim;
                      private bool isAnimatingGrind = false;
 
-    float timer = 0f;
+    private List<bool> isAnimating = new List<bool>();
     // Start is called before the first frame update
     void Start()
     {
         Player = GetComponent<MovementSystem>();
-        Player.durationOfJump = lengthOfJumpAnim;
+        Player.durationOfJump = 1;
         anim = GetComponent<Animator>();
+        isAnimating = new List<bool> { isAnimatingFall, isAnimatingGrind, isAnimatingIdle, isAnimatingJump, isAnimatingSlide, isAnimatingWalk };
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(Player.isFalling);
+        print(Player.isJumping);
         if (!Player.isJumping)
         {
             isAnimatingJump = false;
@@ -73,42 +71,31 @@ public class PlayerAnimatorLogic : MonoBehaviour
             LoopWalk();
         }
     }
-    void UpdateTimer()
+    //idle animation stuff
+    void DisableAllExcept(bool exception)
     {
-        timer += Time.deltaTime;
+        for (int i = 0; i < isAnimating.Count; i++)
+        {
+            if(isAnimating[i] != exception)
+            {
+                isAnimating[i] = false;
+            }
+        }
     }
 
-    //idle animation stuff
     void LoopIdle()
     {
         if (!isAnimatingIdle)
         {
             anim.Play(nameOfIdleAnim);
             isAnimatingIdle = true;
-            timer = 0;
-            print($"played idle animation, {isAnimatingIdle} should be true, ({timer}) should be 0");
-        }
-        else
-        {
-            UpdateTimer();
-            UpdateIsAnimatingIdle();
-        }
-    }
-    void UpdateIsAnimatingIdle()
-    {
-        if (timer >= lengthOfIdleAnim)
-        {
-            print("enough time has passed, isAnimatingIdle is now " + isAnimatingIdle);
-            isAnimatingIdle = false;
-        }
-        else
-        {
-            print("time has not passed, isAnimatingIdle remains " + isAnimatingIdle);
+            DisableAllExcept(isAnimatingIdle);
+            print("playing idle animation");
         }
     }
     bool IdleAnimationCanOccur()
     {
-        if (Player.isGrounded && !Player.isSliding && !Player.isWalking && !Player.inSlam)
+        if (Player.isGrounded && !Player.isSliding && !Player.isWalking && !Player.inSlam && !Player.isJumping)
         {
             return true;
         }
@@ -122,25 +109,8 @@ public class PlayerAnimatorLogic : MonoBehaviour
         {
             anim.Play(nameOfWalkAnim);
             isAnimatingWalk = true;
-            timer = 0;
-            print($"played Walk animation, {isAnimatingWalk} should be true, ({timer}) should be 0");
-        }
-        else
-        {
-            UpdateTimer();
-            UpdateIsAnimatingWalk();
-        }
-    }
-    void UpdateIsAnimatingWalk()
-    {
-        if (timer >= lengthOfWalkAnim)
-        {
-            print("enough time has passed, isAnimatingWalk is now " + isAnimatingWalk);
-            isAnimatingWalk = false;
-        }
-        else
-        {
-            print("time has not passed, isAnimatingWalk remains " + isAnimatingWalk);
+            DisableAllExcept(isAnimatingWalk);
+            print("playing Walk animation");
         }
     }
     bool WalkAnimationCanOccur()
@@ -158,25 +128,8 @@ public class PlayerAnimatorLogic : MonoBehaviour
         {
             anim.Play(nameOfSlideAnim);
             isAnimatingSlide = true;
-            timer = 0;
-            print($"played Slide animation, {isAnimatingSlide} should be true, ({timer}) should be 0");
-        }
-        else
-        {
-            UpdateTimer();
-            UpdateIsAnimatingSlide();
-        }
-    }
-    void UpdateIsAnimatingSlide()
-    {
-        if (timer >= lengthOfSlideAnim)
-        {
-            print("enough time has passed, isAnimatingSlide is now " + isAnimatingSlide);
-            isAnimatingSlide = false;
-        }
-        else
-        {
-            print("time has not passed, isAnimatingSlide remains " + isAnimatingSlide);
+            DisableAllExcept(isAnimatingSlide);
+            print($"Playing slide anim");
         }
     }
     bool SlideAnimationCanOccur()
@@ -195,25 +148,8 @@ public class PlayerAnimatorLogic : MonoBehaviour
         {
             anim.Play(nameOfFallAnim);
             isAnimatingFall = true;
-            timer = 0;
-            print($"played Fall animation, {isAnimatingFall} should be true, ({timer}) should be 0");
-        }
-        else
-        {
-            UpdateTimer();
-            UpdateIsAnimatingFall();
-        }
-    }
-    void UpdateIsAnimatingFall()
-    {
-        if (timer >= lengthOfFallAnim)
-        {
-            print("enough time has passed, isAnimatingFall is now " + isAnimatingFall);
-            isAnimatingFall = false;
-        }
-        else
-        {
-            print("time has not passed, isAnimatingFall remains " + isAnimatingFall);
+            DisableAllExcept(isAnimatingFall);
+            print($"playing slide animation");
         }
     }
     bool FallAnimationCanOccur()
@@ -230,10 +166,11 @@ public class PlayerAnimatorLogic : MonoBehaviour
     {
         anim.Play(nameOfJumpAnim);
         isAnimatingJump = true;
+        DisableAllExcept(isAnimatingJump);
     }
     bool JumpAnimationCanOccur()
     {
-        if(!Player.isGrounded && !Player.isWalking && !Player.inSlam && !Player.isSliding && Player.isJumping && !Player.isFalling)
+        if(!Player.isWalking && !Player.inSlam && !Player.isSliding && Player.isJumping && !Player.isFalling)
         {
             return true;
         }
@@ -246,25 +183,8 @@ public class PlayerAnimatorLogic : MonoBehaviour
         {
             anim.Play(nameOfGrindAnim);
             isAnimatingGrind = true;
-            timer = 0;
-            print($"played grind animation, {isAnimatingGrind} should be true, ({timer}) should be 0");
-        }
-        else
-        {
-            UpdateTimer();
-            UpdateIsAnimatingGrind();
-        }
-    }
-    void UpdateIsAnimatingGrind()
-    {
-        if (timer >= lengthOfGrindAnim)
-        {
-            print("enough time has passed, isAnimatingGrind is now " + isAnimatingGrind);
-            isAnimatingGrind = false;
-        }
-        else
-        {
-            print("time has not passed, isAnimatingGrind remains " + isAnimatingGrind);
+            DisableAllExcept(isAnimatingGrind);
+            print($"playing grind anim");
         }
     }
     bool GrindAnimationCanOccur()

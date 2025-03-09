@@ -24,10 +24,12 @@ public class MovementSystem : MonoBehaviour
     [HideInInspector] public bool isJumping = false;
     [HideInInspector] public bool isFalling = false;
     [HideInInspector] public bool isGrinding = false;
+    [HideInInspector] public bool isIdle = false;
 
 
     private bool facingRight = true;
-
+    //listy list
+    private List<bool> isBlanking = new List<bool>();
     //misc jump logic
     [HideInInspector] public float durationOfJump;
     [HideInInspector] public float jumpTimer;
@@ -39,12 +41,14 @@ public class MovementSystem : MonoBehaviour
     private GameObject objectLastTouched;
     void Start()
     {
+        isBlanking = new List<bool> { isGrounded, inSlam, isSliding, isJumping, isFalling, isGrounded, isIdle };
         //comps
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        CheckIdle();
         if (isJumping)
         {
             JumpTimerLogic();
@@ -52,9 +56,6 @@ public class MovementSystem : MonoBehaviour
         // Check if grounded before executing slide
         if (isGrounded)
         {
-            isJumping = false;
-            isFalling = false;
-            inSlam = false;
             CheckSlide();
             CheckJump();
         }
@@ -80,12 +81,12 @@ public class MovementSystem : MonoBehaviour
         if (objectLastTouched.CompareTag("Ground"))
         {
             wallJumpsUsed = 0;
-            isGrounded = true;
             ResetSlideToIdle();
+            DisableAllExceptAndTurnOn(isGrounded);
         }
         else if (objectLastTouched.CompareTag("Wall"))
         {
-            isGrinding = true;
+            DisableAllExceptAndTurnOn(isGrinding);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -105,7 +106,35 @@ public class MovementSystem : MonoBehaviour
             isGrinding = false;
         }
     }
-
+    void CheckIdle()
+    {
+        int total = 0;
+        foreach (bool smeg in isBlanking)
+        {
+            if (smeg == true && smeg != isIdle)
+            {
+                total++;
+            }
+        }
+        if (total == 0)
+        {
+            isIdle = true;
+        }
+    }
+    void DisableAllExceptAndTurnOn(bool exception)
+    {
+        for (int i = 0; i < isBlanking.Count; i++)
+        {
+            if (isBlanking[i] != exception)
+            {
+                isBlanking[i] = false;
+            }
+            else
+            {
+                isBlanking[i] = true;
+            }
+        }
+    }
     private void WallJump()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -114,14 +143,13 @@ public class MovementSystem : MonoBehaviour
             {
                 wallJumpsUsed++;
                 rb.velocity = new Vector2(-maxSpeed*2, jumpHeight * 1);
-                isJumping = true;
             }
             else if (!facingRight)
             {
                 wallJumpsUsed++;
                 rb.velocity = new Vector2(maxSpeed*2, jumpHeight * 1);
-                isJumping = true;
             }
+            DisableAllExceptAndTurnOn(isJumping);
         }
     }
     private void TurnToLook()
@@ -144,7 +172,8 @@ public class MovementSystem : MonoBehaviour
     }
     private void ExecuteSlam()
     {
-        inSlam = true;
+        DisableAllExceptAndTurnOn(inSlam);
+        isFalling = true;
         rb.velocity = new Vector2(rb.velocity.x, -20);
     }
     private void CheckSlide()
@@ -160,7 +189,6 @@ public class MovementSystem : MonoBehaviour
     }
     void ExecuteSlide()
     {
-        isSliding = true;
         if (facingRight)
         {
             rb.velocity = new Vector2(maxSpeed * 2f, rb.velocity.y);
@@ -169,6 +197,8 @@ public class MovementSystem : MonoBehaviour
         {
             rb.velocity = new Vector2(maxSpeed * -2f, rb.velocity.y);
         }
+        DisableAllExceptAndTurnOn(isSliding);
+        isGrounded = true;
     }
     private void ResetSlideToIdle()
     {
@@ -196,7 +226,7 @@ public class MovementSystem : MonoBehaviour
     void ExecuteJump()
     {
         rb.velocity += new Vector2(0, jumpHeight);
-        isJumping = true;
+        DisableAllExceptAndTurnOn(isJumping);
     }
     private void CheckMoveRight()
     {
@@ -228,6 +258,8 @@ public class MovementSystem : MonoBehaviour
             facingRight = true;
             rb.velocity = new Vector2(Mathf.Max(rb.velocity.x - Deacceleration * Time.deltaTime, 0), rb.velocity.y);
         }
+        DisableAllExceptAndTurnOn(isWalking);
+        isGrounded = true;
     }
     private void CheckMoveLeft()
     { 
@@ -259,28 +291,22 @@ public class MovementSystem : MonoBehaviour
             facingRight = false;
             rb.velocity = new Vector2(Mathf.Min(rb.velocity.x + Deacceleration * Time.deltaTime, 0), rb.velocity.y);
         }
-    }
-    void IsWalkingUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
-        {
-            isWalking = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
-        {
-            isWalking = false;
-        }
+        DisableAllExceptAndTurnOn(isWalking);
+        isGrounded = true;
     }
     void JumpTimerLogic()
     {
+        print("hi");
         if(durationOfJump <= jumpTimer)
         {
+            print($"{durationOfJump} <= {jumpTimer}");
             isJumping = false;
             isFalling = true;
             jumpTimer = 0;
         }
         else
         {
+            print($"{durationOfJump} > {jumpTimer}");
             jumpTimer += Time.deltaTime;
         }
     }

@@ -100,12 +100,12 @@ TextureImporter:
       name: fallingcoolguy_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 26
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5, y: 0.64705884}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: fallingcoolguy_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 37
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 26
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6346154}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: fallingcoolguy_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 66
         y: 0
         width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.58928573}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,36 +160,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fallingcoolguy_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08d6e27591f906542aeaa0ed1c7ec294
-      internalID: -42992902
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: fallingcoolguy_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 100
         y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 27
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5185185, y: 0.58928573}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,6 +176,27 @@ TextureImporter:
       bones: []
       spriteID: 3a1e0f2fe3ed3cf47a71841eab25b44d
       internalID: 2077067552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingcoolguy_5
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 26
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5, y: 0.64705884}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163eda0e9c9aa9e49b11e637812a34b0
+      internalID: 539403409
       vertices: []
       indices: 
       edges: []
@@ -217,6 +217,7 @@ TextureImporter:
       fallingcoolguy_2: -1391522030
       fallingcoolguy_3: -42992902
       fallingcoolguy_4: 2077067552
+      fallingcoolguy_5: 539403409
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

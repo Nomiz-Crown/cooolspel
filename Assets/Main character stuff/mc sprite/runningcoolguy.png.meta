@@ -100,12 +100,12 @@ TextureImporter:
       name: runningcoolguy_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 13
         y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 42
+        height: 48
+      alignment: 9
+      pivot: {x: 0.54761904, y: 0.5416667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: runningcoolguy_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 84
         y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 50
+      alignment: 9
+      pivot: {x: 0.53125, y: 0.58}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: runningcoolguy_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 145
         y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 35
+        height: 52
+      alignment: 9
+      pivot: {x: 0.6, y: 0.53846157}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: runningcoolguy_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 205
         y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 42
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.5625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,19 +184,19 @@ TextureImporter:
       name: runningcoolguy_4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 275
         y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 33
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5757576, y: 0.59999996}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7825212fea9f5bf43b4909661b49bfbb
-      internalID: -1344641045
+      spriteID: 1c6bb7107521c224caabe2b2d036ef90
+      internalID: 646291947
       vertices: []
       indices: 
       edges: []
@@ -205,19 +205,19 @@ TextureImporter:
       name: runningcoolguy_5
       rect:
         serializedVersion: 2
-        x: 320
+        x: 337
         y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 35
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.5510204}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c6bb7107521c224caabe2b2d036ef90
-      internalID: 646291947
+      spriteID: 8a845910b36743d409711932447854d3
+      internalID: -1373700705
       vertices: []
       indices: 
       edges: []
@@ -237,8 +237,8 @@ TextureImporter:
       runningcoolguy_1: 2085921816
       runningcoolguy_2: 320301668
       runningcoolguy_3: -435259801
-      runningcoolguy_4: -1344641045
-      runningcoolguy_5: 646291947
+      runningcoolguy_4: 646291947
+      runningcoolguy_5: -1373700705
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

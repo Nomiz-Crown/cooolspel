@@ -100,12 +100,12 @@ TextureImporter:
       name: slidecoolguy_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 63
+        height: 23
+      alignment: 9
+      pivot: {x: 0.44444448, y: 0.13043478}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -124,9 +124,9 @@ TextureImporter:
         x: 71
         y: 0
         width: 65
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 25
+      alignment: 9
+      pivot: {x: 0.43076923, y: 0.12}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,64 +139,64 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slidecoolguy_2
+      name: slidecoolguy_5
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 65
+        height: 25
+      alignment: 9
+      pivot: {x: 0.44615385, y: 0.12}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888989a41504aee4c9c5f4f6400eb76a
+      internalID: -802478175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slidecoolguy_7
       rect:
         serializedVersion: 2
         x: 141
         y: 0
         width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 27
+      alignment: 9
+      pivot: {x: 0.4375, y: 0.11111111}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 102057d8274e4ac42ad38395da1a4654
-      internalID: -2123953488
+      spriteID: bbecdc873dee6d9488ee74d05a628a59
+      internalID: 541643905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slidecoolguy_3
+      name: slidecoolguy_9
       rect:
         serializedVersion: 2
         x: 210
         y: 0
         width: 66
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 24
+      alignment: 9
+      pivot: {x: 0.43939394, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 712276c245fadc44a94ef2ac06f2ebd5
-      internalID: -549140171
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slidecoolguy_4
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 0
-        width: 70
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fa87094be6e03b4eae203180f6c0808
-      internalID: 366773443
+      spriteID: 1e3abb9e8bcb472419c57fa31764f847
+      internalID: -2007145679
       vertices: []
       indices: 
       edges: []
@@ -214,9 +214,15 @@ TextureImporter:
     nameFileIdTable:
       slidecoolguy_0: 1005019940
       slidecoolguy_1: -2015099801
+      slidecoolguy_10: -756139276
       slidecoolguy_2: -2123953488
       slidecoolguy_3: -549140171
       slidecoolguy_4: 366773443
+      slidecoolguy_5: -802478175
+      slidecoolguy_6: 2132304438
+      slidecoolguy_7: 541643905
+      slidecoolguy_8: 294513992
+      slidecoolguy_9: -2007145679
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
