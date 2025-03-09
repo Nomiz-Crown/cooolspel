@@ -31,7 +31,6 @@ public class PlayerAnimatorLogic : MonoBehaviour
     void Start()
     {
         Player = GetComponent<MovementSystem>();
-        Player.durationOfJump = 1;
         anim = GetComponent<Animator>();
         isAnimating = new List<bool> { isAnimatingFall, isAnimatingGrind, isAnimatingIdle, isAnimatingJump, isAnimatingSlide, isAnimatingWalk };
     }
@@ -39,8 +38,6 @@ public class PlayerAnimatorLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(Player.isFalling);
-        print(Player.isJumping);
         if (!Player.isJumping)
         {
             isAnimatingJump = false;
