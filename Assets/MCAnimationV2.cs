@@ -18,27 +18,27 @@ public class MCAnimationV2 : MonoBehaviour
     {
         if (Player.isWalking && Player.isGrounded)
         {
-            animator.Play("RunningAnimation");
+            animator.Play("RunningAnimationV2");
         }
         else if (Player.isSliding && Player.isGrounded)
         {
-            animator.Play("SlideAnimation");
+            animator.Play("SlideAnimationV2");
         }
         else if (Player.isJumping && !Player.isGrounded)
         {
-            animator.Play("JumpingAnimation");
-        }
-        else if (Player.isFalling && !Player.isGrounded)
-        {
-            animator.Play("FallAnimation");
+            animator.Play("JumpingAnimationV2");
         }
         else if (Player.isGrinding && !Player.isGrounded)
         {
-            animator.Play("GrindAnimation");
+            animator.Play("GrindAnimationV2");
+        }
+        else if (Player.isFalling && !Player.isGrounded)
+        {
+            animator.Play("FallingAnimationV2");
         }
         else if (Player.isIdle && Player.isGrounded)
         {
-            animator.Play("IdleAnimation");
+            animator.Play("IdleAnimationV2");
         }
     }
 }

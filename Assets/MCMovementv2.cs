@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class MCMovementv2 : MonoBehaviour
 {
+    //speed definers
     [SerializeField] private float acceleration;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private float JumpHeight;
 
+    //endless tags
     [HideInInspector] public bool isWalking;
     [HideInInspector] public bool isIdle;
     [HideInInspector] public bool isSliding;
@@ -16,17 +19,29 @@ public class MCMovementv2 : MonoBehaviour
     [HideInInspector] public bool isGrinding;
     [HideInInspector] public bool FacingRight;
 
-    private int wallJumpCounter;
-    [SerializeField] private float JumpHeight;
+    //misc values that are neccesary for some reason
+                     private int wallJumpCounter;
     [SerializeField] private int maxWallJumps;
-    private float timer = 0;
-    [SerializeField] private float timerDuration;
+                     private float timer = 0;
+    [SerializeField] private float timerForJumpDuration;
+    [SerializeField] private float slideMult;
 
-    Rigidbody2D rb;
+    //unneccesary values for jag ar dalig pa programmering
+    private Vector2 slidingColliderSize;
+    private Vector2 slidingColliderOffset;
+
+    private Vector2 defaultColliderSize;
+    private Vector2 defaultColliderOffset;
+
+    //components
+    private Rigidbody2D rb;
+    private BoxCollider2D coll;
     // Start is called before the first frame update
     void Start()
     {
+        coll = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+
         isWalking = false;
         isIdle = false;
         isSliding = false;
@@ -34,7 +49,17 @@ public class MCMovementv2 : MonoBehaviour
         isFalling = true;
         isGrinding = false;
         FacingRight = true;
-        //lägg till deaccel when grounded, slamming
+
+        defaultColliderOffset = coll.offset;
+        defaultColliderSize = coll.size;
+
+        slidingColliderOffset = new Vector2(coll.offset.x, 0.18f);
+        slidingColliderSize = new Vector2(coll.size.y, coll.size.x);
+
+
+        //To do list;
+        //1. slam
+        //2-10. goon
     }
 
     // Update is called once per frame
@@ -44,9 +69,11 @@ public class MCMovementv2 : MonoBehaviour
         CheckJump();
         ResetJumpToFallAfterDelay();
         CheckSlide();
+        ChangeCollider();
         UpdateFacingDirection();
         UpdateIsIdle();
-        print($"isSliding is {isSliding} and isGrounded is {isGrounded}");
+        DeaccelIfIdle();
+        print($"isGrinding is {isGrinding} and isGrounded is {isGrounded}");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -58,7 +85,7 @@ public class MCMovementv2 : MonoBehaviour
             {
                 isFalling = false;
             }
-            if(isJumping)
+            if (isJumping)
             {
                 isJumping = false;
             }
@@ -70,10 +97,17 @@ public class MCMovementv2 : MonoBehaviour
             {
                 isWalking = false;
             }
+            if (isGrinding)
+            {
+                isGrinding = false;
+            }
         }
         else if (collision.gameObject.CompareTag("Wall"))
         {
-            isGrinding = true;
+            if (!isGrounded)
+            {
+                isGrinding = true;
+            }
             if (isJumping)
             {
                 isJumping = false;
@@ -86,6 +120,7 @@ public class MCMovementv2 : MonoBehaviour
             {
                 isSliding = false;
             }
+
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -93,13 +128,43 @@ public class MCMovementv2 : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            if (isWalking)
+            {
+                isWalking = false;
+            }
         }
         if (collision.gameObject.CompareTag("Wall"))
         {
             isGrinding = false;
-            if (!isJumping)
+        }
+    }
+    private void ChangeCollider()
+    {
+        if (isSliding)
+        {
+            coll.size = slidingColliderSize;
+            coll.offset = slidingColliderOffset;
+        }
+        else
+        {
+            coll.size = defaultColliderSize;
+            coll.offset = defaultColliderOffset;
+        }
+    }
+    void DeaccelIfIdle()
+    {
+        if(isIdle)
+        {
+            if (rb.velocity.x != 0)
             {
-                isFalling = true;
+                if(rb.velocity.x > 0)
+                {
+                    rb.velocity -= new Vector2(acceleration, 0);
+                }
+                else
+                {
+                    rb.velocity += new Vector2(acceleration, 0);
+                }
             }
         }
     }
@@ -107,7 +172,7 @@ public class MCMovementv2 : MonoBehaviour
     {
         if (isJumping)
         {
-            if (timer >= timerDuration)
+            if (timer >= timerForJumpDuration)
             {
                 isJumping = false;
                 isFalling = true;
@@ -129,24 +194,36 @@ public class MCMovementv2 : MonoBehaviour
     }
     void CheckSlide()
     {
-        if (isGrounded)
+        if (Input.GetKey(KeyCode.LeftControl))
         {
-            if (Input.GetKey(KeyCode.LeftControl))
+            if (isGrounded)
             {
                 ExecuteSlide();
             }
+            else
+            {
+                isSliding = false;
+                if (!isJumping)
+                {
+                    isFalling = true;
+                }
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            isSliding = false;
         }
     }
     void ExecuteSlide()
     {
+        
         if (FacingRight)
         {
-            rb.velocity = new Vector2(maxSpeed * 2, rb.velocity.y);
+            rb.velocity = new Vector2(maxSpeed * slideMult, rb.velocity.y);
         }
         else if (!FacingRight)
         {
-            rb.velocity = new Vector2(-maxSpeed * 2, rb.velocity.y);
-
+            rb.velocity = new Vector2(-maxSpeed * slideMult, rb.velocity.y);
         }
         isSliding = true;
         isWalking = false;
@@ -223,25 +300,51 @@ public class MCMovementv2 : MonoBehaviour
     }
     void AccelerateRight()
     {
-        if (rb.velocity.x < maxSpeed)
+        if (rb.velocity.x < maxSpeed && isGrounded)
         {
             rb.velocity += new Vector2(acceleration, 0f);
         }
+        else if (rb.velocity.x < maxSpeed && !isGrounded)
+        {
+            rb.velocity += new Vector2(acceleration / 2, 0f);
+        }
+
         if (isGrounded)
         {
             isWalking = true;
+        }
+        else if (!isGrounded)
+        {
+            if (!isJumping)
+            {
+                isFalling = true;
+            }
+            isWalking = false;
         }
         FacingRight = true;
     }
     void AccelerateLeft()
     {
-        if (rb.velocity.x > -maxSpeed)
+        if (rb.velocity.x > -maxSpeed && isGrounded)
         {
             rb.velocity -= new Vector2(acceleration, 0f);
         }
+        else if (rb.velocity.x > -maxSpeed && !isGrounded)
+        {
+            rb.velocity -= new Vector2(acceleration / 2, 0f);
+        }
+
         if (isGrounded)
         {
             isWalking = true;
+        }
+        else if (!isGrounded)
+        {
+            if (!isJumping)
+            {
+                isFalling = true;
+            }
+            isWalking = false;
         }
         FacingRight = false;
     }
