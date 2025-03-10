@@ -558,6 +558,8 @@ GameObject:
   - component: {fileID: 1810258031}
   - component: {fileID: 1810258030}
   - component: {fileID: 1810258029}
+  - component: {fileID: 1810258035}
+  - component: {fileID: 1810258034}
   m_Layer: 0
   m_Name: helmihelmiman_0
   m_TagString: Player
@@ -577,10 +579,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adcbc23d3a6d934fbc4a82c5946af55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0.02
+  acceleration: 0.1
   maxSpeed: 8
   isWalking: 0
   isIdle: 0
+  isSliding: 0
+  isGrounded: 0
+  isFalling: 0
+  isJumping: 0
+  isSlaming: 0
+  isGrinding: 0
+  FacingRight: 0
+  JumpHeight: 8
+  maxWallJumps: 3
+  timerDuration: 0.583
 --- !u!70 &1810258030
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -710,6 +722,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1810258034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810258028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439c889c33f258647a49ba1b69eb6445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1810258035
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810258028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0622f03034a4b7440b4c6c80e99b5732, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
