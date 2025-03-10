@@ -34,7 +34,7 @@ public class MCMovementv2 : MonoBehaviour
         isFalling = true;
         isGrinding = false;
         FacingRight = true;
-        //lägg till deaccel when grounded, slamming, and swap to isfalling 0.583s after player has jumped.
+        //lägg till deaccel when grounded, slamming
     }
 
     // Update is called once per frame
