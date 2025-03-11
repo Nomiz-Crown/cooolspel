@@ -288,11 +288,11 @@ public class MCMovementv2 : MonoBehaviour
             {
                 if (FacingRight)
                 {
-                    rb.velocity = new Vector2(-maxSpeed, JumpHeight);
+                    rb.velocity = new Vector2(-maxSpeed / 2, JumpHeight);
                 }
                 else if (!FacingRight)
                 {
-                    rb.velocity = new Vector2(maxSpeed, JumpHeight);
+                    rb.velocity = new Vector2(maxSpeed / 2, JumpHeight);
                 }
                 isJumping = true;
                 wallJumpCounter++;
