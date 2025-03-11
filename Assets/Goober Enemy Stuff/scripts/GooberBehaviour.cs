@@ -20,6 +20,7 @@ public class GooberBehaviour : MonoBehaviour
     private bool canReachPlayer;
     private bool facingRight;
     private bool isGrounded;
+    private bool isLunging;
 
     // Start is called before the first frame update
     void Start()
@@ -28,22 +29,36 @@ public class GooberBehaviour : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         facingRight = true;
         isGrounded = false;
+        isLunging = false;
+        timer = LungeCooldownTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckLunge();
-        RedefineStuff();
         CheckInRange();
-        ChasePlayer();
-        print(facingRight);
+        if (LungeCooldown())
+        {
+            CheckLunge();
+            RedefineStuff();
+            ChasePlayer();
+        }
+        else if(!isLunging)
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
+        FacePlayer();
+        print($"icanreachyou is {canReachPlayer}, and isLunging is  {isLunging}");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            if (isLunging)
+            {
+                isLunging = false;
+            }
         }
         else if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
         {
@@ -61,7 +76,6 @@ public class GooberBehaviour : MonoBehaviour
     {
         if(timer >= LungeCooldownTime)
         {
-            timer = 0;
             return true;
         }
         else
@@ -82,11 +96,13 @@ public class GooberBehaviour : MonoBehaviour
             {
                 LungeAtLeft();
             }
+            timer = 0;
         }
     }
     void LungeAtRight()
     {
         rb.velocity += new Vector2(maxSpeed*2, 2);
+        isLunging = true;
         if (isGrounded)
         {
             isGrounded = false;
@@ -96,6 +112,7 @@ public class GooberBehaviour : MonoBehaviour
     void LungeAtLeft()
     {
         rb.velocity += new Vector2(-maxSpeed * 2, 2);
+        isLunging = true;
         if (isGrounded)
         {
             isGrounded = false;
@@ -109,9 +126,13 @@ public class GooberBehaviour : MonoBehaviour
     }
     void CheckInRange()
     {
-        if (transform.position.x <= playerXValue + LungeRange || transform.position.x >= playerXValue + LungeRange)
+        if (transform.position.x - playerXValue <= 3)
         {
             canReachPlayer = true;
+        }
+        else
+        {
+            canReachPlayer = false;
         }
     }
     void TurnToFace(string direction)
@@ -128,6 +149,17 @@ public class GooberBehaviour : MonoBehaviour
 
         }
     }
+    void FacePlayer()
+    {
+        if (transform.position.x > Player.transform.position.x)
+        {
+            TurnToFace("Left");
+        }
+        else if (transform.position.x < Player.transform.position.x)
+        {
+            TurnToFace("Right");
+        }
+    }
     void ChasePlayer()
     {
         if (transform.position.x > playerXValue + LungeRange)
@@ -136,7 +168,6 @@ public class GooberBehaviour : MonoBehaviour
             if(rb.velocity.x > -maxSpeed)
             {
                 rb.velocity -= new Vector2(acceleration, 0);
-                TurnToFace("Left");
             }
         }
         else if (transform.position.x < playerXValue - LungeRange)
@@ -145,7 +176,6 @@ public class GooberBehaviour : MonoBehaviour
             if (rb.velocity.x < maxSpeed)
             {
                 rb.velocity += new Vector2(acceleration, 0);
-                TurnToFace("Right");
             }
         }
     }

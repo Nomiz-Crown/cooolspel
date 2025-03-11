@@ -28,6 +28,10 @@ public class MCAnimationV2 : MonoBehaviour
         {
             animator.Play("JumpingAnimationV2");
         }
+        else if (!Player.isGrounded && Player.isSlamming)
+        {
+            animator.Play("SlammingAnimation");
+        }
         else if (Player.isGrinding && !Player.isGrounded)
         {
             animator.Play("GrindAnimationV2");
