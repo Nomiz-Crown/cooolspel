@@ -15,7 +15,7 @@ public class MCMovementv2 : MonoBehaviour
     [HideInInspector] public bool isGrounded;
     [HideInInspector] public bool isFalling;
     [HideInInspector] public bool isJumping;
-    [HideInInspector] public bool isSlaming;
+    [HideInInspector] public bool isSlamming;
     [HideInInspector] public bool isGrinding;
     [HideInInspector] public bool FacingRight;
 
@@ -49,6 +49,7 @@ public class MCMovementv2 : MonoBehaviour
         isFalling = true;
         isGrinding = false;
         FacingRight = true;
+        isSlamming = false;
 
         defaultColliderOffset = coll.offset;
         defaultColliderSize = coll.size;
@@ -66,14 +67,20 @@ public class MCMovementv2 : MonoBehaviour
     void Update()
     {
         CheckMove();
+
         CheckJump();
         ResetJumpToFallAfterDelay();
+
+        CheckSlam();
+
         CheckSlide();
         ChangeCollider();
+
         UpdateFacingDirection();
+
         UpdateIsIdle();
+
         DeaccelIfIdle();
-        print($"isGrinding is {isGrinding} and isGrounded is {isGrounded}");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -89,9 +96,9 @@ public class MCMovementv2 : MonoBehaviour
             {
                 isJumping = false;
             }
-            if (isSlaming)
+            if (isSlamming)
             {
-                isSlaming = false;
+                isSlamming = false;
             }
             if (isWalking)
             {
@@ -138,6 +145,29 @@ public class MCMovementv2 : MonoBehaviour
             isGrinding = false;
         }
     }
+    private void CheckSlam()
+    {
+        if (!isGrounded && !isSlamming)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                ExecuteSlam();
+            }
+        }
+    }
+    private void ExecuteSlam()
+    {
+        rb.velocity = new Vector2(rb.velocity.x / 4, -20);
+        isSlamming = true;
+        if (isJumping)
+        {
+            isJumping = false;
+        }
+        if (isFalling)
+        {
+            isFalling = false;
+        }
+    }
     private void ChangeCollider()
     {
         if (isSliding)
@@ -157,7 +187,7 @@ public class MCMovementv2 : MonoBehaviour
         {
             if (rb.velocity.x != 0)
             {
-                if(rb.velocity.x > 0)
+                if (rb.velocity.x > 0)
                 {
                     rb.velocity -= new Vector2(acceleration, 0);
                 }
