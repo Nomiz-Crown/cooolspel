@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d9864aa6bdd81404690a292641c320a2
+guid: 685e2c2c1261e6e4a9ff208b5148411b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: groundslamfallcoolguy_0
+      name: cooleridleanim_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 32
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,19 +124,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7092134904b33c744b68f2e6aadf2383
-      internalID: 777370565
+      spriteID: 1843730577407f446ba27b221c280cad
+      internalID: 586624373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: groundslamfallcoolguy_1
+      name: cooleridleanim_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ef606caaa862ad4484889d05fa31250
+      internalID: 940499717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cooleridleanim_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
+        width: 32
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36b473129e432474bb66c9f1501e435f
-      internalID: 716166348
+      spriteID: c9df129c7b6b0604ea3ae50f3ebb0162
+      internalID: -518815842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: groundslamfallcoolguy_2
+      name: cooleridleanim_3
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 0
-        width: 64
+        width: 32
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,29 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c5d31691040ccf4db3340234bc82a0b
-      internalID: 688483688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: groundslamfallcoolguy_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04654100d5ac9114ca529faefcb78abd
-      internalID: -1253084642
+      spriteID: 7ec6882589cb14e4b90f8d816bb46dc6
+      internalID: 1930384154
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      groundslamfallcoolguy_0: 777370565
-      groundslamfallcoolguy_1: 716166348
-      groundslamfallcoolguy_2: 688483688
-      groundslamfallcoolguy_3: -1253084642
+      cooleridleanim_0: 586624373
+      cooleridleanim_1: 940499717
+      cooleridleanim_2: -518815842
+      cooleridleanim_3: 1930384154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
