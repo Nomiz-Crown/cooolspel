@@ -13,8 +13,10 @@ public class GooberBehaviour : MonoBehaviour
     [SerializeField] private float acceleration;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float JumpHeight;
-    [SerializeField] private float attackLungeRange;
+    [SerializeField] private float LungeRange;
+    [SerializeField] private float LungeCooldownTime;
 
+    private float timer;
     private bool canReachPlayer;
     private bool facingRight;
     private bool isGrounded;
@@ -43,12 +45,29 @@ public class GooberBehaviour : MonoBehaviour
         {
             isGrounded = true;
         }
+        else if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+        }
+    }
+    bool LungeCooldown()
+    {
+        if(timer >= LungeCooldownTime)
+        {
+            timer = 0;
+            return true;
+        }
+        else
+        {
+            timer += Time.deltaTime;
+            return false;
         }
     }
     void CheckLunge()
@@ -90,7 +109,7 @@ public class GooberBehaviour : MonoBehaviour
     }
     void CheckInRange()
     {
-        if (transform.position.x <= playerXValue + attackLungeRange || transform.position.x >= playerXValue + attackLungeRange)
+        if (transform.position.x <= playerXValue + LungeRange || transform.position.x >= playerXValue + LungeRange)
         {
             canReachPlayer = true;
         }
@@ -111,7 +130,7 @@ public class GooberBehaviour : MonoBehaviour
     }
     void ChasePlayer()
     {
-        if (transform.position.x > playerXValue + attackLungeRange)
+        if (transform.position.x > playerXValue + LungeRange)
         {
             canReachPlayer = false;
             if(rb.velocity.x > -maxSpeed)
@@ -120,7 +139,7 @@ public class GooberBehaviour : MonoBehaviour
                 TurnToFace("Left");
             }
         }
-        else if (transform.position.x < playerXValue - attackLungeRange)
+        else if (transform.position.x < playerXValue - LungeRange)
         {
             canReachPlayer = false;
             if (rb.velocity.x < maxSpeed)

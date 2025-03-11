@@ -251,7 +251,8 @@ MonoBehaviour:
   acceleration: 0.1
   maxSpeed: 4
   JumpHeight: 12
-  attackLungeRange: 3
+  LungeRange: 3
+  LungeCooldownTime: 5
 --- !u!61 &388667358
 BoxCollider2D:
   m_ObjectHideFlags: 0
