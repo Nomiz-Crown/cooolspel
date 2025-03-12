@@ -21,6 +21,8 @@ public class GooberBehaviour : MonoBehaviour
     private bool facingRight;
     private bool isGrounded;
     private bool isLunging;
+    private bool inChase;
+    [HideInInspector] public bool isIdle;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,8 @@ public class GooberBehaviour : MonoBehaviour
         isGrounded = false;
         isLunging = false;
         timer = LungeCooldownTime;
+        inChase = false;
+        isIdle = false;
     }
 
     // Update is called once per frame
@@ -46,6 +50,7 @@ public class GooberBehaviour : MonoBehaviour
         else if(!isLunging)
         {
             rb.velocity = new Vector2(0, 0);
+            isIdle = true;
         }
         FacePlayer();
         print($"icanreachyou is {canReachPlayer}, and isLunging is  {isLunging}");
@@ -58,6 +63,7 @@ public class GooberBehaviour : MonoBehaviour
             if (isLunging)
             {
                 isLunging = false;
+                canReachPlayer = false;
             }
         }
         else if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
@@ -72,6 +78,17 @@ public class GooberBehaviour : MonoBehaviour
             isGrounded = false;
         }
     }
+    void CheckIdle()
+    {
+        if (!isLunging && !inChase && isGrounded)
+        {
+            isIdle = true;
+        }
+        else
+        {
+            isIdle = false;
+        }
+    }
     bool LungeCooldown()
     {
         if(timer >= LungeCooldownTime)
@@ -81,6 +98,7 @@ public class GooberBehaviour : MonoBehaviour
         else
         {
             timer += Time.deltaTime;
+            inChase = false;
             return false;
         }
     }
@@ -107,7 +125,6 @@ public class GooberBehaviour : MonoBehaviour
         {
             isGrounded = false;
         }
-        print("grahh i jumped to the right");
     }
     void LungeAtLeft()
     {
@@ -117,7 +134,6 @@ public class GooberBehaviour : MonoBehaviour
         {
             isGrounded = false;
         }
-        print("grahh i jumped to the left");
     }
     void RedefineStuff()
     {
@@ -126,12 +142,14 @@ public class GooberBehaviour : MonoBehaviour
     }
     void CheckInRange()
     {
-        if (transform.position.x - playerXValue <= 3)
+        if (Mathf.Abs(transform.position.x - playerXValue) <= LungeRange)
         {
+            print("Can reach player");
             canReachPlayer = true;
         }
         else
         {
+            print("Can not reach player");
             canReachPlayer = false;
         }
     }
@@ -162,11 +180,13 @@ public class GooberBehaviour : MonoBehaviour
     }
     void ChasePlayer()
     {
+        
         if (transform.position.x > playerXValue + LungeRange)
         {
             canReachPlayer = false;
             if(rb.velocity.x > -maxSpeed)
             {
+                inChase = true;
                 rb.velocity -= new Vector2(acceleration, 0);
             }
         }
@@ -175,6 +195,7 @@ public class GooberBehaviour : MonoBehaviour
             canReachPlayer = false;
             if (rb.velocity.x < maxSpeed)
             {
+                inChase = true;
                 rb.velocity += new Vector2(acceleration, 0);
             }
         }
