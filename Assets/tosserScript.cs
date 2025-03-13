@@ -6,6 +6,7 @@ public class tosserScript : MonoBehaviour
 {
     Transform target;
     public LayerMask obstructionMask;
+    public LayerMask playerLayer;
     // Start is called before the first frame update
     void Start()
     {

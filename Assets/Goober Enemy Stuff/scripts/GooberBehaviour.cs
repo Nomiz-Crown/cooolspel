@@ -40,11 +40,11 @@ public class GooberBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RedefineStuff();
         CheckInRange();
         if (LungeCooldown())
         {
             CheckLunge();
-            RedefineStuff();
             ChasePlayer();
         }
         else if(!isLunging)
@@ -63,12 +63,11 @@ public class GooberBehaviour : MonoBehaviour
             if (isLunging)
             {
                 isLunging = false;
-                canReachPlayer = false;
             }
         }
-        else if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
+        else if(collision.gameObject.CompareTag("Player") && isLunging)
         {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+            print("player should take damage");
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
