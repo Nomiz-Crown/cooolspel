@@ -46,13 +46,13 @@ public class GooberBehaviour : MonoBehaviour
         {
             CheckLunge();
             ChasePlayer();
+            FacePlayer();
         }
         else if(!isLunging)
         {
             rb.velocity = new Vector2(0, 0);
             isIdle = true;
         }
-        FacePlayer();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

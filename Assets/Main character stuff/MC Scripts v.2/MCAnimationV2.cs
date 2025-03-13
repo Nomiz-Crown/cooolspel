@@ -42,7 +42,7 @@ public class MCAnimationV2 : MonoBehaviour
         }
         else if (Player.isIdle && Player.isGrounded)
         {
-            animator.Play("IdleAnimationV2");
+            animator.Play("BetterIdle");
         }
     }
 }
