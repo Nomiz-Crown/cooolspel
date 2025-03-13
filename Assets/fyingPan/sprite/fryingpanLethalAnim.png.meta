@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 685e2c2c1261e6e4a9ff208b5148411b
+guid: 714a13ed6954a7340aca23ce44a58842
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,102 +93,173 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cooleridleanim_0
+      name: fryingpanLethalAnim_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1843730577407f446ba27b221c280cad
-      internalID: 586624373
+      spriteID: 8ed20db61ca8d1d47b94761f472e48ea
+      internalID: 1032963630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cooleridleanim_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ef606caaa862ad4484889d05fa31250
-      internalID: 940499717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cooleridleanim_2
+      name: fryingpanLethalAnim_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
+        width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9df129c7b6b0604ea3ae50f3ebb0162
-      internalID: -518815842
+      spriteID: b23036d1e0c97bd48a67cde9a910c121
+      internalID: 380465755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cooleridleanim_3
+      name: fryingpanLethalAnim_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 0
-        width: 32
+        width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ec6882589cb14e4b90f8d816bb46dc6
-      internalID: 1930384154
+      spriteID: f60703fc85ad2ca4db129737bb840cfd
+      internalID: 1586300065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fryingpanLethalAnim_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00247f5f6309dc0498b713201b044451
+      internalID: 210840570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fryingpanLethalAnim_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbc3fee003456846a186d7fec71f86e
+      internalID: -1456673331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fryingpanLethalAnim_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b99af4acdeacf33478bebb8ac50c843f
+      internalID: -1352177931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fryingpanLethalAnim_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7496865d0edcac0499e9f7701e646699
+      internalID: -2083707761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fryingpanLethalAnim_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8d4fe33f06c9a4785219dcbe311321
+      internalID: -134553673
       vertices: []
       indices: 
       edges: []
@@ -204,10 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cooleridleanim_0: 586624373
-      cooleridleanim_1: 940499717
-      cooleridleanim_2: -518815842
-      cooleridleanim_3: 1930384154
+      fryingpanLethalAnim_0: 1032963630
+      fryingpanLethalAnim_1: 380465755
+      fryingpanLethalAnim_2: 1586300065
+      fryingpanLethalAnim_3: 210840570
+      fryingpanLethalAnim_4: -1456673331
+      fryingpanLethalAnim_5: -1352177931
+      fryingpanLethalAnim_6: -2083707761
+      fryingpanLethalAnim_7: -134553673
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

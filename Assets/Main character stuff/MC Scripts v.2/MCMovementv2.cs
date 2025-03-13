@@ -189,11 +189,11 @@ public class MCMovementv2 : MonoBehaviour
             {
                 if (rb.velocity.x > 0)
                 {
-                    rb.velocity -= new Vector2(acceleration, 0);
+                    rb.velocity -= new Vector2(rb.velocity.x/10, 0);
                 }
-                else
+                else if (rb.velocity.x < 0)
                 {
-                    rb.velocity += new Vector2(acceleration, 0);
+                    rb.velocity += new Vector2(rb.velocity.x/-10, 0);
                 }
             }
         }

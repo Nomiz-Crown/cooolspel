@@ -1,28 +1,29 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GooberAnimation : MonoBehaviour
+public class fryingPanAnimation : MonoBehaviour
 {
     Animator anim;
-    GooberBehaviour me;
+    AirbornePanLogic pan;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        me = GetComponent<GooberBehaviour>();
+        pan = GetComponent<AirbornePanLogic>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (me.isLunging)
+        if (pan.isLethal)
         {
-            anim.Play("Lunge");
+            anim.Play("Spin");
         }
-        else if (me.isIdle && me.LungeCooldown())
+        else
         {
-            anim.Play("Idle");
+            anim.Play("idle");
         }
     }
 }
