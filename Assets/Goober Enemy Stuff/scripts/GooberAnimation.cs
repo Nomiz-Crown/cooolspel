@@ -18,11 +18,11 @@ public class GooberAnimation : MonoBehaviour
     {
         if (me.isLunging)
         {
-            anim.Play("GooberLunge");
+            anim.Play("Lunge");
         }
-        else if (me.isIdle)
+        else if (me.isIdle && me.LungeCooldown())
         {
-            anim.Play("GooberI.dle");
+            anim.Play("Idle");
         }
     }
 }

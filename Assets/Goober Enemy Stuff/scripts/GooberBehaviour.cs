@@ -83,7 +83,7 @@ public class GooberBehaviour : MonoBehaviour
             isIdle = false;
         }
     }
-    bool LungeCooldown()
+    [HideInInspector] public bool LungeCooldown()
     {
         if(timer >= LungeCooldownTime)
         {
