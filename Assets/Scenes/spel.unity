@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 388667360}
   - component: {fileID: 388667359}
   - component: {fileID: 388667358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Goober
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -255,6 +255,7 @@ MonoBehaviour:
   JumpHeight: 12
   LungeRange: 2
   LungeCooldownTime: 5
+  isLunging: 0
   isIdle: 0
 --- !u!114 &388667358
 MonoBehaviour:
@@ -612,7 +613,7 @@ GameObject:
   - component: {fileID: 973384798}
   - component: {fileID: 973384797}
   - component: {fileID: 973384796}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -634,6 +635,9 @@ MonoBehaviour:
   obstructionMask:
     serializedVersion: 2
     m_Bits: 8
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &973384797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1105,7 +1109,7 @@ GameObject:
   - component: {fileID: 1810258035}
   - component: {fileID: 1810258034}
   - component: {fileID: 1810258036}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: helmihelmiman_0
   m_TagString: Player
   m_Icon: {fileID: 0}
