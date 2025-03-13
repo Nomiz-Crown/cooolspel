@@ -20,7 +20,7 @@ public class GooberBehaviour : MonoBehaviour
     private bool canReachPlayer;
     private bool facingRight;
     private bool isGrounded;
-    private bool isLunging;
+    [HideInInspector] public bool isLunging;
     private bool inChase;
     [HideInInspector] public bool isIdle;
 
@@ -53,7 +53,6 @@ public class GooberBehaviour : MonoBehaviour
             isIdle = true;
         }
         FacePlayer();
-        print($"icanreachyou is {canReachPlayer}, and isLunging is  {isLunging}");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -64,10 +63,6 @@ public class GooberBehaviour : MonoBehaviour
             {
                 isLunging = false;
             }
-        }
-        else if(collision.gameObject.CompareTag("Player") && isLunging)
-        {
-            print("player should take damage");
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -143,12 +138,10 @@ public class GooberBehaviour : MonoBehaviour
     {
         if (Mathf.Abs(transform.position.x - playerXValue) <= LungeRange)
         {
-            print("Can reach player");
             canReachPlayer = true;
         }
         else
         {
-            print("Can not reach player");
             canReachPlayer = false;
         }
     }
