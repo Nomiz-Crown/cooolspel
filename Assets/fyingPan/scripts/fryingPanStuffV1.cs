@@ -6,10 +6,12 @@ public class fryingPanStuffV1 : MonoBehaviour
 {
     public GameObject objectToSpawn;
     public float spawnVelocity;
+    [HideInInspector] public bool hasPan;
+    [SerializeField] private float yOffset;
     // Start is called before the first frame update
     void Start()
     {
-        
+        hasPan = true;
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class fryingPanStuffV1 : MonoBehaviour
     }
     void CheckMouse()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && hasPan)
         {
             Vector2 mousePosition = Input.mousePosition;
             TossFryingPan(mousePosition);
@@ -27,7 +29,8 @@ public class fryingPanStuffV1 : MonoBehaviour
     }
     void TossFryingPan(Vector2 Mouse)
     {
-        SpawnObject(CalculateAngle(Mouse, transform.position));
+        hasPan = false;
+        SpawnObject(CalculateAngle(transform.position, Mouse));
     }
     float CalculateAngle(Vector2 a, Vector2 b)
     {
@@ -37,7 +40,8 @@ public class fryingPanStuffV1 : MonoBehaviour
     }
     void SpawnObject(float spawnAngle)
     {
-        GameObject spawnedObject = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+        Vector2 SpawnOffset = new Vector2(transform.position.x, transform.position.y + yOffset);
+        GameObject spawnedObject = Instantiate(objectToSpawn, SpawnOffset, Quaternion.identity);
         Vector2 direction = Quaternion.Euler(0, 0, spawnAngle) * Vector2.right;
         spawnedObject.GetComponent<Rigidbody2D>().velocity = direction * spawnVelocity;
     }
