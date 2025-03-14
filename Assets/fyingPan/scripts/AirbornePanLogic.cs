@@ -40,7 +40,10 @@ public class AirbornePanLogic : MonoBehaviour
         {
             //do cool stuff here
         }
-        isLethal = false;
+        else
+        {
+            isLethal = false;
+        }
         rb.gravityScale = 1;
 
     }

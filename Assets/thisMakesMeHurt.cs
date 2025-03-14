@@ -23,6 +23,7 @@ public class thisMakesMeHurt : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && fryingPan.isLethal) 
         {
+            print("i touch enemy and im lethal)");
             grabComponent(collision.gameObject);
             if (flippy != null)
             {
@@ -42,12 +43,18 @@ public class thisMakesMeHurt : MonoBehaviour
     void InflictDamage()
     {
         flippy.myHealth -= myDamage;
+        print($"done {myDamage} to enemy health bar, which is now {flippy.myHealth}");
     }
     void CheckIfDead()
     {
         if (flippy.myHealth <= 0)
         {
             flippy.gameObject.SendMessage("Die");
+            print("die");
+        }
+        else
+        {
+            fryingPan.isLethal = false;
         }
     }
 }
