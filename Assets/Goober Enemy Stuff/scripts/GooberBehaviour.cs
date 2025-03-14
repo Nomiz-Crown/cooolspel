@@ -113,7 +113,7 @@ public class GooberBehaviour : MonoBehaviour
     }
     void LungeAtRight()
     {
-        rb.velocity += new Vector2(maxSpeed*2, 2);
+        rb.velocity += new Vector2(maxSpeed*2, JumpHeight);
         isLunging = true;
         if (isGrounded)
         {
@@ -122,7 +122,7 @@ public class GooberBehaviour : MonoBehaviour
     }
     void LungeAtLeft()
     {
-        rb.velocity += new Vector2(-maxSpeed * 2, 2);
+        rb.velocity += new Vector2(-maxSpeed * 2, JumpHeight);
         isLunging = true;
         if (isGrounded)
         {
