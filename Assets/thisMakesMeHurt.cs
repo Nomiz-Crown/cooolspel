@@ -24,8 +24,11 @@ public class thisMakesMeHurt : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && fryingPan.isLethal) 
         {
             grabComponent(collision.gameObject);
-            InflictDamage();
-            CheckIfDead();
+            if (flippy != null)
+            {
+                InflictDamage();
+                CheckIfDead();
+            }
         }
     }
     void grabComponent(GameObject boy)
