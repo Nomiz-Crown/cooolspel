@@ -4,7 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     new Collider2D collider;
     bool DamageShouldBeTaken;
-    [SerializeField] private float myHealth;
+    public float myHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (DamageShouldBeTaken)
         {
-
+            takeDamage();
         }
     }
     void takeDamage()

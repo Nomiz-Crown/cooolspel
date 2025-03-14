@@ -1,8 +1,8 @@
-generell kod;
-enemy health, vide håller på med
+generell kod; listy list
+enemy health, (vide håller på med)
 Player health
 enemy damage
-player damage, la till player attack object tag? 
+player damage, (vide håller på med för att han gör färdigt stekpannan)
 clock
 style(?) system
 tosser enemy behavior, sibbe g gör (hoppas jag)
@@ -10,3 +10,6 @@ bullets!!!
 jump pad
 
 SIMON LADDA NER YAMLMERGE
+
+estetisk lista
+typ allt
