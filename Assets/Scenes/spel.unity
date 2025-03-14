@@ -607,7 +607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0.1
   maxSpeed: 4
-  JumpHeight: 12
+  JumpHeight: 2
   LungeRange: 4
   LungeCooldownTime: 5
   isLunging: 0

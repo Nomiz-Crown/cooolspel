@@ -1,31 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class tosserScript : MonoBehaviour
+public class TosserScript : MonoBehaviour
 {
-    Transform target;
+    private Transform target;
+    private Vector2 realTarget;
     public LayerMask obstructionMask;
     public LayerMask playerLayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();   
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        UpdateRealTarget();
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateRealTarget();
         HasClearLineOfSight();
     }
+
+    // Method to update the real target position
+    private void UpdateRealTarget()
+    {
+        realTarget = new Vector2(target.position.x, target.position.y + 1);
+    }
+
     // Method to check if there is a clear line of sight to the target
     public bool HasClearLineOfSight()
     {
-        // Calculate the direction from this object to the target
-        Vector2 directionToTarget = (target.position - transform.position).normalized;
+        // Calculate the direction from this object to the real target
+        Vector2 directionToTarget = (realTarget - (Vector2)transform.position).normalized;
 
-        // Perform a raycast from this object to the target
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToTarget, Vector2.Distance(transform.position, target.position), obstructionMask);
+        // Perform a raycast from this object to the real target
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToTarget, Vector2.Distance(transform.position, realTarget), obstructionMask);
 
         // If the raycast hits something, check if it's the target
         if (hit.collider != null)
@@ -43,7 +52,7 @@ public class tosserScript : MonoBehaviour
         if (target != null)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position, target.position);
+            Gizmos.DrawLine(transform.position, realTarget);
         }
     }
 }
