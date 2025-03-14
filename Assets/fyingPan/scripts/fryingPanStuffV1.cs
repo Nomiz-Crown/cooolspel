@@ -17,14 +17,14 @@ public class fryingPanStuffV1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckMouse();   
+        Vector2 mousePosition = Input.mousePosition;
+        CheckMouse(mousePosition);
     }
-    void CheckMouse()
+    void CheckMouse(Vector2 mousePosition)
     {
         if (Input.GetMouseButtonDown(0) && hasPan)
         {
-            Vector2 mousePosition = Input.mousePosition;
-            TossFryingPan(mousePosition);
+             TossFryingPan(mousePosition);
         }
     }
     void TossFryingPan(Vector2 Mouse)
