@@ -1,2 +1,12 @@
-skibidi man
-i really nate higgers
+generell kod;
+enemy health, vide håller på med
+Player health
+enemy damage
+player damage, la till player attack object tag? 
+clock
+style(?) system
+tosser enemy behavior
+bullets!!!
+jump pad
+
+SIMON LADDA NER YAMLMERGE
