@@ -755,6 +755,7 @@ GameObject:
   - component: {fileID: 973384798}
   - component: {fileID: 973384797}
   - component: {fileID: 973384796}
+  - component: {fileID: 973384801}
   m_Layer: 6
   m_Name: "tosser (smelly feet\U0001F924\U0001F924"
   m_TagString: Enemy
@@ -919,6 +920,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973384801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973384795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c841bf1c7ed36a428e2e12c5ac9a1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myHealth: 15
 --- !u!1 &1024097584
 GameObject:
   m_ObjectHideFlags: 0

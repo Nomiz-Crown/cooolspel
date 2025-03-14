@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
         if (isDying)
         {
             print("ahh fuck lois im dying)");
+            Destroy(gameObject);
         }
     }
     void Die()
