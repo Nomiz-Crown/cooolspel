@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     new Collider2D collider;
-    bool DamageShouldBeTaken;
+    bool isDying;
     public float myHealth;
 
     // Start is called before the first frame update
@@ -14,23 +14,19 @@ public class EnemyHealth : MonoBehaviour
         {
             print("FUCK");
         }
-        DamageShouldBeTaken = false;
+        isDying = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-      
-    }
-    void CheckTakeDamage()
-    {
-        if (DamageShouldBeTaken)
+        if (isDying)
         {
-            takeDamage();
+            print("ahh fuck lois im dying)");
         }
     }
-    void takeDamage()
+    void Die()
     {
-
+        isDying = true;
     }
 }
