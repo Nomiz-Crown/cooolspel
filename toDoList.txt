@@ -5,7 +5,7 @@ enemy damage
 player damage, la till player attack object tag? 
 clock
 style(?) system
-tosser enemy behavior
+tosser enemy behavior, sibbe g gör (hoppas jag)
 bullets!!!
 jump pad
 
