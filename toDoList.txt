@@ -1,15 +1,21 @@
 generell kod; listy list
-enemy health, (vide håller på med)
+alla bullets måste göra damage, både på spelaren och på enemies
+parried bullets måste explodera(?)
 Player health
 enemy damage
-player damage, (vide håller på med för att han gör färdigt stekpannan)
 clock
-style(?) system
+style system(?)
 tosser enemy behavior, sibbe g gör (hoppas jag)
-bullets!!!
 jump pad
+punch
 
-SIMON LADDA NER YAMLMERGE
+SIMON FRÅGA JOHAN OM HJÄLP MED YAML(????????????)
 
-estetisk lista
+estetiska saker list
 typ allt
+
+THINGS DONE:
+bullets!!! (dom finns!)
+parrying
+player damage
+enemy health, (vide håller på med)

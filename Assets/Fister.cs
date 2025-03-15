@@ -6,7 +6,7 @@ public class Fister : MonoBehaviour
     private List<GameObject> bulletListToParry = new List<GameObject>();
     private bool isBulletAvailableToParry;
     public GameObject parriedBulletPrefab;
-
+    public float ParriedBulletVelocityMultiplier;
     // Update is called once per frame
     void Update()
     {
@@ -65,10 +65,10 @@ public class Fister : MonoBehaviour
 
         if (newBulletRigidbody != null)
         {
-            newBulletRigidbody.velocity = -bulletVelocity;
+            newBulletRigidbody.velocity = -bulletVelocity * ParriedBulletVelocityMultiplier;
         }
-        Destroy(bulletToParry);
         bulletListToParry.RemoveAt(0);
+        Destroy(bulletToParry);
         isBulletAvailableToParry = bulletListToParry.Count > 0; // Update the state
     }
 
