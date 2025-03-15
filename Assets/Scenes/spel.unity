@@ -596,6 +596,7 @@ GameObject:
   - component: {fileID: 743749608}
   - component: {fileID: 743749607}
   - component: {fileID: 743749606}
+  - component: {fileID: 743749610}
   m_Layer: 9
   m_Name: Bawlet
   m_TagString: Bullet
@@ -650,7 +651,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -732,6 +733,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &743749610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743749605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e815977fd516b5344a29a7d90ea315bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &895967945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,6 +1912,8 @@ GameObject:
   - component: {fileID: 1780103935}
   - component: {fileID: 1780103934}
   - component: {fileID: 1780103933}
+  - component: {fileID: 1780103937}
+  - component: {fileID: 1780103938}
   m_Layer: 9
   m_Name: Flippy
   m_TagString: playersBullet
@@ -1953,7 +1968,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -2035,6 +2050,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1780103937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780103932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e815977fd516b5344a29a7d90ea315bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1780103938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780103932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3205a5b8503d5e1448e881f7bb65a5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1870437988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,6 +2301,10 @@ PrefabInstance:
       propertyPath: parriedBulletPrefab
       value: 
       objectReference: {fileID: 1780103932}
+    - target: {fileID: 2878174327193097717, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: ParriedBulletVelocityMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6556145221014290406, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: m_Name
       value: playa
