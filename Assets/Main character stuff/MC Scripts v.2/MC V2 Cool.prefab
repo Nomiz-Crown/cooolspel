@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6200049010693936850}
   - component: {fileID: 8667438229958767501}
   - component: {fileID: 2878174327193097717}
-  - component: {fileID: 971567481930406415}
+  - component: {fileID: 3631745102670095708}
   m_Layer: 7
   m_Name: MC V2 Cool
   m_TagString: Player
@@ -252,8 +252,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da2ddb63b05aa34da0791790fa4aa78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &971567481930406415
-CircleCollider2D:
+  parriedBulletPrefab: {fileID: 0}
+  ParriedBulletVelocityMultiplier: 1.5
+--- !u!60 &3631745102670095708
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -284,6 +286,28 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1}
-  serializedVersion: 2
-  m_Radius: 1.12
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.71875, y: 0}
+    oldSize: {x: 1, y: 1.65625}
+    newSize: {x: 1, y: 1.65625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.010168076, y: 1.65625}
+      - {x: -0.0048909187, y: 1.53125}
+      - {x: -0.0048909187, y: 1.1650987}
+      - {x: 0.020962238, y: 0.8898721}
+      - {x: -0.043297052, y: 0.45387793}
+      - {x: -0.018949986, y: 0}
+      - {x: 0.25, y: 0}
+      - {x: 0.8711753, y: 0.27070898}
+      - {x: 1.1684301, y: 0.66830057}
+      - {x: 1.1522737, y: 1.1577694}
+      - {x: 0.7422843, y: 1.4930968}
+      - {x: 0.21875, y: 1.65625}
+  m_UseDelaunayMesh: 1
