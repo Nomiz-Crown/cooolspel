@@ -8,7 +8,6 @@ style system(?)
 tosser enemy behavior, sibbe g gör (hoppas jag)
 jump pad
 punch
-nån fucky shit med parryingen? den funkar men unity klagar på nått
 playerBulletLogic
 TOSSERRRRRRRRRRRR
 
@@ -17,8 +16,12 @@ SIMON FRÅGA JOHAN OM HJÄLP MED YAML(????????????)
 estetiska saker list
 typ allt
 parry animation
+punch animation
+explose
+
 
 THINGS DONE:
+nån fucky shit med parryingen? den funkar men unity klagar på nått
 bullets!!! (dom finns!)
 parrying
 player damage

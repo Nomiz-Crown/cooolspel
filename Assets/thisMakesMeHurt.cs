@@ -7,7 +7,7 @@ public class thisMakesMeHurt : MonoBehaviour
 {
     AirbornePanLogic fryingPan;
     [SerializeField] private float myDamage = 5f;
-    EnemyHealth flippy;
+    EnemyHealth EnemyToDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,34 +23,31 @@ public class thisMakesMeHurt : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && fryingPan.isLethal) 
         {
-            print("i touch enemy and im lethal)");
-            grabComponent(collision.gameObject);
-            if (flippy != null)
+            GrabComponent(collision.gameObject);
+            if (EnemyToDamage != null)
             {
                 InflictDamage();
                 CheckIfDead();
             }
         }
     }
-    void grabComponent(GameObject boy)
+    void GrabComponent(GameObject obj)
     {
-        if (boy.GetComponent<EnemyHealth>() != null)
+        if (obj.GetComponent<EnemyHealth>() != null)
         {
-            flippy = boy.GetComponent<EnemyHealth>();
-            print("got health component from " + boy.name);
+            EnemyToDamage = obj.GetComponent<EnemyHealth>();
+            print("got health component from " + obj.name);
         }
     }
     void InflictDamage()
     {
-        flippy.myHealth -= myDamage;
-        print($"done {myDamage} to enemy health bar, which is now {flippy.myHealth}");
+        EnemyToDamage.myHealth -= myDamage;
     }
     void CheckIfDead()
     {
-        if (flippy.myHealth <= 0)
+        if (EnemyToDamage.myHealth <= 0)
         {
-            flippy.gameObject.SendMessage("Die");
-            print("die");
+            EnemyToDamage.gameObject.SendMessage("Kys");
         }
         else
         {

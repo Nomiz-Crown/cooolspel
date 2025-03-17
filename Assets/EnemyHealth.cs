@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
         collider = GetComponent<Collider2D>();
         if (collider == null)
         {
-            print("FUCK");
+            print("uuooohhhhhhhhhhhhh");
         }
         isDying = false;
     }
@@ -22,11 +22,10 @@ public class EnemyHealth : MonoBehaviour
     {
         if (isDying)
         {
-            print("ahh fuck lois im dying)");
             Destroy(gameObject);
         }
     }
-    void Die()
+    void Kys()
     {
         isDying = true;
     }

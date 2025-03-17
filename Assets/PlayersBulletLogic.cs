@@ -9,10 +9,12 @@ public class PlayersBulletLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         foreach(GameObject flipp in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             enemies.Add(flipp);
         }
+        */
     }
 
     // Update is called once per frame
@@ -22,9 +24,11 @@ public class PlayersBulletLogic : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        /*
         foreach (GameObject flippy in enemies)
         {
             print("zzzzzzzz");
         }
+        */
     }
 }
