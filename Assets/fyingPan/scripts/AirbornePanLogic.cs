@@ -7,7 +7,6 @@ public class AirbornePanLogic : MonoBehaviour
     Rigidbody2D rb;
     public float PickupRange;
     [HideInInspector] public bool isLethal;
-    public float rotationSpeed;
     CapsuleCollider2D SecondaryCollider;
     bool ReturnedToRegularCollider;
     // Start is called before the first frame update

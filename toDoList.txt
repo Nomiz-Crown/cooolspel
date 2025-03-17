@@ -1,6 +1,5 @@
 generell kod; listy list
 alla bullets måste göra damage, både på spelaren och på enemies
-parried bullets måste explodera(?)
 Player health
 enemy damage
 clock
@@ -17,11 +16,11 @@ estetiska saker list
 typ allt
 parry animation
 punch animation
-explose
-
 
 THINGS DONE:
-nån fucky shit med parryingen? den funkar men unity klagar på nått
+shitty explose
+parried bullets måste explodera(?)
+nån konstighet med parryingen? den funkar men unity klagar på nått
 bullets!!! (dom finns!)
 parrying
 player damage

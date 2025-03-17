@@ -6,6 +6,8 @@ public class PlayersBulletLogic : MonoBehaviour
 {
     List<GameObject> enemies;
     GameObject nearestEnemy;
+    public GameObject obj;
+    Vector3 mypos;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +17,13 @@ public class PlayersBulletLogic : MonoBehaviour
             enemies.Add(flipp);
         }
         */
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        mypos = transform.position;
     }
     private void FixedUpdate()
     {
@@ -30,5 +33,10 @@ public class PlayersBulletLogic : MonoBehaviour
             print("zzzzzzzz");
         }
         */
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       GameObject clone = Instantiate(obj);
+       clone.transform.position = mypos;
     }
 }
