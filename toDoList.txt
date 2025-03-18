@@ -1,7 +1,5 @@
 generell kod; listy list
-alla bullets måste göra damage, både på spelaren och på enemies
-Player health
-enemy damage
+Player bullets måste göra ont
 clock
 style system(?)
 tosser enemy behavior, sibbe g gör (hoppas jag)
@@ -10,14 +8,17 @@ punch
 playerBulletLogic
 TOSSERRRRRRRRRRRR
 
-SIMON FRÅGA JOHAN OM HJÄLP MED YAML(????????????)
-
 estetiska saker list
 typ allt
 parry animation
 punch animation
 
 THINGS DONE:
+SIMON FRÅGA JOHAN OM HJÄLP MED YAML(????????????)
+enemy damage
+enemy bullets do damage
+Player health
+good explode
 shitty explose
 parried bullets måste explodera(?)
 nån konstighet med parryingen? den funkar men unity klagar på nått
@@ -25,3 +26,6 @@ bullets!!! (dom finns!)
 parrying
 player damage
 enemy health, (vide håller på med)
+
+hahaha jag håller koll på updates nu:
+Vide - 17:39 2025-03-18 - saker ig, jag glöm jag gör andra sen
