@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 5546475870766757346}
   - component: {fileID: 9165655227778834265}
   - component: {fileID: 3844773695234535138}
+  - component: {fileID: 5031710009353587101}
   m_Layer: 5
   m_Name: FireyOverlay
   m_TagString: Untagged
@@ -482,7 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.50129986, b: 0, a: 0.48235294}
+  m_Color: {r: 1, g: 0.50129986, b: 0, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -499,6 +500,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5031710009353587101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959153992695098266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0464a6f4510e81847bea659e8177dd04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpacityIncreasePerDamageTook: 10
+  MaxOpacity: 100
+  PassiveOpacityDecrease: 5
+  OpacityDecreaseEveryBlank: 0.5
 --- !u!1 &6974548000401014654
 GameObject:
   m_ObjectHideFlags: 0

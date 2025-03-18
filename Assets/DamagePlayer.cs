@@ -17,18 +17,14 @@ public class DamagePlayer : MonoBehaviour
         if (GetComponent<Collider2D>() != null)
         {
             myCollider = GetComponent<BoxCollider2D>();
-            print("got my trigger fine");
         }
         if (GetComponent<GooberBehaviour>() != null)
         {
             me = GetComponent<GooberBehaviour>();
-            print("got my behav fine");
-
         }
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<mchp>() != null)
         {
             PlayerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<mchp>();
-            print("got players health fine");
         }
     }
 

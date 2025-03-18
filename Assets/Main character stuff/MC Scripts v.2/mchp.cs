@@ -20,11 +20,9 @@ public class mchp : MonoBehaviour
     void Update()
     {
         // debug, du kan ta bort om du vill
-        Debug.Log("Current HP: " + hp);
 
         if (hp <= 0)
         {
-            Debug.Log("HP is 0, triggering death!");
             hp = 0;
             Die();
         }
@@ -33,7 +31,6 @@ public class mchp : MonoBehaviour
     void Die()
     {
         // mer debug
-        Debug.Log("Die() function triggered");
 
         gameObject.SetActive(false);
 

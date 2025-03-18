@@ -2607,6 +2607,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5031710009353587101, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+      propertyPath: PassiveOpacityDecrease
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031710009353587101, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+      propertyPath: OpacityDecreaseEveryBlank
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031710009353587101, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+      propertyPath: OpacityIncreasePerDamageTook
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_Name
       value: Canvas
