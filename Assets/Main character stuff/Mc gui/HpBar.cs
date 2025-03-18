@@ -4,29 +4,28 @@ using System.Collections;
 
 public class HpBar : MonoBehaviour
 {
-    private mchp playerHealth;  // Reference to the player's health script
+    private mchp playerHealth;  // mchp i mc scripts, så den kopierar från mchp till denna nya
     private Slider slider;
 
     [Header("UI Animations")]
-    public Image image1;          // First UI Image (HP > 75)
+    public Image image1;          // First UI (HP > 75)
     public Sprite[] animation1Frames;
 
-    public Image image2;          // Second UI Image (50 < HP <= 75)
+    public Image image2;          // Second UI (50 < HP <= 75)
     public Sprite[] animation2Frames;
 
-    public Image image3;          // Third UI Image (25 < HP <= 50)
+    public Image image3;          // Third UI (25 < HP <= 50)
     public Sprite[] animation3Frames;
 
-    public Image image4;          // Fourth UI Image (10 < HP <= 25)
+    public Image image4;          // Fourth UI (HP <= 25)
     public Sprite[] animation4Frames;
 
-    public float frameRate = 0.1f; // Animation speed
+    public float frameRate = 0.1f;
 
     private void Start()
     {
         slider = GetComponent<Slider>();
 
-        // Find the player in the scene
         playerHealth = FindObjectOfType<mchp>();
 
         if (playerHealth != null)
@@ -35,13 +34,12 @@ public class HpBar : MonoBehaviour
             slider.value = playerHealth.hp;
         }
 
-        // Start animations for all images but disable them initially
         StartCoroutine(PlaySpriteAnimation(image1, animation1Frames));
         StartCoroutine(PlaySpriteAnimation(image2, animation2Frames));
         StartCoroutine(PlaySpriteAnimation(image3, animation3Frames));
         StartCoroutine(PlaySpriteAnimation(image4, animation4Frames));
 
-        UpdateActiveImage(); // Set correct image at start
+        UpdateActiveImage();
     }
 
     private void Update()
@@ -58,7 +56,7 @@ public class HpBar : MonoBehaviour
         int index = 0;
         while (true)
         {
-            if (image.enabled) // Only animate active images
+            if (image.enabled) // bara animera dem som är active, mindre lag -_-
             {
                 image.sprite = frames[index];
                 index = (index + 1) % frames.Length;
@@ -89,7 +87,7 @@ public class HpBar : MonoBehaviour
         }
         else
         {
-            DeactivateAllImages(); // If HP is 10 or below, turn off all images
+            DeactivateAllImages();
         }
     }
 
