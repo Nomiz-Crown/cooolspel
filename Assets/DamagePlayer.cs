@@ -1,19 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DamagePlayer : MonoBehaviour
 {
-    public float myDamage;
-    GooberBehaviour goob;
-    followParent trigger;
-    mchp guessINeedThisGuyToo;
+    public float damage;
+    GooberBehaviour me;
+    BoxCollider2D myCollider;
+    mchp PlayerHealth;
+    public Vector2 colliderSize;
+    public LayerMask PlayerLayer;
     // Start is called before the first frame update
     void Start()
     {
-        trigger = GetComponentInChildren<followParent>();
-        goob = GetComponent<GooberBehaviour>();
-        guessINeedThisGuyToo = GameObject.FindGameObjectWithTag("Player").GetComponent<mchp>();
+        if (GetComponent<Collider2D>() != null)
+        {
+            myCollider = GetComponent<BoxCollider2D>();
+            print("got my trigger fine");
+        }
+        if (GetComponent<GooberBehaviour>() != null)
+        {
+            me = GetComponent<GooberBehaviour>();
+            print("got my behav fine");
+
+        }
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<mchp>() != null)
+        {
+            PlayerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<mchp>();
+            print("got players health fine");
+        }
     }
 
     // Update is called once per frame
@@ -23,18 +39,31 @@ public class DamagePlayer : MonoBehaviour
     }
     void CheckDamage()
     {
-        if(trigger.touchingPlayer && goob.isLunging)
+        if(me.isLunging)
         {
-            InflictDamage();
+            if (CheckOverlapp())
+            {
+                InflictDamage();
+            }
         }
     }
     void InflictDamage()
     {
-        guessINeedThisGuyToo.hp -= myDamage;
+        PlayerHealth.SendMessage("TakeDamage", damage);
         ResetConditions();
     }
     void ResetConditions()
     {
-        goob.isLunging = false;
+        me.isLunging = false;
+    }
+    bool CheckOverlapp()
+    {
+        Vector2 offsetPos = new Vector2(transform.position.x, transform.position.y + 0.96875f);
+        if (Physics2D.OverlapBox(offsetPos, myCollider.size, PlayerLayer).gameObject.CompareTag("Player"))
+        {
+            print("yo!");
+            return true;
+        }
+        return false;
     }
 }
