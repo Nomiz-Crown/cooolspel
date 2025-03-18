@@ -25,7 +25,6 @@ public class explosionAnimation : MonoBehaviour
         Expand();
         CheckTimer();
         CheckDelete();
-        print(timer);
     }
     void CheckDelete()
     {

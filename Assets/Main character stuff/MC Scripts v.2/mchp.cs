@@ -49,4 +49,8 @@ public class mchp : MonoBehaviour
             Debug.Log(death.transform.position);
         }
     }
+    void TakeDamage(float damage)
+    {
+        hp-=damage;
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bulletLogic : MonoBehaviour
 {
+    [SerializeField] private float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +22,9 @@ public class bulletLogic : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                print("zzzzzzzz");
+                mchp guyObject = collision.gameObject.GetComponent<mchp>();
+                guyObject.SendMessage("TakeDamage", damage);
             }
-        }
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Wall"))
-        {
-            print("zzzzzzzz");
         }
         Destroy(gameObject);
     }

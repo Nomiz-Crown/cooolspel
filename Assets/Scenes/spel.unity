@@ -851,6 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e815977fd516b5344a29a7d90ea315bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &761157481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,25 +2450,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2025366556 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6556145221014290406, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
-  m_PrefabInstance: {fileID: 3552334962306269672}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2025366567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025366556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ff8afe65456a074d8532145b37ced86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  death: {fileID: 1628611299}
 --- !u!1 &2046758268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,8 +2835,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2923670152075875624, guid: 55fda1ecb95456d4a894161b47e03341, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4193687171177555666, guid: 55fda1ecb95456d4a894161b47e03341, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55fda1ecb95456d4a894161b47e03341, type: 3}
@@ -2870,6 +2857,10 @@ PrefabInstance:
       propertyPath: parriedBulletPrefab
       value: 
       objectReference: {fileID: 1780103932}
+    - target: {fileID: 5393428504082983903, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 1628611299}
     - target: {fileID: 6556145221014290406, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: m_Name
       value: playa
@@ -2917,10 +2908,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6556145221014290406, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2025366567}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

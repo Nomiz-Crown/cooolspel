@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8667438229958767501}
   - component: {fileID: 2878174327193097717}
   - component: {fileID: 3631745102670095708}
+  - component: {fileID: 5393428504082983903}
   m_Layer: 7
   m_Name: MC V2 Cool
   m_TagString: Player
@@ -311,3 +312,17 @@ PolygonCollider2D:
       - {x: 0.7422843, y: 1.4930968}
       - {x: 0.21875, y: 1.65625}
   m_UseDelaunayMesh: 1
+--- !u!114 &5393428504082983903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6556145221014290406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff8afe65456a074d8532145b37ced86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  death: {fileID: 0}
