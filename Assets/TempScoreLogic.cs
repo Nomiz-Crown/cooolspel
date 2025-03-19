@@ -14,7 +14,7 @@ public class TempScoreLogic : MonoBehaviour
     public Sprite overHeat;
 
     private mchp hp;
-    private SpriteRenderer rend;
+    [HideInInspector] public SpriteRenderer rend;
     // Start is called before the first frame update
     void Start()
     {

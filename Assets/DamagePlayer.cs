@@ -57,7 +57,6 @@ public class DamagePlayer : MonoBehaviour
         Vector2 offsetPos = new Vector2(transform.position.x, transform.position.y + 0.96875f);
         if (Physics2D.OverlapBox(offsetPos, myCollider.size, PlayerLayer).gameObject.CompareTag("Player"))
         {
-            print("yo!");
             return true;
         }
         return false;
