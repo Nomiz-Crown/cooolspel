@@ -43,7 +43,6 @@ public class mchp : MonoBehaviour
             death.transform.rotation = transform.rotation; 
 
             // Deeeeeebuuuug
-            Debug.Log(death.transform.position);
         }
     }
     void TakeDamage(float damage)

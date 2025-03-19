@@ -2575,6 +2575,18 @@ PrefabInstance:
       propertyPath: parriedBulletPrefab
       value: 
       objectReference: {fileID: 1780103932}
+    - target: {fileID: 3631745102670095708, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: m_UseDelaunayMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3631745102670095708, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: -0.035896778
+      objectReference: {fileID: 0}
+    - target: {fileID: 3631745102670095708, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 0.8785002
+      objectReference: {fileID: 0}
     - target: {fileID: 5393428504082983903, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: death
       value: 
