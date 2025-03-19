@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class HealthbarColorController : MonoBehaviour
 {
-    public Color lowHealthColor;
-    public Color highHealthColor;
+    public Color ColdColor;
+    public Color HotColor;
     mchp player;
     Image imageController;
     // Start is called before the first frame update
@@ -25,8 +25,8 @@ public class HealthbarColorController : MonoBehaviour
     {
         if (player != null)
         {
-            float healthPercentage = player.hp / 100f; // Assuming hp is between 0 and 100
-            imageController.color = Color.Lerp(lowHealthColor, highHealthColor, healthPercentage);
+            float healthPercentage = player.TemperatureHealth / 100f; // Assuming hp is between 0 and 100
+            imageController.color = Color.Lerp(ColdColor, HotColor, healthPercentage);
         }
     }
 }
