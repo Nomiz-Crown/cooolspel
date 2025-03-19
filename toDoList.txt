@@ -7,13 +7,13 @@ jump pad
 punch
 playerBulletLogic
 TOSSERRRRRRRRRRRR
+fråga johan om hjälp om temp grejen
 
 estetiska saker list
 typ allt
 parry animation
 punch animation
-temperature score (vide gör)
-thermometer healthbar
+
 
 THINGS DONE:
 SIMON FRÅGA JOHAN OM HJÄLP MED YAML(????????????)
@@ -28,6 +28,9 @@ bullets!!! (dom finns!)
 parrying
 player damage
 enemy health, (vide håller på med)
+temperature score (vide gör)
+thermometer healthbar
 
 hahaha jag håller koll på updates nu:
 Vide - 17:39 2025-03-18 - saker ig, jag glöm jag gör andra sen
+21:13 2025-03-19 -vide
