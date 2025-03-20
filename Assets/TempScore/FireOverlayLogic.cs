@@ -21,6 +21,7 @@ public class FireOverlayLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("hi");
         UpdateIsAnimating();
         Animate();
     }
@@ -28,6 +29,7 @@ public class FireOverlayLogic : MonoBehaviour
     {
         if (!isAnimating)
         {
+            gameObject.SetActive(true);
             animator.SetTrigger("FireAnimation");
             isAnimating = true;
         }
@@ -36,6 +38,7 @@ public class FireOverlayLogic : MonoBehaviour
     {
         if(tempScoreLogic.rend.sprite != tempScoreLogic.overHeat)
         {
+            gameObject.SetActive(false);
             isAnimating = false;
         }
     }

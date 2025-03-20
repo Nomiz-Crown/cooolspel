@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TempScoreLogic : MonoBehaviour
 {
@@ -14,12 +15,12 @@ public class TempScoreLogic : MonoBehaviour
     public Sprite overHeat;
 
     private mchp hp;
-    [HideInInspector] public SpriteRenderer rend;
+    [HideInInspector] public Image rend;
     // Start is called before the first frame update
     void Start()
     {
         hp = GameObject.FindGameObjectWithTag("Player").GetComponent<mchp>();
-        rend = GetComponent<SpriteRenderer>();
+        rend = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -27,7 +28,6 @@ public class TempScoreLogic : MonoBehaviour
     {
         CheckState();
         CheckScale();
-        print("hi");
     }
     void CheckScale()
     {
