@@ -31,7 +31,7 @@ public class HpBar : MonoBehaviour
         if (playerHealth != null)
         {
             slider.maxValue = 100;
-            slider.value = playerHealth.hp;
+            slider.value = playerHealth.TemperatureHealth;
         }
 
         StartCoroutine(PlaySpriteAnimation(image1, animation1Frames));
@@ -46,7 +46,7 @@ public class HpBar : MonoBehaviour
     {
         if (playerHealth != null)
         {
-            slider.value = playerHealth.hp;
+            slider.value = playerHealth.TemperatureHealth;
             UpdateActiveImage();
         }
     }
@@ -67,23 +67,23 @@ public class HpBar : MonoBehaviour
 
     private void UpdateActiveImage()
     {
-        float hp = playerHealth.hp;
+        float hp = playerHealth.TemperatureHealth;
 
         if (hp > 75)
         {
-            ActivateImage(image1);
+            ActivateImage(image4);
         }
         else if (hp > 50)
         {
-            ActivateImage(image2);
+            ActivateImage(image3);
         }
         else if (hp > 25)
         {
-            ActivateImage(image3);
+            ActivateImage(image2);
         }
         else if (hp >= 0)
         {
-            ActivateImage(image4);
+            ActivateImage(image1);
         }
         else
         {

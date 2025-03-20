@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class mchp : MonoBehaviour
 {
-    [Range(0, 100)] public float hp = 100;
+    [Range(0, 100)] public float TemperatureHealth = 0;
     public GameObject death; //death är gameobject med death animation btw
 
     // Start is called before the first frame update
@@ -21,9 +21,9 @@ public class mchp : MonoBehaviour
     {
         // debug, du kan ta bort om du vill
 
-        if (hp <= 0)
+        if (TemperatureHealth >= 100)
         {
-            hp = 0;
+            TemperatureHealth = 100;
             Die();
         }
     }
@@ -43,11 +43,10 @@ public class mchp : MonoBehaviour
             death.transform.rotation = transform.rotation; 
 
             // Deeeeeebuuuug
-            Debug.Log(death.transform.position);
         }
     }
     void TakeDamage(float damage)
     {
-        hp-=damage;
+        TemperatureHealth+=damage;
     }
 }

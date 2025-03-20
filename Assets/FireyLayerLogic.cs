@@ -31,7 +31,7 @@ public class FireyLayerLogic : MonoBehaviour
     }
     void CompareHealth()
     {
-        if(player.hp < hpLastChecked)
+        if(player.TemperatureHealth > hpLastChecked)
         {
             IncreaseOpacity();
         }
@@ -48,7 +48,6 @@ public class FireyLayerLogic : MonoBehaviour
         if (CheckIfCanAddOpacity())
         {
             img.color += new Color(0, 0, 0, OpacityIncreasePerDamageTook);
-            print("took damage once");
         }
     }
     bool CheckIfCanAddOpacity()
@@ -61,7 +60,7 @@ public class FireyLayerLogic : MonoBehaviour
     }
     void UpdateValues()
     {
-        hpLastChecked = player.hp;
+        hpLastChecked = player.TemperatureHealth;
     }
     bool PassiveDecreaseTimer()
     {

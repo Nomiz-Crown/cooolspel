@@ -302,7 +302,7 @@ PolygonCollider2D:
     - - {x: 0.010168076, y: 1.65625}
       - {x: -0.0048909187, y: 1.53125}
       - {x: -0.0048909187, y: 1.1650987}
-      - {x: 0.020962238, y: 0.8898721}
+      - {x: -0.035896778, y: 0.8785002}
       - {x: -0.043297052, y: 0.45387793}
       - {x: -0.018949986, y: 0}
       - {x: 0.25, y: 0}
@@ -311,7 +311,7 @@ PolygonCollider2D:
       - {x: 1.1522737, y: 1.1577694}
       - {x: 0.7422843, y: 1.4930968}
       - {x: 0.21875, y: 1.65625}
-  m_UseDelaunayMesh: 1
+  m_UseDelaunayMesh: 0
 --- !u!114 &5393428504082983903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,5 +324,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff8afe65456a074d8532145b37ced86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 39
   death: {fileID: 0}
