@@ -4,28 +4,30 @@ using System.Collections;
 
 public class HpBar : MonoBehaviour
 {
-    private mchp playerHealth;  // mchp i mc scripts, så den kopierar från mchp till denna nya
+    private mchp playerHealth;
     private Slider slider;
 
     [Header("UI Animations")]
-    public Image image1;          // First UI (HP > 75)
+    public Image image1;  // 0–20%
     public Sprite[] animation1Frames;
 
-    public Image image2;          // Second UI (50 < HP <= 75)
+    public Image image2;  // 20–40%
     public Sprite[] animation2Frames;
 
-    public Image image3;          // Third UI (25 < HP <= 50)
+    public Image image3;  // 40–60%
     public Sprite[] animation3Frames;
 
-    public Image image4;          // Fourth UI (HP <= 25)
+    public Image image4;  // 60–80%
     public Sprite[] animation4Frames;
+
+    public Image image5;  // 80–100%
+    public Sprite[] animation5Frames;
 
     public float frameRate = 0.1f;
 
     private void Start()
     {
         slider = GetComponent<Slider>();
-
         playerHealth = FindObjectOfType<mchp>();
 
         if (playerHealth != null)
@@ -38,6 +40,7 @@ public class HpBar : MonoBehaviour
         StartCoroutine(PlaySpriteAnimation(image2, animation2Frames));
         StartCoroutine(PlaySpriteAnimation(image3, animation3Frames));
         StartCoroutine(PlaySpriteAnimation(image4, animation4Frames));
+        StartCoroutine(PlaySpriteAnimation(image5, animation5Frames));
 
         UpdateActiveImage();
     }
@@ -56,7 +59,7 @@ public class HpBar : MonoBehaviour
         int index = 0;
         while (true)
         {
-            if (image.enabled) // bara animera dem som är active, mindre lag -_-
+            if (image.enabled) // Only animate the active image to save performance
             {
                 image.sprite = frames[index];
                 index = (index + 1) % frames.Length;
@@ -69,25 +72,25 @@ public class HpBar : MonoBehaviour
     {
         float hp = playerHealth.TemperatureHealth;
 
-        if (hp > 75)
+        if (hp > 80)
+        {
+            ActivateImage(image5);
+        }
+        else if (hp > 60)
         {
             ActivateImage(image4);
         }
-        else if (hp > 50)
+        else if (hp > 40)
         {
             ActivateImage(image3);
         }
-        else if (hp > 25)
+        else if (hp > 20)
         {
             ActivateImage(image2);
         }
-        else if (hp >= 0)
-        {
-            ActivateImage(image1);
-        }
         else
         {
-            DeactivateAllImages();
+            ActivateImage(image1);
         }
     }
 
@@ -97,13 +100,6 @@ public class HpBar : MonoBehaviour
         image2.enabled = (activeImage == image2);
         image3.enabled = (activeImage == image3);
         image4.enabled = (activeImage == image4);
-    }
-
-    private void DeactivateAllImages()
-    {
-        image1.enabled = false;
-        image2.enabled = false;
-        image3.enabled = false;
-        image4.enabled = false;
+        image5.enabled = (activeImage == image5);
     }
 }
