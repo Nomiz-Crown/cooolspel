@@ -880,8 +880,7 @@ GameObject:
   - component: {fileID: 2676265775908744917}
   - component: {fileID: 1193704091196459529}
   - component: {fileID: 7430771768917248125}
-  - component: {fileID: 6542436028833848821}
-  - component: {fileID: 3811422407965036861}
+  - component: {fileID: 5205907089029966309}
   m_Layer: 5
   m_Name: Fire
   m_TagString: Untagged
@@ -946,28 +945,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &6542436028833848821
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7036875814600274747}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d0adb1cbfbbea9a4882213cf8c89aeec, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3811422407965036861
+--- !u!114 &5205907089029966309
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -976,10 +954,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7036875814600274747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8edaa98b788d4554b8c4edd92c04b654, type: 3}
+  m_Script: {fileID: 11500000, guid: e99c2b2261da23941bcc785902e717a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {fileID: 4479977444273527324}
+  spriteSheetName: OilFire
+  image: {fileID: 7430771768917248125}
+  frameRate: 0.05
 --- !u!1 &8592722030974101826
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class TempScoreLogic : MonoBehaviour
 
     private mchp hp;
     [HideInInspector] public Image rend;
+    [HideInInspector] public bool isOverHeat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +36,12 @@ public class TempScoreLogic : MonoBehaviour
         if (rend.sprite == overHeat)
         {
             transform.localScale = new Vector2(overHeatWidth, transform.localScale.y);
+            isOverHeat = true;
         }
         else
         {
             transform .localScale = new Vector2(standardWidth, transform.localScale.y);
+            isOverHeat = false;
         }
     }
     void CheckState()
