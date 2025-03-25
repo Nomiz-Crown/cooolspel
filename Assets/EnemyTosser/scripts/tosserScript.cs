@@ -34,7 +34,7 @@ public class TosserScript : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
             if (canShoot)
             {
-                SendMessage("Shoot", target);
+                SendMessage("Shoot");
                 cooldownTime = 0f;
             }
         }
@@ -72,12 +72,10 @@ public class TosserScript : MonoBehaviour
         // If the raycast hits something, check if it's the target
         if (hit.collider != null)
         {
-            print("i see you");
             return hit.collider.transform == target; // Return true if the target is hit, false otherwise
         }
 
         // If nothing is hit, return true (clear line of sight)
-        print("i see you");
         return true;
     }
 
@@ -94,7 +92,6 @@ public class TosserScript : MonoBehaviour
     {
         if(cooldownTime >= shootCooldown)
         {
-            print("can Shoot");
             canShoot = true;
         }
         else
