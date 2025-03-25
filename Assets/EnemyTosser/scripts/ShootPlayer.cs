@@ -16,13 +16,13 @@ public class ShootPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer();
+
     }
     void timer()
     {
         if (timeywimey>= timeToCount)
         {
-            FIREEEE();
+            Shoot();
             timeywimey = 0;
         }
         else
@@ -30,7 +30,7 @@ public class ShootPlayer : MonoBehaviour
             timeywimey += Time.deltaTime;
         }
     }
-    void FIREEEE()
+    void Shoot()
     {
         GameObject clone = Instantiate(bullet, transform);
         clone.transform.position = transform.position;

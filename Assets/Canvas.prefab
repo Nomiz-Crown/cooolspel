@@ -304,15 +304,15 @@ RectTransform:
   m_GameObject: {fileID: 4479977444273527324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 0.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4693781471205889688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -16, y: -16}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3367710591712526913
 CanvasRenderer:
@@ -364,8 +364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3bc4eb13431b04cb9eb74538ebf682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardWidth: 1
-  overHeatWidth: 1.8
+  standardSize: {x: 1, y: 1}
+  overHeatSize: {x: 1.8, y: 1}
   cold: {fileID: 21300000, guid: 28c5a058a1a8bff4c931bcb01ee82aa4, type: 3}
   cool: {fileID: 21300000, guid: c7c0230d23135954a8709d0cad6645cb, type: 3}
   warm: {fileID: 21300000, guid: 8a3c442cfb9962c4483655de84611ad3, type: 3}
@@ -373,6 +373,8 @@ MonoBehaviour:
   overHeat: {fileID: 21300000, guid: 8b5f8a6dd3db8a04e97c6ab30ea98bdd, type: 3}
   rend: {fileID: 0}
   isOverHeat: 0
+  fire: {fileID: 7036875814600274747}
+  parentFill: {fileID: 8592722030974101826}
 --- !u!1 &4606767775406826177
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +966,6 @@ GameObject:
   - component: {fileID: 1193704091196459529}
   - component: {fileID: 7430771768917248125}
   - component: {fileID: 5205907089029966309}
-  - component: {fileID: 9199540334495529398}
   m_Layer: 5
   m_Name: Fire
   m_TagString: Untagged
@@ -1044,23 +1045,6 @@ MonoBehaviour:
   spriteSheetName: OilFire
   image: {fileID: 7430771768917248125}
   frameRate: 0.05
-  flip: {fileID: 0}
---- !u!114 &9199540334495529398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7036875814600274747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99c2b2261da23941bcc785902e717a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteSheetName: OilFire
-  image: {fileID: 7430771768917248125}
-  frameRate: 0.05
-  flip: {fileID: 0}
 --- !u!1 &8592722030974101826
 GameObject:
   m_ObjectHideFlags: 0

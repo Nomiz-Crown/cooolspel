@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class TempScoreLogic : MonoBehaviour
 {
-    public float standardWidth;
-    public float overHeatWidth;
+    public Vector2 standardSize;
+    public Vector2 overHeatSize;
 
     public Sprite cold;
     public Sprite cool;
@@ -17,6 +17,9 @@ public class TempScoreLogic : MonoBehaviour
     private mchp hp;
     [HideInInspector] public Image rend;
     [HideInInspector] public bool isOverHeat;
+
+    public GameObject fire;
+    public GameObject parentFill;
 
     // Start is called before the first frame update
     void Start()
@@ -30,17 +33,18 @@ public class TempScoreLogic : MonoBehaviour
     {
         CheckState();
         CheckScale();
+        UpdateFire();
     }
     void CheckScale()
     {
         if (rend.sprite == overHeat)
         {
-            transform.localScale = new Vector2(overHeatWidth, transform.localScale.y);
+            parentFill.transform.localScale = overHeatSize;
             isOverHeat = true;
         }
         else
         {
-            transform .localScale = new Vector2(standardWidth, transform.localScale.y);
+            parentFill.transform.localScale = standardSize;
             isOverHeat = false;
         }
     }
@@ -51,6 +55,17 @@ public class TempScoreLogic : MonoBehaviour
         CheckWarm();
         CheckHeat();
         CheckOverHeat();
+    }
+    void UpdateFire()
+    {
+        if (rend.sprite == overHeat)
+        {
+            fire.SetActive(true);
+        }
+        else
+        {
+            fire.SetActive(false);
+        }
     }
     void CheckCold()
     {

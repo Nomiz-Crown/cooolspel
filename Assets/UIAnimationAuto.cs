@@ -11,11 +11,13 @@ public class UIAnimationAuto : MonoBehaviour
     private int currentFrame;
     private float timer;
 
+    private TempScoreLogic tempytemp;
+
     void Start()
     {
         // Load all sprites from the spritesheet automatically
         frames = Resources.LoadAll<Sprite>(spriteSheetName);
-
+        tempytemp = GameObject.FindAnyObjectByType<TempScoreLogic>().GetComponent<TempScoreLogic>();
         if (frames.Length == 0)
         {
             Debug.LogError("No sprites found! Make sure your spritesheet is in Resources.");
@@ -25,7 +27,7 @@ public class UIAnimationAuto : MonoBehaviour
 
     void Update()
     {
-        if (frames == null || frames.Length == 0) return;
+        if (frames == null || frames.Length == 0 || !tempytemp.isOverHeat) return;
 
         timer += Time.deltaTime;
         if (timer >= frameRate)
