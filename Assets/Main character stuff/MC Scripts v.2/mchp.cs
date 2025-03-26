@@ -45,8 +45,12 @@ public class mchp : MonoBehaviour
             // Deeeeeebuuuug
         }
     }
-    void TakeDamage(float damage)
+    void TakeDamage(float amount)
     {
-        TemperatureHealth+=damage;
+        TemperatureHealth += amount;
+    }
+     public void RestoreHealth(float amount)
+    {
+        TemperatureHealth -= amount;
     }
 }

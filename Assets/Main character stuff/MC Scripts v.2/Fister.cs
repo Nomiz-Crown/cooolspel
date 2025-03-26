@@ -7,7 +7,6 @@ public class Fister : MonoBehaviour
     private bool isBulletAvailableToParry;
     public GameObject parriedBulletPrefab;
     public float ParriedBulletVelocityMultiplier;
-    // Update is called once per frame
     void Update()
     {
         HandleInput();
@@ -69,6 +68,7 @@ public class Fister : MonoBehaviour
         }
         bulletListToParry.RemoveAt(0);
         Destroy(bulletToParry);
+        SendMessage("RestoreHealth", 20);
         isBulletAvailableToParry = bulletListToParry.Count > 0; // Update the state
     }
 
