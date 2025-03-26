@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -7,16 +5,11 @@ public class TimerLogic : MonoBehaviour
 {
     public GameObject Timer;
     private TextMeshProUGUI TimerTMP;
-    float secondDecimalsPassed = 0;
+
     float secondsPassed = 0;
     string secondsToDisplay;
     float minutesPassed = 0;
     string minutesToDisplay;
-    List<string> timeToDisplay;
-
-    float secondsTimer = 0;
-    float minutesTimer = 0;
-
     // Start is called before the first frame update
     void Start()
     {

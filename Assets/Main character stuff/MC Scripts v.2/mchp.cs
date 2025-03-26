@@ -45,12 +45,12 @@ public class mchp : MonoBehaviour
             // Deeeeeebuuuug
         }
     }
-    void TakeDamage(float amount)
+    public void TakeDamage(float amount)
     {
-        TemperatureHealth += amount;
+        TemperatureHealth += Random.Range(amount - 10, amount + 10);
     }
-     public void RestoreHealth(float amount)
+    public void RestoreHealth(float amount)
     {
-        TemperatureHealth -= amount;
+        TemperatureHealth -= Random.Range(amount-10, amount+10);
     }
 }

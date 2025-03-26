@@ -36,7 +36,6 @@ public class thisMakesMeHurt : MonoBehaviour
         if (obj.GetComponent<EnemyHealth>() != null)
         {
             EnemyToDamage = obj.GetComponent<EnemyHealth>();
-            print("got health component from " + obj.name);
         }
     }
     void InflictDamage()
