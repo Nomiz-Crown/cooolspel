@@ -6,12 +6,12 @@ public class EnemyHealth : MonoBehaviour
     bool isDying = false;
     public float myHealth;
     [SerializeField] private GameObject Score;
-    private StyleLogic realScore;
+    private StyleLogicV2 realScore;
 
     // Start is called before the first frame update
     void Start()
     {
-        realScore = Score.GetComponentInChildren<StyleLogic>();
+        realScore = Score.GetComponentInChildren<StyleLogicV2>();
         collider = GetComponent<Collider2D>();
         if (collider == null || Score == null)
         {
@@ -26,11 +26,11 @@ public class EnemyHealth : MonoBehaviour
 
         if (myHealth <= 0)
         {
-            realScore.IncreaseScore(100);
+            realScore.AdjustScore(100);
         }
         else if (isDying)
         {
-            realScore.IncreaseScore(200);
+            realScore.AdjustScore(200);
         }
         Destroy(gameObject);
     }

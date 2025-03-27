@@ -21,6 +21,13 @@ public class StyleLogic : MonoBehaviour
         tmp.text = ScoreToDisplay;
         print($"score is {Score} and score to display is {ScoreToDisplay}");
     }
+    void blahbal()
+    {
+        if(Score < 0)
+        {
+            Score = 0;
+        }
+    }
     void FormatScore()
     {
         if (Score < 10)
