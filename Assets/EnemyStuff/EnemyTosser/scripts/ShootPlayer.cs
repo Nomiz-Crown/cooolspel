@@ -16,7 +16,7 @@ public class ShootPlayer : MonoBehaviour
     {
 
     }
-    void Shoot()
+    public void Shoot()
     {
         GameObject clone = Instantiate(bullet, transform);
         clone.transform.position = transform.position;

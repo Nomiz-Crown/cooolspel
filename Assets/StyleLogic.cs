@@ -11,6 +11,7 @@ public class StyleLogic : MonoBehaviour
     void Start()
     {
         tmp = GetComponent<TextMeshProUGUI>();
+        IncreaseScore(100);
     }
 
     // Update is called once per frame
@@ -41,15 +42,19 @@ public class StyleLogic : MonoBehaviour
         else if (Score <= 0)
         {
             ScoreToDisplay = "0000";
-            Score = 0;
         }
     }
     public void ReduceScore(float amt)
     {
-        Score -= Random.Range(amt - 10, amt + 10);
+        print($"Decreasin score old score is {Score}");
+        Score -= Mathf.Round( Random.Range(amt - 10, amt + 10) );
+        print($"new score is {Score}");
+
     }
     public void IncreaseScore(float amt)
     {
-        Score += Random.Range(amt - 10, amt + 10);
+        print($"increasing score, old score is {Score}");
+        Score += Mathf.Round( Random.Range(amt - 10, amt + 10) );
+        print($"new score is {Score}");
     }
 }

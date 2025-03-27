@@ -4,17 +4,22 @@ public class TosserScript : MonoBehaviour
 {
     private Transform target;
     private Vector2 realTarget;
+
     public LayerMask obstructionMask;
     public LayerMask playerLayer;
+
     public float shootCooldown;
     private float cooldownTime;
+
     public float speed;
 
     private Rigidbody2D rb;
     private bool canShoot = false;
+    private ShootPlayer shooter;
     // Start is called before the first frame update
     void Start()
     {
+        shooter = GetComponent<ShootPlayer>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         UpdateRealTarget();
@@ -34,7 +39,7 @@ public class TosserScript : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
             if (canShoot)
             {
-                SendMessage("Shoot");
+                shooter.Shoot();
                 cooldownTime = 0f;
             }
         }

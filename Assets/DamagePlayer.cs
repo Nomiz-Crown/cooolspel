@@ -45,7 +45,7 @@ public class DamagePlayer : MonoBehaviour
     }
     void InflictDamage()
     {
-        PlayerHealth.SendMessage("TakeDamage", damage);
+        PlayerHealth.TakeDamage(damage);
         ResetConditions();
     }
     void ResetConditions()

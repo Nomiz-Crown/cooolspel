@@ -325,4 +325,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TemperatureHealth: 0
+  scoreThingy: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
   death: {fileID: 0}
