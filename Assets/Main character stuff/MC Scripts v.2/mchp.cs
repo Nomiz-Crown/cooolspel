@@ -6,14 +6,11 @@ public class mchp : MonoBehaviour
 {
     [Range(0, 100)] public float TemperatureHealth = 0;
     public GameObject scoreThingy;
-    private StyleLogicV2 score;
     public GameObject death; //death är gameobject med death animation btw
 
     // Start is called before the first frame update
     void Start()
     {
-        score = scoreThingy.GetComponentInChildren<StyleLogicV2>();
-        if (score == null) print("uooohhh");
         if (death != null)
         {
             death.SetActive(false);
@@ -52,7 +49,6 @@ public class mchp : MonoBehaviour
     public void TakeDamage(float amount)
     {
         TemperatureHealth += Random.Range(amount - 10, amount + 10);
-        score.AdjustScore(-100);
     }
     public void RestoreHealth(float amount)
     {

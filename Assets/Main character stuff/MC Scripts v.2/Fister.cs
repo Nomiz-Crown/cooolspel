@@ -7,6 +7,12 @@ public class Fister : MonoBehaviour
     private bool isBulletAvailableToParry;
     public GameObject parriedBulletPrefab;
     public float ParriedBulletVelocityMultiplier;
+
+    mchp me;
+    private void Start()
+    {
+        me = GetComponent<mchp>();
+    }
     void Update()
     {
         HandleInput();
@@ -68,7 +74,8 @@ public class Fister : MonoBehaviour
         }
         bulletListToParry.RemoveAt(0);
         Destroy(bulletToParry);
-        SendMessage("RestoreHealth", 20);
+        me.RestoreHealth(20);
+        //parry!
         isBulletAvailableToParry = bulletListToParry.Count > 0; // Update the state
     }
 

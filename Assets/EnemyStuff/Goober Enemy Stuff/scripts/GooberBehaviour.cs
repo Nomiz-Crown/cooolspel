@@ -5,9 +5,6 @@ public class GooberBehaviour : MonoBehaviour
     Rigidbody2D rb;
     GameObject Player;
 
-    float playerXValue;
-    float playerYValue;
-
     [SerializeField] private float acceleration;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float JumpHeight;
@@ -38,7 +35,6 @@ public class GooberBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RedefineStuff();
         CheckInRange();
         if (LungeCooldown())
         {
@@ -127,14 +123,9 @@ public class GooberBehaviour : MonoBehaviour
             isGrounded = false;
         }
     }
-    void RedefineStuff()
-    {
-        playerXValue = Player.transform.position.x;
-        playerYValue = Player.transform.position.y;
-    }
     void CheckInRange()
     {
-        if (Mathf.Abs(transform.position.x - playerXValue) <= LungeRange)
+        if (Mathf.Abs(transform.position.x - Player.transform.position.x) <= LungeRange)
         {
             canReachPlayer = true;
         }
@@ -171,7 +162,7 @@ public class GooberBehaviour : MonoBehaviour
     void ChasePlayer()
     {
         
-        if (transform.position.x > playerXValue + LungeRange)
+        if (transform.position.x > Player.transform.position.x + LungeRange)
         {
             canReachPlayer = false;
             if(rb.velocity.x > -maxSpeed)
@@ -180,7 +171,7 @@ public class GooberBehaviour : MonoBehaviour
                 rb.velocity -= new Vector2(acceleration, 0);
             }
         }
-        else if (transform.position.x < playerXValue - LungeRange)
+        else if (transform.position.x < Player.transform.position.x - LungeRange)
         {
             canReachPlayer = false;
             if (rb.velocity.x < maxSpeed)
