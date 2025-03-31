@@ -46,7 +46,7 @@ public class thisMakesMeHurt : MonoBehaviour
     {
         if (EnemyToDamage.myHealth <= 0)
         {
-            EnemyToDamage.gameObject.SendMessage("Kys");
+            EnemyToDamage.Kys();
         }
         else
         {

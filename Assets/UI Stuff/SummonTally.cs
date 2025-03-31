@@ -12,7 +12,7 @@ public class SummonTally : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,9 +20,9 @@ public class SummonTally : MonoBehaviour
     {
         DeleteFirstAfter(Duration);
     }
-    public void Summon(string act)
+    public void AddTally(string act)
     {
-        GameObject clone = Instantiate(tally, transform);
+        GameObject clone = Instantiate(tally, transform.position, transform.rotation, transform);
         individualPerformanceTallyLogic bingo = clone.GetComponent<individualPerformanceTallyLogic>();
         flip.Add(clone);
         bingo.UpdateAct(act);
@@ -45,6 +45,13 @@ public class SummonTally : MonoBehaviour
         else
         {
             timer = 0;
+        }
+    }
+    void idk()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            AddTally("uhmmm");
         }
     }
 }

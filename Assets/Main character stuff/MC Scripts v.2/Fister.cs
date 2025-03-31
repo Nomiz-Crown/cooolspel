@@ -7,10 +7,13 @@ public class Fister : MonoBehaviour
     private bool isBulletAvailableToParry;
     public GameObject parriedBulletPrefab;
     public float ParriedBulletVelocityMultiplier;
+    public GameObject canvas;
+    private SummonTally tally;
 
     mchp me;
     private void Start()
     {
+        tally = canvas.GetComponentInChildren<SummonTally>();
         me = GetComponent<mchp>();
     }
     void Update()
@@ -47,10 +50,12 @@ public class Fister : MonoBehaviour
             if (isBulletAvailableToParry)
             {
                 Parry();
+                tally.AddTally("+ TILLBAKA-KAKA");
             }
             else
             {
                 Punch();
+                tally.AddTally("+ SUCKER PUNCH");
             }
         }
     }

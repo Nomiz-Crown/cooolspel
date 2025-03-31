@@ -23,7 +23,7 @@ public class bulletLogic : MonoBehaviour
             if (collision.gameObject.CompareTag("Player"))
             {
                 mchp guyObject = collision.gameObject.GetComponent<mchp>();
-                guyObject.SendMessage("TakeDamage", damage);
+                guyObject.TakeDamage(damage);
             }
         }
         Destroy(gameObject);

@@ -3,12 +3,14 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     new Collider2D collider;
-    bool isDying = false;
     public float myHealth;
+    public GameObject canvas;
+    private SummonTally tally;
 
     // Start is called before the first frame update
     void Start()
     {
+        tally = canvas.GetComponentInChildren<SummonTally>();
         collider = GetComponent<Collider2D>();
         if (collider == null)
         {
@@ -19,20 +21,19 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (myHealth > 0 || isDying == false) return;
-
-        if (myHealth <= 0)
-        {
-            //natural causes!
-        }
-        else if (isDying)
-        {
-            //kill!
-        }
+        CheckDead();
+    }
+    public void Kys()
+    {
+        tally.AddTally("+ MANSLAUGHTER");
         Destroy(gameObject);
     }
-    void Kys()
+    private void CheckDead()
     {
-        isDying = true;
+        if (myHealth <= 0)
+        {
+            tally.AddTally("+ NATURAL CAUSES");
+            Destroy(gameObject);
+        }
     }
 }

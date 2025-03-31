@@ -7,6 +7,7 @@ public class individualPerformanceTallyLogic : MonoBehaviour
 {
     TextMeshProUGUI tmp;
     SummonTally myList;
+    int ind;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +18,8 @@ public class individualPerformanceTallyLogic : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        int index = myList.flip.IndexOf(gameObject);
-        transform.position = new Vector3(transform.position.x, index * 50);
+        ind = myList.flip.IndexOf(gameObject);
+        transform.position = new Vector3(transform.position.x, ind * 50);
     }
     public void UpdateAct(string act)
     {
