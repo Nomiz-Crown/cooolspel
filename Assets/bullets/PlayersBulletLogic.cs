@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class PlayersBulletLogic : MonoBehaviour
 {
-    List<GameObject> enemies;
-    GameObject nearestEnemy;
+    EnemyHealth enemyToDamage;
     public GameObject obj;
     Vector3 mypos;
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        foreach(GameObject flipp in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
-            enemies.Add(flipp);
-        }
-        */
-
+        
     }
 
     // Update is called once per frame
@@ -25,18 +18,24 @@ public class PlayersBulletLogic : MonoBehaviour
     {
         mypos = transform.position;
     }
-    private void FixedUpdate()
-    {
-        /*
-        foreach (GameObject flippy in enemies)
-        {
-            print("zzzzzzzz");
-        }
-        */
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       GameObject clone = Instantiate(obj);
-       clone.transform.position = mypos;
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            InstExplosion();
+            GankEnemyHealth(collision);
+        }
+    }
+    void InstExplosion()
+    {
+        GameObject clone = Instantiate(obj);
+        clone.transform.position = mypos;
+    }
+    void GankEnemyHealth(Collision2D Enemy)
+    {
+        if(Enemy.gameObject.GetComponent<EnemyHealth>() != null)
+        {
+            enemyToDamage = Enemy.gameObject.GetComponent<EnemyHealth>();
+        }
     }
 }

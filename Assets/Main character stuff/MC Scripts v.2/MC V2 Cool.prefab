@@ -325,6 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff8afe65456a074d8532145b37ced86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overheatInterval: 1
+  heatIncPerInterval: 5
   TemperatureHealth: 0
   scoreThingy: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
   death: {fileID: 0}

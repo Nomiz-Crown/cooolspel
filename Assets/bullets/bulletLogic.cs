@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bulletLogic : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    public float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class bulletLogic : MonoBehaviour
                 mchp guyObject = collision.gameObject.GetComponent<mchp>();
                 guyObject.TakeDamage(damage);
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
