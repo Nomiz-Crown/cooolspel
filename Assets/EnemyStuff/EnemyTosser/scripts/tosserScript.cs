@@ -4,17 +4,22 @@ public class TosserScript : MonoBehaviour
 {
     private Transform target;
     private Vector2 realTarget;
+
     public LayerMask obstructionMask;
     public LayerMask playerLayer;
+
     public float shootCooldown;
     private float cooldownTime;
+
     public float speed;
 
     private Rigidbody2D rb;
     private bool canShoot = false;
+    private ShootPlayer shooter;
     // Start is called before the first frame update
     void Start()
     {
+        shooter = GetComponent<ShootPlayer>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         UpdateRealTarget();
@@ -34,7 +39,7 @@ public class TosserScript : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
             if (canShoot)
             {
-                SendMessage("Shoot", target);
+                shooter.Shoot();
                 cooldownTime = 0f;
             }
         }
@@ -72,12 +77,10 @@ public class TosserScript : MonoBehaviour
         // If the raycast hits something, check if it's the target
         if (hit.collider != null)
         {
-            print("i see you");
             return hit.collider.transform == target; // Return true if the target is hit, false otherwise
         }
 
         // If nothing is hit, return true (clear line of sight)
-        print("i see you");
         return true;
     }
 
@@ -94,7 +97,6 @@ public class TosserScript : MonoBehaviour
     {
         if(cooldownTime >= shootCooldown)
         {
-            print("can Shoot");
             canShoot = true;
         }
         else

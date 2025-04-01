@@ -61,6 +61,10 @@ public class FireyLayerLogic : MonoBehaviour
     void UpdateValues()
     {
         hpLastChecked = player.TemperatureHealth;
+        if(img.color.a > MaxOpacity)
+        {
+            img.color = new Color(1, 1, 1, MaxOpacity / 255);
+        }
     }
     bool PassiveDecreaseTimer()
     {

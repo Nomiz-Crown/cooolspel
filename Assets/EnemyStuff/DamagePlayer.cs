@@ -40,13 +40,13 @@ public class DamagePlayer : MonoBehaviour
             if (CheckOverlapp())
             {
                 InflictDamage();
+                ResetConditions();
             }
         }
     }
     void InflictDamage()
     {
-        PlayerHealth.SendMessage("TakeDamage", damage);
-        ResetConditions();
+        PlayerHealth.TakeDamage(damage);
     }
     void ResetConditions()
     {

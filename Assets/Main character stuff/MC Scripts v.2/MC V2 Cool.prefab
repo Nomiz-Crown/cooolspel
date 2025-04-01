@@ -253,8 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da2ddb63b05aa34da0791790fa4aa78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parriedBulletPrefab: {fileID: 0}
+  parriedBulletPrefab: {fileID: 9012950063264432271, guid: 6da23f14f1939714a9be3842f98822a0, type: 3}
   ParriedBulletVelocityMultiplier: 1.5
+  canvas: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
 --- !u!60 &3631745102670095708
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -324,5 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff8afe65456a074d8532145b37ced86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 39
+  TemperatureHealth: 0
+  scoreThingy: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
   death: {fileID: 0}

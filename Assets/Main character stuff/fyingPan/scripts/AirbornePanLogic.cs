@@ -24,7 +24,6 @@ public class AirbornePanLogic : MonoBehaviour
     {
         if (IsWithinProximity(transform.position, guy.transform.position, PickupRange) && !isLethal)
         {
-            print("player is close enough");
             guy.hasPan = true;
             Destroy(gameObject);
         }

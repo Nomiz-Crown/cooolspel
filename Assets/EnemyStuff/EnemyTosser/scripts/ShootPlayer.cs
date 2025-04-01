@@ -3,8 +3,6 @@ using UnityEngine;
 public class ShootPlayer : MonoBehaviour
 {
     Transform target;
-    float timeywimey;
-    public float timeToCount;
     public GameObject bullet;
     public float velocity;
     // Start is called before the first frame update
@@ -18,19 +16,7 @@ public class ShootPlayer : MonoBehaviour
     {
 
     }
-    void timer()
-    {
-        if (timeywimey>= timeToCount)
-        {
-            Shoot();
-            timeywimey = 0;
-        }
-        else
-        {
-            timeywimey += Time.deltaTime;
-        }
-    }
-    void Shoot()
+    public void Shoot()
     {
         GameObject clone = Instantiate(bullet, transform);
         clone.transform.position = transform.position;

@@ -36,7 +36,6 @@ public class thisMakesMeHurt : MonoBehaviour
         if (obj.GetComponent<EnemyHealth>() != null)
         {
             EnemyToDamage = obj.GetComponent<EnemyHealth>();
-            print("got health component from " + obj.name);
         }
     }
     void InflictDamage()
@@ -47,7 +46,7 @@ public class thisMakesMeHurt : MonoBehaviour
     {
         if (EnemyToDamage.myHealth <= 0)
         {
-            EnemyToDamage.gameObject.SendMessage("Kys");
+            EnemyToDamage.Kys();
         }
         else
         {

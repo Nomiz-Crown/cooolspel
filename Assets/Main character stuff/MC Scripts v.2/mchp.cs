@@ -5,6 +5,7 @@ using UnityEngine;
 public class mchp : MonoBehaviour
 {
     [Range(0, 100)] public float TemperatureHealth = 0;
+    public GameObject scoreThingy;
     public GameObject death; //death är gameobject med death animation btw
 
     // Start is called before the first frame update
@@ -45,8 +46,12 @@ public class mchp : MonoBehaviour
             // Deeeeeebuuuug
         }
     }
-    void TakeDamage(float damage)
+    public void TakeDamage(float amount)
     {
-        TemperatureHealth+=damage;
+        TemperatureHealth += Random.Range(amount - 10, amount + 10);
+    }
+    public void RestoreHealth(float amount)
+    {
+        TemperatureHealth -= Random.Range(amount-10, amount+10);
     }
 }

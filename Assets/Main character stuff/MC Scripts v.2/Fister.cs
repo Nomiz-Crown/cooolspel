@@ -7,7 +7,15 @@ public class Fister : MonoBehaviour
     private bool isBulletAvailableToParry;
     public GameObject parriedBulletPrefab;
     public float ParriedBulletVelocityMultiplier;
-    // Update is called once per frame
+    public GameObject canvas;
+    private SummonTally tally;
+
+    mchp me;
+    private void Start()
+    {
+        tally = canvas.GetComponentInChildren<SummonTally>();
+        me = GetComponent<mchp>();
+    }
     void Update()
     {
         HandleInput();
@@ -42,10 +50,12 @@ public class Fister : MonoBehaviour
             if (isBulletAvailableToParry)
             {
                 Parry();
+                tally.AddTally("+ TILLBAKA-KAKA");
             }
             else
             {
                 Punch();
+                tally.AddTally("+ SUCKER PUNCH");
             }
         }
     }
@@ -69,6 +79,8 @@ public class Fister : MonoBehaviour
         }
         bulletListToParry.RemoveAt(0);
         Destroy(bulletToParry);
+        me.RestoreHealth(20);
+        //parry!
         isBulletAvailableToParry = bulletListToParry.Count > 0; // Update the state
     }
 
