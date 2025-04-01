@@ -24,6 +24,7 @@ public class PlayersBulletLogic : MonoBehaviour
         {
             InstExplosion();
             GankEnemyHealth(collision);
+            Destroy(gameObject);
         }
     }
     void InstExplosion()

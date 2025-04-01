@@ -4,10 +4,15 @@ public class ExplosionLogic : MonoBehaviour
 {
     private float timer = 0;
     public float  animationDuration;
+
+    public GameObject canvas;
+    private PerformanceTallyLogicV1 tally;
+
+    private EnemyHealth enemysHealth;
     // Start is called before the first frame update
     void Start()
     {
-        
+        tally = canvas.GetComponentInChildren<PerformanceTallyLogicV1>();   
     }
 
     // Update is called once per frame
@@ -19,20 +24,16 @@ public class ExplosionLogic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            GankComponent(collision.gameObject).Kys();
+            tally.UpdateTally("+ ZIGGS R", "Add");
+            GankComponent(collision.gameObject);
+            enemysHealth.Kys();
         }
     }
-    EnemyHealth GankComponent(GameObject obj)
+    void GankComponent(GameObject obj)
     {
-        EnemyHealth flippy;
         if (obj.GetComponent<EnemyHealth>() != null)
         {
-            flippy = obj.GetComponent<EnemyHealth>();
-            return flippy;
-        }
-        else
-        {
-            return null;
+            enemysHealth = obj.GetComponent<EnemyHealth>();
         }
     }
     void TimerOfDuration()

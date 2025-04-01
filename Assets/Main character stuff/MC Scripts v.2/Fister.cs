@@ -54,6 +54,7 @@ public class Fister : MonoBehaviour
                 Parry();
                 me.RestoreHealth(20);
                 tally.UpdateTally("+ TILLBAKA-KAKA", "Add");
+                print("send tillbaka-kaka to tally");
             }
             else
             {

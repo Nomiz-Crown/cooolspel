@@ -35,9 +35,9 @@ public class PerformanceTallyLogicV1 : MonoBehaviour
     }
     public void UpdateTally(string Act, string Scenario)
     {
+        tmp.text = "";
         if (Scenario == "Add")
         {
-            tmp.text = "";
             hamstringer.Add(Act);
             for (int i = 0; i < hamstringer.Count; i++)
             {
@@ -46,7 +46,6 @@ public class PerformanceTallyLogicV1 : MonoBehaviour
         }
         else if (Scenario == "Update")
         {
-            tmp.text = "";
             for (int i = 0; i < hamstringer.Count; i++)
             {
                 tmp.text += $"{hamstringer[i]}{i} \n";
@@ -57,10 +56,9 @@ public class PerformanceTallyLogicV1 : MonoBehaviour
     {
         if (TallyTimer() && hamstringer.Count != 0)
         {
-            print("tallyTimer returned true and hamstringer contains atleast one enumeration so removing the hamstringer[0]");
             hamstringer.Remove(hamstringer[0]);
             timer = 0;
-            UpdateTally("Update", "Update");
+            UpdateTally("", "Update");
         }
     }
     bool TallyTimer()
@@ -69,17 +67,14 @@ public class PerformanceTallyLogicV1 : MonoBehaviour
         {
             if (timer > tallyDissapearTime)
             {
-                print($" {timer} > {tallyDissapearTime}, so returning true");
                 return true;
             }
             else
             {
                 timer += Time.deltaTime;
-                print($"timer {timer} < duration {tallyDissapearTime} so adding time to {timer}");
                 return false;
             }
         }
-        print($"list is empty, hamstringer[0] is null");
         return false;
     }
     public bool IsListEmpty(List<string> list)

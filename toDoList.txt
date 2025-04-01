@@ -1,21 +1,24 @@
 generell kod; listy list
-Player bullets måste göra ont
-clock
-style system(?)
-tosser enemy behavior, sibbe g gör (hoppas jag)
+Player bullets/explosionen måste göra ont (har kod på plats men den funkar inte)
+johans hjälp med style saker(funkar inte bara koden är konstig)
 jump pad
 punch
-playerBulletLogic
-TOSSERRRRRRRRRRRR
 fråga johan om hjälp om temp grejen
 
 estetiska saker list
-typ allt
+typ allt(förutom bullet)
+tosser enemy
 parry animation
 punch animation
 
 
 THINGS DONE:
+clock
+style system(?)
+tosser enemy behavior
+playerBulletLogic
+TOSSERRRRRRRRRRRR
+bullet sprite
 SIMON FRÅGA JOHAN OM HJÄLP MED YAML(????????????)
 enemy damage
 enemy bullets do damage
@@ -34,3 +37,5 @@ thermometer healthbar
 hahaha jag håller koll på updates nu:
 Vide - 17:39 2025-03-18 - saker ig, jag glöm jag gör andra sen
 21:13 2025-03-19 -vide
+
+14:53 2025-04-01 -vide - Bullet sprite, 
