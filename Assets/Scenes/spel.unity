@@ -1913,8 +1913,7 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8911232596205331233, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
@@ -1987,6 +1986,10 @@ PrefabInstance:
       propertyPath: death
       value: 
       objectReference: {fileID: 1042899454}
+    - target: {fileID: 5393428504082983903, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: heatIncPerInterval
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6556145221014290406, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: m_Name
       value: playa

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class mchp : MonoBehaviour
 {
+    [SerializeField] private float overheatInterval;
+    [SerializeField] private float heatIncPerInterval;
+
     [Range(0, 100)] public float TemperatureHealth = 0;
     public GameObject scoreThingy;
     public GameObject death; //death är gameobject med death animation btw
 
+    private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +24,38 @@ public class mchp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // debug, du kan ta bort om du vill
+        DieConditions();
+        PassivelyOverheat();
+    }
+    void PassivelyOverheat()
+    {
+        if (TimerColon3())
+        {
+            TemperatureHealth += heatIncPerInterval;
+        }
+    }
+    bool TimerColon3()
+    {
+        if(timer >= overheatInterval)
+        {
+            timer = 0;
+            return true;
+        }
+        else
+        {
+            timer += Time.deltaTime;
+            return false;
+        }
+    }
 
+    void DieConditions()
+    {
         if (TemperatureHealth >= 100)
         {
             TemperatureHealth = 100;
             Die();
         }
     }
-
     void Die()
     {
         // mer debug
