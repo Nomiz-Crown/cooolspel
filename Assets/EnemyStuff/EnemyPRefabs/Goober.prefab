@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1308585987694771500}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.85, y: 1.72, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -228,7 +228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myHealth: 10
-  canvas: {fileID: 5931967881506655392, guid: bfbfdf179d7937d43868d59f854e18cb, type: 3}
 --- !u!114 &2923670152075875624
 MonoBehaviour:
   m_ObjectHideFlags: 0

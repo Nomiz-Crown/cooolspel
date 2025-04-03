@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fister : MonoBehaviour
@@ -14,7 +15,8 @@ public class Fister : MonoBehaviour
     public float ParriedBulletVelocityMultiplier;
 
     private PerformanceTallyLogicV1 tally;
-    public Collider smeg;
+    [SerializeField] private float myDamage;
+    public float knockbackForce;
 
     mchp me;
     private void Start()
@@ -114,7 +116,39 @@ public class Fister : MonoBehaviour
 
     private void Punch()
     {
-        me.RestoreHealth(10);
-        tally.UpdateTally("+ SUCKER PUNCH", "Add");
+        ContactFilter2D filter = new ContactFilter2D().NoFilter();
+        List<Collider2D> results = new();
+
+        Physics2D.OverlapCollider(GetComponent<Collider2D>(), filter, results);
+        print("assigned value to results-list" + results);
+        if (results.Count <= 0) return;
+        print("results was not empty");
+        for (int i = 0; i < results.Count; i++)
+        {
+            if (results[i].CompareTag("Enemy") && results[i] != null && !punchLine.Contains(results[i]))
+            {
+                print("object was enemy, added to punchLine");
+                punchLine.Add(results[i]);
+            }
+        }
+
+        EnemyHealth thisbozo = punchLine[0].GetComponent<EnemyHealth>();
+        if (thisbozo != null)
+        {
+            thisbozo.myHealth -= myDamage;
+            print("thisbozo was not null so appied damage");
+            me.RestoreHealth(10);
+            tally.UpdateTally("+ SUCKER PUNCH", "Add");
+
+            //play the punch anim
+
+            Vector2 knockbackDirection = (punchLine[0].transform.position - transform.position).normalized;
+            Rigidbody2D rb = punchLine[0].gameObject.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                print("thisbozos rigidbody was not null so applying force");
+                rb.AddForce(-knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            }
+        }
     }
 }

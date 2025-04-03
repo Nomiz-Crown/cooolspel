@@ -3,16 +3,20 @@ johans hjälp med style saker (funkar inte bara koden är konstig) (????? past v
 jump pad
 
 punch (påbörjat, behöver hjälp med typ physics2d.collideroverlap(collider2d, list))
-parry är jätte konstig (parries when nothing to parry, heals when nothing to parry)
+
 cleanse fire overlay on heal
 fixa negativ health?
-fråga johan om hjälp om temp grejen (????? past vide va fan snackar du om)
 
 estetiska saker list
 typ allt(förutom bullet)
 tosser enemy
 parry animation
 punch animation
+
+
+
+
+
 
 
 THINGS DONE:
