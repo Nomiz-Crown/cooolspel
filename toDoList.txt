@@ -1,9 +1,12 @@
 generell kod; listy list
-Player bullets/explosionen måste göra ont (har kod på plats men den funkar inte)
-johans hjälp med style saker(funkar inte bara koden är konstig)
+johans hjälp med style saker (funkar inte bara koden är konstig) (????? past vide va fan snackar du om)
 jump pad
-punch
-fråga johan om hjälp om temp grejen
+
+punch (påbörjat, behöver hjälp med typ physics2d.collideroverlap(collider2d, list))
+parry är jätte konstig (parries when nothing to parry, heals when nothing to parry)
+cleanse fire overlay on heal
+fixa negativ health?
+fråga johan om hjälp om temp grejen (????? past vide va fan snackar du om)
 
 estetiska saker list
 typ allt(förutom bullet)
@@ -13,6 +16,7 @@ punch animation
 
 
 THINGS DONE:
+Player bullets/explosionen måste göra ont (har kod på plats men den funkar inte)
 clock
 style system(?)
 tosser enemy behavior

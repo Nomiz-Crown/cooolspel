@@ -24,9 +24,8 @@ public class ExplosionLogic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            tally.UpdateTally("+ ZIGGS R", "Add");
             GankComponent(collision.gameObject);
-            enemysHealth.Kys();
+            enemysHealth.Kys("ZIGGS R");
         }
     }
     void GankComponent(GameObject obj)

@@ -3,19 +3,23 @@ using UnityEngine;
 
 public class Fister : MonoBehaviour
 {
-    private List<GameObject> bulletListToParry = new List<GameObject>();
-    private bool isBulletAvailableToParry;
+    private List<GameObject> bulletListToParry = new();
+    private bool isBulletAvailableToParry = false;
+
+    private List<Collider2D> punchLine = new();
+    private bool goonToPunch = false;
+
 
     public GameObject parriedBulletPrefab;
     public float ParriedBulletVelocityMultiplier;
 
-    public GameObject canvas;
     private PerformanceTallyLogicV1 tally;
+    public Collider smeg;
 
     mchp me;
     private void Start()
     {
-        tally = canvas.GetComponentInChildren<PerformanceTallyLogicV1>();
+        tally = FindObjectOfType<PerformanceTallyLogicV1>();
         me = GetComponent<mchp>();
     }
     void Update()
@@ -30,6 +34,11 @@ public class Fister : MonoBehaviour
             isBulletAvailableToParry = true;
             bulletListToParry.Add(collision.gameObject);
         }
+        else if (collision.CompareTag("Enemy"))
+        {
+            goonToPunch = true;
+            punchLine.Add(collision);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -43,6 +52,16 @@ public class Fister : MonoBehaviour
                 }
             }
         }
+        if (collision.CompareTag("Enemy"))
+        {
+            for (int i = 0; i < punchLine.Count; i++)
+            {
+                if (punchLine[i] == collision.gameObject)
+                {
+                    punchLine.Remove(punchLine[i]);
+                }
+            }
+        }
     }
 
     private void HandleInput()
@@ -52,15 +71,10 @@ public class Fister : MonoBehaviour
             if (isBulletAvailableToParry)
             {
                 Parry();
-                me.RestoreHealth(20);
-                tally.UpdateTally("+ TILLBAKA-KAKA", "Add");
-                print("send tillbaka-kaka to tally");
             }
             else
             {
                 Punch();
-                me.RestoreHealth(10);
-                tally.UpdateTally("+ SUCKER PUNCH", "Add");
             }
         }
     }
@@ -82,13 +96,25 @@ public class Fister : MonoBehaviour
         {
             newBulletRigidbody.velocity = -bulletVelocity * ParriedBulletVelocityMultiplier;
         }
+
+        if (bulletListToParry.Count == 0) return;
+        tally.UpdateTally("+ TILLBAKA-KAKA", "Add");
+
         bulletListToParry.RemoveAt(0);
         Destroy(bulletToParry);
-        isBulletAvailableToParry = bulletListToParry.Count > 0; // Update the state
+
+        isBulletAvailableToParry = bulletListToParry.Count > 0;
+        if (bulletListToParry.Count <= 0) isBulletAvailableToParry = false;
+        // Update the state
+
+        if (me.TemperatureHealth <= 0) return;
+        me.RestoreHealth(20);
+
     }
 
     private void Punch()
     {
-        // Implement punch logic here
+        me.RestoreHealth(10);
+        tally.UpdateTally("+ SUCKER PUNCH", "Add");
     }
 }

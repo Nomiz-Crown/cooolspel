@@ -35,20 +35,21 @@ public class PerformanceTallyLogicV1 : MonoBehaviour
     }
     public void UpdateTally(string Act, string Scenario)
     {
+        tmp = GetComponent<TextMeshProUGUI>();
         tmp.text = "";
         if (Scenario == "Add")
         {
             hamstringer.Add(Act);
             for (int i = 0; i < hamstringer.Count; i++)
             {
-                tmp.text += $"{hamstringer[i]}{i} \n";
+                tmp.text += $"{hamstringer[i]} \n";
             }
         }
         else if (Scenario == "Update")
         {
             for (int i = 0; i < hamstringer.Count; i++)
             {
-                tmp.text += $"{hamstringer[i]}{i} \n";
+                tmp.text += $"{hamstringer[i]} \n";
             }
         }
     }
