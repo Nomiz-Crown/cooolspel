@@ -19,12 +19,18 @@ public class MCMovementv2 : MonoBehaviour
     [HideInInspector] public bool isGrinding;
     [HideInInspector] public bool FacingRight;
 
+    [HideInInspector] private bool canSlamJump;
+    [HideInInspector] protected bool checkSlamJumpInput = false;
+
     //misc values that are neccesary for some reason
                      private int wallJumpCounter;
     [SerializeField] private int maxWallJumps;
                      private float timer = 0;
+                     private float otherTimer = 0;
     [SerializeField] private float timerForJumpDuration;
     [SerializeField] private float slideMult;
+    [HideInInspector] private float slamJumpTimerMult = 0;
+    [SerializeField] private float slamJumpWindow;
 
     //unneccesary values for jag ar dalig pa programmering
     private Vector2 slidingColliderSize;
@@ -50,6 +56,8 @@ public class MCMovementv2 : MonoBehaviour
         isGrinding = false;
         FacingRight = true;
         isSlamming = false;
+        canSlamJump = false;
+
 
         defaultColliderOffset = coll.offset;
         defaultColliderSize = coll.size;
@@ -72,6 +80,7 @@ public class MCMovementv2 : MonoBehaviour
         ResetJumpToFallAfterDelay();
 
         CheckSlam();
+        SlamJump();
 
         CheckSlide();
         ChangeCollider();
@@ -99,6 +108,7 @@ public class MCMovementv2 : MonoBehaviour
             if (isSlamming)
             {
                 isSlamming = false;
+                canSlamJump = true;
             }
             if (isWalking)
             {
@@ -153,6 +163,10 @@ public class MCMovementv2 : MonoBehaviour
             {
                 ExecuteSlam();
             }
+        }
+        else if(!isGrounded && isSlamming)
+        {
+            slamJumpTimerMult += Time.deltaTime;
         }
     }
     private void ExecuteSlam()
@@ -262,7 +276,14 @@ public class MCMovementv2 : MonoBehaviour
     {
         if (isGrounded || isGrinding)
         {
-            if(isGrounded && !isGrinding)
+            if (isGrounded && canSlamJump)
+            {
+                if (checkSlamJumpInput)
+                {
+                    ExecuteSlamJump();
+                }
+            }
+            else if(isGrounded && !isGrinding)
             {
                 ExecuteGroundJump();
             }
@@ -270,6 +291,14 @@ public class MCMovementv2 : MonoBehaviour
             {
                 ExecuteWallJump();
             }
+        }
+    }
+    void ExecuteSlamJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isJumping = true;
+            rb.velocity += new Vector2(0, JumpHeight * (1 + slamJumpTimerMult));
         }
     }
     void ExecuteGroundJump()
@@ -377,5 +406,23 @@ public class MCMovementv2 : MonoBehaviour
             isWalking = false;
         }
         FacingRight = false;
+    }
+    void SlamJump()
+    {
+        if (canSlamJump)
+        {
+            if(otherTimer >= slamJumpWindow)
+            {
+                canSlamJump = false;
+                checkSlamJumpInput = false;
+                otherTimer = 0;
+                slamJumpTimerMult = 0;
+            }
+            else
+            {
+                otherTimer += Time.deltaTime;
+                checkSlamJumpInput = true;
+            }
+        }
     }
 }

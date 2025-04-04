@@ -31,10 +31,18 @@ public class FireyLayerLogic : MonoBehaviour
     }
     void CompareHealth()
     {
-        if(player.TemperatureHealth > hpLastChecked)
+        if (player.TemperatureHealth < hpLastChecked)
+        {
+            
+        }
+        if (player.TemperatureHealth > hpLastChecked)
         {
             IncreaseOpacity();
         }
+    }
+    void CleanseOpacity()
+    {
+        img.color -= new Color(0, 0, 0, 0);
     }
     void DecreaseOpacityPassively()
     {

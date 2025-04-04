@@ -148,6 +148,7 @@ MonoBehaviour:
   maxWallJumps: 3
   timerForJumpDuration: 0.583
   slideMult: 1.5
+  slamJumpWindow: 0.3
 --- !u!95 &5068669546633724705
 Animator:
   serializedVersion: 5

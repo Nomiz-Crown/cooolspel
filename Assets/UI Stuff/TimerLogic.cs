@@ -14,12 +14,16 @@ public class TimerLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TimerTMP = Timer.GetComponent<TextMeshProUGUI>();
+        if (Timer == null) print("uuuooooohhhh");
+        else TimerTMP = Timer.GetComponent<TextMeshProUGUI>();
+
+        if (TimerTMP == null) print("uuuooooohhhh2");
     }
 
     // Update is called once per frame
     void Update()
     {
+        print("hii!!");
         TimeyWimeyWibblyWobblyStuff();
         UpdateTimeToDisplay();
         UpdateText();
