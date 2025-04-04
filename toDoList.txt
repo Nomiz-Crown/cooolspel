@@ -1,11 +1,7 @@
 generell kod; listy list
-johans hjälp med style saker (funkar inte bara koden är konstig) (????? past vide va fan snackar du om)
+
 jump pad
 
-punch (påbörjat, behöver hjälp med typ physics2d.collideroverlap(collider2d, list))
-{
-alternativt, gör så att punchLine funkar likadant som bullet to parry list, alltså like icky men funktionellt
-}
 cleanse fire overlay on heal
 fixa negativ health?
 
@@ -22,6 +18,7 @@ punch animation
 
 
 THINGS DONE:
+punch
 Player bullets/explosionen måste göra ont (har kod på plats men den funkar inte)
 clock
 style system(?)
@@ -43,9 +40,3 @@ player damage
 enemy health, (vide håller på med)
 temperature score (vide gör)
 thermometer healthbar
-
-hahaha jag håller koll på updates nu:
-Vide - 17:39 2025-03-18 - saker ig, jag glöm jag gör andra sen
-21:13 2025-03-19 -vide
-
-14:53 2025-04-01 -vide - Bullet sprite, 
