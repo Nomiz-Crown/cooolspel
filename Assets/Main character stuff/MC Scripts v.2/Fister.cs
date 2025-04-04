@@ -31,12 +31,12 @@ public class Fister : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             isBulletAvailableToParry = true;
             bulletListToParry.Add(collision.gameObject);
         }
-        else if (collision.CompareTag("Enemy"))
+        else if (collision.gameObject.CompareTag("Enemy"))
         {
             goonToPunch = true;
             punchLine.Add(collision);
@@ -44,25 +44,13 @@ public class Fister : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
-            for (int i = 0; i < bulletListToParry.Count; i++)
-            {
-                if (bulletListToParry[i] == collision.gameObject)
-                {
-                    bulletListToParry.Remove(bulletListToParry[i]);
-                }
-            }
+            if (bulletListToParry.Contains(collision.gameObject)) bulletListToParry.Remove(collision.gameObject);
         }
-        if (collision.CompareTag("Enemy"))
+        else if (collision.gameObject.CompareTag("Enemy"))
         {
-            for (int i = 0; i < punchLine.Count; i++)
-            {
-                if (punchLine[i] == collision.gameObject)
-                {
-                    punchLine.Remove(punchLine[i]);
-                }
-            }
+            if (punchLine.Contains(collision)) punchLine.Remove(collision);
         }
     }
 
@@ -91,7 +79,7 @@ public class Fister : MonoBehaviour
 
         if (bulletRigidbody == null) return;
         Vector2 bulletVelocity = bulletRigidbody.velocity;
-        GameObject newBullet = Instantiate(parriedBulletPrefab, bulletPosition, Quaternion.identity);
+        GameObject newBullet = Instantiate(parriedBulletPrefab, bulletPosition, Quaternion.identity, transform);
         Rigidbody2D newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();
 
         if (newBulletRigidbody != null)

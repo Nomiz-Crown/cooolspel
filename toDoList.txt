@@ -3,7 +3,9 @@ johans hjälp med style saker (funkar inte bara koden är konstig) (????? past v
 jump pad
 
 punch (påbörjat, behöver hjälp med typ physics2d.collideroverlap(collider2d, list))
-
+{
+alternativt, gör så att punchLine funkar likadant som bullet to parry list, alltså like icky men funktionellt
+}
 cleanse fire overlay on heal
 fixa negativ health?
 
