@@ -8,6 +8,7 @@ public class TimerLogic : MonoBehaviour
 
     float secondsPassed = 0;
     string secondsToDisplay;
+    float tempvalue = 0;
     float minutesPassed = 0;
     string minutesToDisplay;
     // Start is called before the first frame update
@@ -25,9 +26,9 @@ public class TimerLogic : MonoBehaviour
     }
     void UpdateTimeToDisplay()
     {
-        float smeg = Mathf.Round(secondsPassed * 100) / 100;
-        if (smeg < 10) secondsToDisplay = $"0{smeg}";
-        else if (smeg > 10) secondsToDisplay = $"{smeg}";
+        float SecondPassedRounded = Mathf.Round(tempvalue * 100) / 100;
+        if (SecondPassedRounded < 10) secondsToDisplay = $"0{SecondPassedRounded}";
+        else if (SecondPassedRounded > 10) secondsToDisplay = $"{SecondPassedRounded}";
 
         if (minutesPassed < 10) minutesToDisplay = $"0{minutesPassed}";
         else if (minutesPassed > 10) minutesToDisplay = $"{minutesPassed}";
@@ -39,10 +40,22 @@ public class TimerLogic : MonoBehaviour
     void TimeyWimeyWibblyWobblyStuff()
     {
         SecondStuff();
+        FormatSeconds();
     }
     void SecondStuff()
     {
         secondsPassed += Time.deltaTime;
-        if(secondsPassed >= 60) { minutesPassed++; secondsPassed = 0; }
+        if(secondsPassed >= 60)
+        {
+            minutesPassed = Mathf.Floor(secondsPassed / 60);
+        }
+    }
+    void FormatSeconds()
+    {
+        tempvalue = secondsPassed - (60 * minutesPassed);
+    }
+    public void ReduceTime(float time)
+    {
+        secondsPassed -= time;
     }
 }

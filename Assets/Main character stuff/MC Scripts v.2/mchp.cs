@@ -6,7 +6,6 @@ public class mchp : MonoBehaviour
     [SerializeField] private float heatIncPerInterval;
 
     [Range(0, 100)] public float TemperatureHealth = 0;
-    public GameObject scoreThingy;
     public GameObject death; //death är gameobject med death animation btw
 
     private float timer = 0;

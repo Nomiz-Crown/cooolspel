@@ -8,8 +8,6 @@ public class Fister : MonoBehaviour
     private bool isBulletAvailableToParry = false;
 
     private List<Collider2D> punchLine = new();
-    private bool goonToPunch = false;
-
 
     public GameObject parriedBulletPrefab;
     public float ParriedBulletVelocityMultiplier;
@@ -27,6 +25,7 @@ public class Fister : MonoBehaviour
     void Update()
     {
         HandleInput();
+        print(punchLine);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,7 +37,6 @@ public class Fister : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            goonToPunch = true;
             punchLine.Add(collision);
         }
     }
@@ -107,9 +105,10 @@ public class Fister : MonoBehaviour
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
         List<Collider2D> results = new();
 
-        Physics2D.OverlapCollider(GetComponent<Collider2D>(), filter, results);
+        Physics2D.OverlapCollider(GetComponent<PolygonCollider2D>(), filter, results);
         print("assigned value to results-list" + results);
-        if (results.Count <= 0) return;
+
+        if (results.Count <= 0) return; 
         print("results was not empty");
         for (int i = 0; i < results.Count; i++)
         {
@@ -119,16 +118,25 @@ public class Fister : MonoBehaviour
                 punchLine.Add(results[i]);
             }
         }
-
+        if (punchLine.Count <= 0) return;
         EnemyHealth thisbozo = punchLine[0].GetComponent<EnemyHealth>();
         if (thisbozo != null)
         {
-            thisbozo.myHealth -= myDamage;
+            if (thisbozo.InflictDamage(myDamage))
+            {
+                punchLine.Remove(punchLine[0]);
+                me.RestoreHealth(10);
+                return;
+            }
             print("thisbozo was not null so appied damage");
-            me.RestoreHealth(10);
+            me.RestoreHealth(5);
             tally.UpdateTally("+ SUCKER PUNCH", "Add");
 
+            if (punchLine.Count <= 0) return;
+
             //play the punch anim
+
+            if (punchLine.Count <= 0) return;
 
             Vector2 knockbackDirection = (punchLine[0].transform.position - transform.position).normalized;
             Rigidbody2D rb = punchLine[0].gameObject.GetComponent<Rigidbody2D>();
@@ -138,5 +146,6 @@ public class Fister : MonoBehaviour
                 rb.AddForce(-knockbackDirection * knockbackForce, ForceMode2D.Impulse);
             }
         }
+        results = null;
     }
 }

@@ -1886,10 +1886,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6620480256877318382, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
-      propertyPath: m_text
-      value: + SKIBIDI TOILET
-      objectReference: {fileID: 0}
     - target: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_Name
       value: Canvas

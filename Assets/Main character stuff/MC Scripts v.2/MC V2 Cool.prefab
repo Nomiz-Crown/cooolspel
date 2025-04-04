@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2878174327193097717}
   - component: {fileID: 3631745102670095708}
   - component: {fileID: 5393428504082983903}
+  - component: {fileID: 2018115683702002312}
   m_Layer: 7
   m_Name: MC V2 Cool
   m_TagString: Player
@@ -255,7 +256,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parriedBulletPrefab: {fileID: 9012950063264432271, guid: 6da23f14f1939714a9be3842f98822a0, type: 3}
   ParriedBulletVelocityMultiplier: 1.5
-  canvas: {fileID: 5931967881506655392, guid: bfbfdf179d7937d43868d59f854e18cb, type: 3}
+  myDamage: 5
+  knockbackForce: 5
 --- !u!60 &3631745102670095708
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -326,7 +328,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overheatInterval: 1
-  heatIncPerInterval: 2.5
+  heatIncPerInterval: 1
   TemperatureHealth: 0
-  scoreThingy: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
   death: {fileID: 0}
+--- !u!114 &2018115683702002312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6556145221014290406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4db1f601be3964f8cc0df3012faa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Timer: {fileID: 4657304211363992102, guid: 37f95b089df690940a774b9cf569a65a, type: 3}

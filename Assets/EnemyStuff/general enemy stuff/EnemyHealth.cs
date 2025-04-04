@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckDead();
+
     }
     public void Kys(string cond)
     {
@@ -38,5 +38,12 @@ public class EnemyHealth : MonoBehaviour
             tally.UpdateTally("+ MANSLAUGHTER", "Add");
             Destroy(gameObject);
         }
+    }
+    public bool InflictDamage(float dmg)
+    {
+        myHealth -= dmg;
+        if (myHealth == 0) return true;
+        CheckDead();
+        return false;
     }
 }
