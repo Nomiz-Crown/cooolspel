@@ -1,8 +1,6 @@
 generell kod; listy list
-
+fråga johan om hjälp med punching
 jump pad
-
-cleanse fire overlay on heal
 fixa negativ health?
 
 estetiska saker list
@@ -18,6 +16,7 @@ punch animation
 
 
 THINGS DONE:
+cleanse fire overlay on heal
 punch
 Player bullets/explosionen måste göra ont (har kod på plats men den funkar inte)
 clock
