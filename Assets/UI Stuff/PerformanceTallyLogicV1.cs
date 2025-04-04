@@ -13,42 +13,30 @@ public class PerformanceTallyLogicV1 : MonoBehaviour
     void Start()
     {
         tmp = GetComponent<TextMeshProUGUI>();
-        UpdateTally("flippy", "Add");
     }
 
     // Update is called once per frame
     void Update()
     {
-        stuff();
         RemoveFirstTally();
-    }
-    void stuff()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            UpdateTally("flippy", "Add");
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            UpdateTally("", "Update");
-        }
     }
     public void UpdateTally(string Act, string Scenario)
     {
+        tmp = GetComponent<TextMeshProUGUI>();
         tmp.text = "";
         if (Scenario == "Add")
         {
             hamstringer.Add(Act);
             for (int i = 0; i < hamstringer.Count; i++)
             {
-                tmp.text += $"{hamstringer[i]}{i} \n";
+                tmp.text += $"{hamstringer[i]} \n";
             }
         }
         else if (Scenario == "Update")
         {
             for (int i = 0; i < hamstringer.Count; i++)
             {
-                tmp.text += $"{hamstringer[i]}{i} \n";
+                tmp.text += $"{hamstringer[i]} \n";
             }
         }
     }

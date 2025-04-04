@@ -4,13 +4,16 @@ public class EnemyHealth : MonoBehaviour
 {
     new Collider2D collider;
     public float myHealth;
-    public GameObject canvas;
     private PerformanceTallyLogicV1 tally;
 
     // Start is called before the first frame update
     void Start()
     {
-        tally = canvas.GetComponentInChildren<PerformanceTallyLogicV1>();
+        tally = FindObjectOfType<PerformanceTallyLogicV1>();
+        if (tally == null)
+        {
+            print("uuooohhhhhhhhhhhhh");
+        }
         collider = GetComponent<Collider2D>();
         if (collider == null)
         {
@@ -23,15 +26,16 @@ public class EnemyHealth : MonoBehaviour
     {
         CheckDead();
     }
-    public void Kys()
+    public void Kys(string cond)
     {
+        tally.UpdateTally($"+ {cond}", "Add");
         Destroy(gameObject);
     }
     private void CheckDead()
     {
         if (myHealth <= 0)
         {
-            tally.UpdateTally("+ NATURAL CAUSES", "Add");
+            tally.UpdateTally("+ MANSLAUGHTER", "Add");
             Destroy(gameObject);
         }
     }

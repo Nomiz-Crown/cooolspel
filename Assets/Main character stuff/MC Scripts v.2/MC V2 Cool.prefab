@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parriedBulletPrefab: {fileID: 9012950063264432271, guid: 6da23f14f1939714a9be3842f98822a0, type: 3}
   ParriedBulletVelocityMultiplier: 1.5
-  canvas: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+  canvas: {fileID: 5931967881506655392, guid: bfbfdf179d7937d43868d59f854e18cb, type: 3}
 --- !u!60 &3631745102670095708
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overheatInterval: 1
-  heatIncPerInterval: 5
+  heatIncPerInterval: 2.5
   TemperatureHealth: 0
   scoreThingy: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
   death: {fileID: 0}

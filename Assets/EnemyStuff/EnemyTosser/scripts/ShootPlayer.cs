@@ -20,9 +20,9 @@ public class ShootPlayer : MonoBehaviour
     {
         GameObject clone = Instantiate(bullet, transform);
         clone.transform.position = transform.position;
-        Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
+        Rigidbody2D myBulletsRigidbody = clone.GetComponent<Rigidbody2D>();
         Vector3 fuck = new Vector2(target.position.x, target.position.y + 1);
         Vector2 direction = (fuck - clone.transform.position).normalized;
-        rb.velocity = direction * velocity;
+        myBulletsRigidbody.velocity = direction * velocity;
     }
 }
