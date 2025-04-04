@@ -25,7 +25,6 @@ public class Fister : MonoBehaviour
     void Update()
     {
         HandleInput();
-        print(punchLine);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,10 +34,28 @@ public class Fister : MonoBehaviour
             isBulletAvailableToParry = true;
             bulletListToParry.Add(collision.gameObject);
         }
-        else if (collision.gameObject.CompareTag("Enemy"))
+    }
+
+    ContactFilter2D filter = new ContactFilter2D().NoFilter();
+    List<Collider2D> results = new();
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Physics2D.OverlapCollider(GetComponent<PolygonCollider2D>(), filter, results);
+        foreach (Collider2D col in results)
         {
-            punchLine.Add(collision);
+            if (col.gameObject.CompareTag("Enemy"))
+            {
+                if (punchLine.Contains(col))
+                {
+                    EnemyHealth smeg = col.GetComponent<EnemyHealth>();
+                    if (smeg == null || smeg.myHealth < 0) punchLine.Remove(col);
+                    return;
+                }
+                punchLine.Add(col);
+            }
         }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -96,19 +113,42 @@ public class Fister : MonoBehaviour
         // Update the state
 
         if (me.TemperatureHealth <= 0) return;
-        me.RestoreHealth(20);
+        me.RestoreHealth(35);
 
+    }
+    private void Punch2()
+    {
+        EnemyHealth thisbozo = punchLine[0].GetComponent<EnemyHealth>();
+        if (thisbozo != null)
+        {
+            //play the punch anim
+            if (thisbozo.InflictDamage(myDamage))
+            {
+                print("this bozo is dead");
+                punchLine.Remove(punchLine[0]);
+                me.RestoreHealth(40);
+                return;
+            }
+            me.RestoreHealth(10);
+            tally.UpdateTally("+ SUCKER PUNCH", "Add");
+
+            Vector2 knockbackDirection = (punchLine[0].transform.position - transform.position).normalized;
+            Rigidbody2D rb = punchLine[0].gameObject.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                print("thisbozos rigidbody was not null so applying force");
+                rb.AddForce(-knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            }
+        }
     }
 
     private void Punch()
     {
-        ContactFilter2D filter = new ContactFilter2D().NoFilter();
         List<Collider2D> results = new();
 
         Physics2D.OverlapCollider(GetComponent<PolygonCollider2D>(), filter, results);
-        print("assigned value to results-list" + results);
 
-        if (results.Count <= 0) return; 
+        if (results.Count <= 0) { results = null; return; }
         print("results was not empty");
         for (int i = 0; i < results.Count; i++)
         {
@@ -118,25 +158,27 @@ public class Fister : MonoBehaviour
                 punchLine.Add(results[i]);
             }
         }
-        if (punchLine.Count <= 0) return;
+        if (punchLine.Count <= 0) { results = null; return; }
         EnemyHealth thisbozo = punchLine[0].GetComponent<EnemyHealth>();
         if (thisbozo != null)
         {
             if (thisbozo.InflictDamage(myDamage))
             {
+                print("this bozo is dead");
                 punchLine.Remove(punchLine[0]);
-                me.RestoreHealth(10);
+                me.RestoreHealth(40);
+                results = null;
                 return;
             }
             print("thisbozo was not null so appied damage");
-            me.RestoreHealth(5);
+            me.RestoreHealth(10);
             tally.UpdateTally("+ SUCKER PUNCH", "Add");
 
-            if (punchLine.Count <= 0) return;
+            if (punchLine.Count <= 0) { results = null; return; }
 
             //play the punch anim
 
-            if (punchLine.Count <= 0) return;
+            if (punchLine.Count <= 0) { results = null; return; }
 
             Vector2 knockbackDirection = (punchLine[0].transform.position - transform.position).normalized;
             Rigidbody2D rb = punchLine[0].gameObject.GetComponent<Rigidbody2D>();
