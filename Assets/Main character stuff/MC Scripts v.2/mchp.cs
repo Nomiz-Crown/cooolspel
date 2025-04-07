@@ -76,6 +76,8 @@ public class mchp : MonoBehaviour
     }
     public void RestoreHealth(float amount)
     {
-        TemperatureHealth -= Random.Range(amount-10, amount+10);
+        float flippy = Random.Range(amount - 10, amount + 10);
+        if (TemperatureHealth - flippy < 0) TemperatureHealth -= TemperatureHealth;
+        else TemperatureHealth -= flippy;
     }
 }

@@ -1,7 +1,5 @@
 generell kod; listy list
-fråga johan om hjälp med punching ( i dont like simon :( )
 jump pad
-fixa negativ health?
 
 estetiska saker list
 typ allt(förutom bullet)
@@ -16,6 +14,8 @@ punch animation
 
 
 THINGS DONE:
+fixa negativ health?
+tror jag löste punchline
 cleanse fire overlay on heal
 punch
 Player bullets/explosionen måste göra ont (har kod på plats men den funkar inte)
