@@ -79,7 +79,7 @@ public class Fister : MonoBehaviour
             }
             else
             {
-                Punch();
+                Punch2();
             }
         }
     }

@@ -23,7 +23,6 @@ public class TimerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("hii!!");
         TimeyWimeyWibblyWobblyStuff();
         UpdateTimeToDisplay();
         UpdateText();

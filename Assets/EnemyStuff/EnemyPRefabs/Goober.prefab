@@ -244,4 +244,4 @@ MonoBehaviour:
   colliderSize: {x: 0, y: 0}
   PlayerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
