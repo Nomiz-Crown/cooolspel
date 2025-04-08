@@ -47,9 +47,9 @@ public class HpBar : MonoBehaviour
 
     private void Update()
     {
+        slider.value = playerHealth.TemperatureHealth;
         if (playerHealth != null)
         {
-            slider.value = playerHealth.TemperatureHealth;
             UpdateActiveImage();
         }
     }

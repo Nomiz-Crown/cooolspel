@@ -33,7 +33,7 @@ public class FireyLayerLogic : MonoBehaviour
     {
         if (player.TemperatureHealth < hpLastChecked)
         {
-            
+            CleanseOpacity();
         }
         if (player.TemperatureHealth > hpLastChecked)
         {
