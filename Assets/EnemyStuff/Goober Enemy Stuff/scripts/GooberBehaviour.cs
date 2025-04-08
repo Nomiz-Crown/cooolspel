@@ -19,7 +19,6 @@ public class GooberBehaviour : MonoBehaviour
     private bool inChase;
     [HideInInspector] public bool isIdle;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,7 +31,6 @@ public class GooberBehaviour : MonoBehaviour
         isIdle = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckInRange();
@@ -42,12 +40,13 @@ public class GooberBehaviour : MonoBehaviour
             ChasePlayer();
             FacePlayer();
         }
-        else if(!isLunging)
+        else if (!isLunging)
         {
             rb.velocity = new Vector2(0, 0);
             isIdle = true;
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -59,6 +58,7 @@ public class GooberBehaviour : MonoBehaviour
             }
         }
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -66,6 +66,7 @@ public class GooberBehaviour : MonoBehaviour
             isGrounded = false;
         }
     }
+
     void CheckIdle()
     {
         if (!isLunging && !inChase && isGrounded)
@@ -77,9 +78,11 @@ public class GooberBehaviour : MonoBehaviour
             isIdle = false;
         }
     }
-    [HideInInspector] public bool LungeCooldown()
+
+    [HideInInspector]
+    public bool LungeCooldown()
     {
-        if(timer >= LungeCooldownTime)
+        if (timer >= LungeCooldownTime)
         {
             return true;
         }
@@ -90,6 +93,7 @@ public class GooberBehaviour : MonoBehaviour
             return false;
         }
     }
+
     void CheckLunge()
     {
         if (canReachPlayer && isGrounded)
@@ -98,42 +102,31 @@ public class GooberBehaviour : MonoBehaviour
             {
                 LungeAtRight();
             }
-            else if (!facingRight)
+            else
             {
                 LungeAtLeft();
             }
-            timer = 0;
+            timer = 0; // Reset timer after lunging
         }
     }
+
     void LungeAtRight()
     {
-        rb.velocity += new Vector2(maxSpeed*2, JumpHeight);
+        rb.velocity = new Vector2(maxSpeed * 2, JumpHeight);
         isLunging = true;
-        if (isGrounded)
-        {
-            isGrounded = false;
-        }
     }
+
     void LungeAtLeft()
     {
-        rb.velocity += new Vector2(-maxSpeed * 2, JumpHeight);
+        rb.velocity = new Vector2(-maxSpeed * 2, JumpHeight);
         isLunging = true;
-        if (isGrounded)
-        {
-            isGrounded = false;
-        }
     }
+
     void CheckInRange()
     {
-        if (Mathf.Abs(transform.position.x - Player.transform.position.x) <= LungeRange)
-        {
-            canReachPlayer = true;
-        }
-        else
-        {
-            canReachPlayer = false;
-        }
+        canReachPlayer = Mathf.Abs(transform.position.x - Player.transform.position.x) <= LungeRange;
     }
+
     void TurnToFace(string direction)
     {
         if (direction == "Right")
@@ -145,9 +138,9 @@ public class GooberBehaviour : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
             facingRight = false;
-
         }
     }
+
     void FacePlayer()
     {
         if (transform.position.x > Player.transform.position.x)
@@ -159,13 +152,12 @@ public class GooberBehaviour : MonoBehaviour
             TurnToFace("Right");
         }
     }
+
     void ChasePlayer()
     {
-        
         if (transform.position.x > Player.transform.position.x + LungeRange)
         {
-            canReachPlayer = false;
-            if(rb.velocity.x > -maxSpeed)
+            if (rb.velocity.x > -maxSpeed)
             {
                 inChase = true;
                 rb.velocity -= new Vector2(acceleration, 0);
@@ -173,7 +165,6 @@ public class GooberBehaviour : MonoBehaviour
         }
         else if (transform.position.x < Player.transform.position.x - LungeRange)
         {
-            canReachPlayer = false;
             if (rb.velocity.x < maxSpeed)
             {
                 inChase = true;

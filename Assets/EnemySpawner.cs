@@ -40,7 +40,6 @@ public class EnemySpawner : MonoBehaviour
     void CheckEnemiesActive()
     {
         if (!EnemiesSpawned) return;
-        print("enemies have been spawned");
         int count = 0;
         for (int i = 0; i < EnemiesActive.Count; i++)
         {
