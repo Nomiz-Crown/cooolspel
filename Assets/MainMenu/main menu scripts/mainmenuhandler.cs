@@ -102,7 +102,7 @@ public class mainmenuhandler : MonoBehaviour
 
         if (graphicStuff != null)
         {
-            graphicStuff.SetMaxOffset(0.07f); 
+            graphicStuff.SetMaxOffset(0.15f); 
         }
 
         if (graphicToZoom != null)
