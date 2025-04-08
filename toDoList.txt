@@ -9,7 +9,8 @@ level 1 layout
 level 2 layout
 level 3 layout (boss fight?)
 death screen
-
+musik?
+level decorations (lit bara spamma tires och dumpsters)
 
 
 
