@@ -119,6 +119,7 @@ public class Fister : MonoBehaviour
     private void Punch2()
     {
         if (punchLine.Count <= 0) return;
+        if (punchLine[0].GetComponent<EnemyHealth>() == null) punchLine.Remove(punchLine[0]);
         EnemyHealth thisbozo = punchLine[0].GetComponent<EnemyHealth>();
         if (thisbozo != null)
         {
