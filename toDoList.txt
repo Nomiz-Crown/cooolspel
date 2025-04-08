@@ -8,6 +8,7 @@ parry animation
 level 1 layout
 level 2 layout
 level 3 layout (boss fight?)
+death screen
 
 
 
