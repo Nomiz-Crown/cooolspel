@@ -8303,7 +8303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 452363991}
   followStrength: 0.01
-  maxOffset: 0.07
+  maxOffset: 0.15
 --- !u!1 &481389908
 GameObject:
   m_ObjectHideFlags: 0

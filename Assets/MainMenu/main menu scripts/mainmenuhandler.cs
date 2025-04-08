@@ -58,7 +58,7 @@ public class mainmenuhandler : MonoBehaviour
 
         if (graphicStuff != null)
         {
-            graphicStuff.SetMaxOffset(0.1f);  // Increase the parallax max offset
+            graphicStuff.SetMaxOffset(0.2f);  
         }
 
         if (graphicToZoom != null)
@@ -68,7 +68,7 @@ public class mainmenuhandler : MonoBehaviour
         }
     }
 
-    // ?? Settings Button: zoom right + open panel + disable buttons
+    
     public void OnSettingsButtonClicked()
     {
         if (settingsPanel != null)
@@ -81,7 +81,7 @@ public class mainmenuhandler : MonoBehaviour
 
         if (graphicStuff != null)
         {
-            graphicStuff.SetMaxOffset(0.1f);  // Increase the parallax max offset
+            graphicStuff.SetMaxOffset(0.2f); 
         }
 
         if (graphicToZoom != null)
@@ -91,7 +91,7 @@ public class mainmenuhandler : MonoBehaviour
         }
     }
 
-    // ?? Hide Panel Button: hide all panels, reset zoom, show buttons again
+   
     public void OnHidePanelButtonClicked()
     {
         if (panelToActivate != null) panelToActivate.SetActive(false);
@@ -102,7 +102,7 @@ public class mainmenuhandler : MonoBehaviour
 
         if (graphicStuff != null)
         {
-            graphicStuff.SetMaxOffset(0.07f);  // Reset the parallax max offset
+            graphicStuff.SetMaxOffset(0.07f); 
         }
 
         if (graphicToZoom != null)
