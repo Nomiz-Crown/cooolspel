@@ -1,51 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class mainmenugraphicstuff : MonoBehaviour
 {
-    public GameObject[] objectsToSpawn; // inspector grejer yk yk
-    public float moveSpeed = 5f; //du vet vad move speed är -_-
-    public float spawnInterval = 2f; //spawnrate för grej skiterna i backgrunden
-    public float destroyX = -10f; //när dem blir destroyade (ta typ minst -20)
+    [SerializeField] private GameObject targetObject;
+    public float followStrength = 0.05f;
+    public float maxOffset = 30f;
+
+    private Vector3 initialPosition;
 
     void Start()
     {
-        StartCoroutine(SpawnObjects());
-    }
-
-    IEnumerator SpawnObjects()
-    {
-        while (true)
+        if (targetObject != null)
         {
-            SpawnObject();
-            yield return new WaitForSeconds(spawnInterval);
+            initialPosition = targetObject.transform.localPosition;
         }
     }
 
-    void SpawnObject()
+    void Update()
     {
-        if (objectsToSpawn.Length == 0) return;
+        if (targetObject == null) return;
 
-        
-        GameObject original = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
+        Vector3 mousePos = Input.mousePosition;
 
-       
-        GameObject clone = Instantiate(original, original.transform.position, Quaternion.identity);
+        float screenX = (mousePos.x / Screen.width) * 2 - 1;
+        float screenY = (mousePos.y / Screen.height) * 2 - 1;
 
-        
-        StartCoroutine(MoveAndDestroy(clone));
+        Vector3 targetOffset = new Vector3(screenX, screenY, 0) * maxOffset;
+
+        targetObject.transform.localPosition = Vector3.Lerp(
+            targetObject.transform.localPosition,
+            initialPosition + targetOffset,
+            followStrength
+        );
     }
 
-    IEnumerator MoveAndDestroy(GameObject obj)
+    // Method to update max offset (to be called by the mainmenuhandler script)
+    public void SetMaxOffset(float newOffset)
     {
-        while (obj != null && obj.transform.position.x > destroyX)
-        {
-            obj.transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-            yield return null; 
-        }
-
-        if (obj != null)
-            Destroy(obj); 
+        maxOffset = newOffset;
     }
 }

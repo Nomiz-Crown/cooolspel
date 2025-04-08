@@ -1,38 +1,139 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class mainmenuhandler : MonoBehaviour
 {
-    public GameObject panelToActivate; // Assign the panel in the Inspector
-    public string scene1Name; // Assign scene names in the Inspector
+    public GameObject panelToActivate;
+    public string scene1Name;
     public string scene2Name;
     public string scene3Name;
     public string scene4Name;
 
-    // Method to show the panel
-    public void ShowPanel()
+    [Header("New Additions")]
+    public GameObject settingsButton;
+    public GameObject playButton;
+    public GameObject settingsPanel;
+    public GameObject graphicToZoom;
+    public float zoomDuration = 0.5f;
+    public Vector3 zoomScale = new Vector3(1.5f, 1.5f, 1f);
+    public Vector3 leftPosition = new Vector3(-300f, 0f, 0f);
+    public Vector3 rightPosition = new Vector3(300f, 0f, 0f);
+
+    // Reference to mainmenugraphicstuff
+    public mainmenugraphicstuff graphicStuff;
+
+    private Vector3 originalScale;
+    private Vector3 originalPosition;
+    private Coroutine currentZoomCoroutine;
+
+    void Start()
     {
-        if (panelToActivate != null)
+        if (graphicToZoom != null)
         {
-            panelToActivate.SetActive(true);
+            originalScale = graphicToZoom.transform.localScale;
+            originalPosition = graphicToZoom.transform.localPosition;
         }
     }
 
-    // Method to hide the panel
-    public void HidePanel()
-    {
-        if (panelToActivate != null)
-        {
-            panelToActivate.SetActive(false);
-        }
-    }
-
-    // Method to load a scene (call this from buttons)
     public void LoadScene(string sceneName)
     {
         if (!string.IsNullOrEmpty(sceneName))
         {
             SceneManager.LoadScene(sceneName);
         }
+    }
+
+    // ?? Play Button: zoom left + show panel
+    public void OnPlayButtonClicked()
+    {
+        if (panelToActivate != null)
+        {
+            panelToActivate.SetActive(true);
+        }
+
+        if (playButton != null) playButton.SetActive(false);
+        if (settingsButton != null) settingsButton.SetActive(false);
+
+        if (graphicStuff != null)
+        {
+            graphicStuff.SetMaxOffset(0.1f);  // Increase the parallax max offset
+        }
+
+        if (graphicToZoom != null)
+        {
+            if (currentZoomCoroutine != null) StopCoroutine(currentZoomCoroutine);
+            currentZoomCoroutine = StartCoroutine(ZoomAndMove(graphicToZoom, leftPosition));
+        }
+    }
+
+    // ?? Settings Button: zoom right + open panel + disable buttons
+    public void OnSettingsButtonClicked()
+    {
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(true);
+        }
+
+        if (playButton != null) playButton.SetActive(false);
+        if (settingsButton != null) settingsButton.SetActive(false);
+
+        if (graphicStuff != null)
+        {
+            graphicStuff.SetMaxOffset(0.1f);  // Increase the parallax max offset
+        }
+
+        if (graphicToZoom != null)
+        {
+            if (currentZoomCoroutine != null) StopCoroutine(currentZoomCoroutine);
+            currentZoomCoroutine = StartCoroutine(ZoomAndMove(graphicToZoom, rightPosition));
+        }
+    }
+
+    // ?? Hide Panel Button: hide all panels, reset zoom, show buttons again
+    public void OnHidePanelButtonClicked()
+    {
+        if (panelToActivate != null) panelToActivate.SetActive(false);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+
+        if (playButton != null) playButton.SetActive(true);
+        if (settingsButton != null) settingsButton.SetActive(true);
+
+        if (graphicStuff != null)
+        {
+            graphicStuff.SetMaxOffset(0.07f);  // Reset the parallax max offset
+        }
+
+        if (graphicToZoom != null)
+        {
+            if (currentZoomCoroutine != null) StopCoroutine(currentZoomCoroutine);
+            currentZoomCoroutine = StartCoroutine(ZoomAndMove(graphicToZoom, originalPosition, originalScale));
+        }
+    }
+
+    // ?? Overload for resetting both scale and position
+    private IEnumerator ZoomAndMove(GameObject obj, Vector3 targetLocalPos)
+    {
+        yield return ZoomAndMove(obj, targetLocalPos, zoomScale);
+    }
+
+    private IEnumerator ZoomAndMove(GameObject obj, Vector3 targetLocalPos, Vector3 targetScale)
+    {
+        float elapsed = 0f;
+        Vector3 startScale = obj.transform.localScale;
+        Vector3 startPos = obj.transform.localPosition;
+
+        while (elapsed < zoomDuration)
+        {
+            float t = elapsed / zoomDuration;
+            obj.transform.localScale = Vector3.Lerp(startScale, targetScale, t);
+            obj.transform.localPosition = Vector3.Lerp(startPos, targetLocalPos, t);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        obj.transform.localScale = targetScale;
+        obj.transform.localPosition = targetLocalPos;
     }
 }
