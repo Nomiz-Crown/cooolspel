@@ -5,15 +5,16 @@ estetiska saker list
 typ allt(förutom bullet)
 tosser enemy
 parry animation
-punch animation
-
-
-
+level 1 layout
+level 2 layout
+level 3 layout (boss fight?)
 
 
 
 
 THINGS DONE:
+main menu graphics
+punch animation
 fixa negativ health?
 tror jag löste punchline
 cleanse fire overlay on heal
