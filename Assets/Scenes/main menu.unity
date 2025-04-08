@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 56557283}
   - component: {fileID: 56557282}
   m_Layer: 5
-  m_Name: settings
+  m_Name: credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14988,9 +14988,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Settings HEre
-
-'
+  m_Text: simon gjorde allt
 --- !u!222 &860795661
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16842,7 +16840,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: settings
+  m_Text: credits
 --- !u!222 &941784220
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17031,7 +17029,7 @@ GameObject:
   - component: {fileID: 967267794}
   - component: {fileID: 967267793}
   m_Layer: 5
-  m_Name: Image
+  m_Name: '[Title Card]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
