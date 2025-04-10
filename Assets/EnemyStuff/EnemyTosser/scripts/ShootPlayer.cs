@@ -14,7 +14,16 @@ public class ShootPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Vector3 scale = transform.localScale;
+            if (target.position.x < transform.position.x)
+            {
+                scale.x = Mathf.Abs(scale.x); //den vänder sig mot spelaren
+            }
+            else
+            {
+                scale.x = -Mathf.Abs(scale.x);
+            }
+            transform.localScale = scale;
     }
     public void Shoot()
     {
