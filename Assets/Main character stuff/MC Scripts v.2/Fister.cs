@@ -48,7 +48,7 @@ public class Fister : MonoBehaviour
         {
             if (col.gameObject.CompareTag("Enemy"))
             {
-                if (!punchLine.Contains(col))
+                if (!punchLine.Contains(col))  // den addar bara nya colliders om dem inte redan fins
                 {
                     punchLine.Add(col);
                 }
@@ -133,19 +133,18 @@ public class Fister : MonoBehaviour
     {
         if (punchLine.Count == 0) return;
 
+        // explenation lite mer ner orka skriva här
+        punchLine.RemoveAll(col => col == null || !col.gameObject.activeInHierarchy);
+
+        if (punchLine.Count == 0) return;
+
         EnemyHealth thisbozo = punchLine[0].GetComponent<EnemyHealth>();
         if (thisbozo != null)
         {
             if (thisbozo.InflictDamage(myDamage))
             {
-                punchLine.RemoveAt(0);
+                punchLine.RemoveAt(0);  //den tar bort enemie colliders när dem dör
                 me.RestoreHealth(40);
-                // Check if punchLine is empty and handle accordingly
-                if (punchLine.Count == 0)
-                {
-                    // Optionally, you can reset the cooldown or perform other actions
-                    // FOnCooldown("reset"); // Uncomment if you want to reset cooldown after last punch
-                }
             }
             else
             {
@@ -154,6 +153,7 @@ public class Fister : MonoBehaviour
 
             tally.UpdateTally("+ SUCKER PUNCH", "Add");
 
+            // Apply knockback
             Vector2 knockbackDirection = (punchLine[0].transform.position - transform.position).normalized;
             Rigidbody2D rb = punchLine[0].gameObject.GetComponent<Rigidbody2D>();
             if (rb != null)
