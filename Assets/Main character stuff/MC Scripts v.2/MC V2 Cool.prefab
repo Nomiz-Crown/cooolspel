@@ -148,7 +148,7 @@ MonoBehaviour:
   FacingRight: 0
   maxWallJumps: 3
   timerForJumpDuration: 0.583
-  slamJumpWindow: 0.3
+  slamJumpWindow: 0.1
 --- !u!95 &5068669546633724705
 Animator:
   serializedVersion: 5
