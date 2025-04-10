@@ -3,17 +3,18 @@ jump pad
 
 estetiska saker list
 typ allt(förutom bullet)
-tosser enemy
 parry animation
-level 1 layout
 level 2 layout
 level 3 layout (boss fight?)
 death screen
-
+musik?
+level decorations (lit bara spamma tires och dumpsters)
 
 
 
 THINGS DONE:
+level 1 layout
+tosser enemy
 main menu graphics
 punch animation
 fixa negativ health?
