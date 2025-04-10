@@ -17,11 +17,12 @@ public class Fister : MonoBehaviour
     public float knockbackForce;
 
     mchp me;
-
+    MCAnimationV2 animOverride;
     private void Start()
     {
         tally = FindObjectOfType<PerformanceTallyLogicV1>();
         me = GetComponent<mchp>();
+        animOverride = GetComponent<MCAnimationV2>();
     }
 
     void Update()
@@ -71,6 +72,7 @@ public class Fister : MonoBehaviour
 
     private void HandleInput()
     {
+        if (!FOnCooldown("nah")) return;
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (isBulletAvailableToParry)
@@ -81,7 +83,20 @@ public class Fister : MonoBehaviour
             {
                 Punch2();
             }
+            animOverride.isPunch = true;
+            FOnCooldown("reset");
         }
+    }
+    [SerializeField] float armCooldown;
+    float timer = 0;
+    private bool FOnCooldown(string resetCond)
+    {
+        if (resetCond == "reset")
+        {
+            timer = 0;
+        }
+        else if (timer < armCooldown) timer += Time.deltaTime;
+        return timer >= armCooldown;
     }
 
     private void Parry()
