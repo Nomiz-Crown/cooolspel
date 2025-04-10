@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0.2
   maxSpeed: 8
+  slideMult: 1.5
   JumpHeight: 8
   isWalking: 0
   isIdle: 0
@@ -147,7 +148,6 @@ MonoBehaviour:
   FacingRight: 0
   maxWallJumps: 3
   timerForJumpDuration: 0.583
-  slideMult: 1.5
   slamJumpWindow: 0.3
 --- !u!95 &5068669546633724705
 Animator:
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPunch: 0
-  punchanimtime: 0.667
+  punchanimtime: 0.4165
 --- !u!61 &6200049010693936850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   ParriedBulletVelocityMultiplier: 1.5
   myDamage: 5
   knockbackForce: 5
-  armCooldown: 0.3335
+  armCooldown: 0.20825
 --- !u!60 &3631745102670095708
 PolygonCollider2D:
   m_ObjectHideFlags: 0
