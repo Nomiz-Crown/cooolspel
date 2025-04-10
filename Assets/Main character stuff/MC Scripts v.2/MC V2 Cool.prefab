@@ -133,8 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adcbc23d3a6d934fbc4a82c5946af55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shockwave: {fileID: 6547365770044363023, guid: 24edd52c61a61ab45909dcf1a749e23d, type: 3}
   acceleration: 0.2
   maxSpeed: 8
+  slideMult: 1.5
   JumpHeight: 8
   isWalking: 0
   isIdle: 0
@@ -147,7 +149,6 @@ MonoBehaviour:
   FacingRight: 0
   maxWallJumps: 3
   timerForJumpDuration: 0.583
-  slideMult: 1.5
   slamJumpWindow: 0.3
 --- !u!95 &5068669546633724705
 Animator:
@@ -347,4 +348,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4db1f601be3964f8cc0df3012faa10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timer: {fileID: 4657304211363992102, guid: 37f95b089df690940a774b9cf569a65a, type: 3}
+  Timer: {fileID: 0}

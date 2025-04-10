@@ -4,6 +4,7 @@ using UnityEngine;
 public class MCMovementv2 : MonoBehaviour
 {
     //speed definers
+    [SerializeField] public GameObject shockwave;
     [Header("Horizontal speed")]
     [SerializeField] private float acceleration;
     [SerializeField] private float maxSpeed;
@@ -95,6 +96,13 @@ public class MCMovementv2 : MonoBehaviour
 
         DeaccelIfIdle();
     }
+    void shockwavie()
+    {
+
+        GameObject clone = Instantiate(shockwave);
+        float yOffset = transform.position.y - 0.3f;
+        clone.transform.position = new(transform.position.x, yOffset);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -113,6 +121,7 @@ public class MCMovementv2 : MonoBehaviour
             {
                 isSlamming = false;
                 canSlamJump = true;
+                shockwavie();
             }
             if (isWalking)
             {
