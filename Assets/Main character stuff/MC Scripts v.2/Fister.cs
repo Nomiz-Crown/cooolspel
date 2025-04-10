@@ -141,6 +141,12 @@ public class Fister : MonoBehaviour
             {
                 punchLine.RemoveAt(0);
                 me.RestoreHealth(40);
+                // Check if punchLine is empty and handle accordingly
+                if (punchLine.Count == 0)
+                {
+                    // Optionally, you can reset the cooldown or perform other actions
+                    // FOnCooldown("reset"); // Uncomment if you want to reset cooldown after last punch
+                }
             }
             else
             {
@@ -157,4 +163,3 @@ public class Fister : MonoBehaviour
             }
         }
     }
-}
