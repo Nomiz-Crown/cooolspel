@@ -13,15 +13,19 @@ public class TosserScript : MonoBehaviour
 
     public float speed;
 
-    private Rigidbody2D rb;
-    private bool canShoot = false;
+    public Rigidbody2D rb;
+    public bool canShoot = false;
     private ShootPlayer shooter;
+
+    private Animator anim;  // Animator reference
+
     // Start is called before the first frame update
     void Start()
     {
         shooter = GetComponent<ShootPlayer>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>(); // Get the Animator component
         UpdateRealTarget();
     }
 
@@ -32,33 +36,37 @@ public class TosserScript : MonoBehaviour
         BehaviourLogic();
         ShootCooldownTimer();
     }
+
     void BehaviourLogic()
     {
         if (HasClearLineOfSight())
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            // No movement, only shooting
+            rb.velocity = new Vector2(0, rb.velocity.y); // Stop movement
             if (canShoot)
             {
-                shooter.Shoot();
-                cooldownTime = 0f;
+                anim.Play("Shoot");  // Play the "Shoot" animation directly
+                shooter.Shoot(); // Perform shooting
+                cooldownTime = 0f; // Reset cooldown timer after shooting
             }
         }
         else
         {
+            // Move towards the player
             MoveToPlayer();
+            anim.Play("Idle");  // Play the "Idle" animation when moving or not shooting
         }
     }
+
     void MoveToPlayer()
     {
-        if(target.transform.position.x > transform.position.x)
-        {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
-        }
-        else if(target.transform.position.x < transform.position.x)
-        {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
-        }
+        // Calculate direction
+        float direction = target.position.x > transform.position.x ? 1f : -1f;
+
+        // Apply movement with smooth acceleration
+        rb.velocity = new Vector2(direction * speed, rb.velocity.y);
     }
+
     // Method to update the real target position
     private void UpdateRealTarget()
     {
@@ -93,16 +101,17 @@ public class TosserScript : MonoBehaviour
             Gizmos.DrawLine(transform.position, realTarget);
         }
     }
+
     void ShootCooldownTimer()
     {
-        if(cooldownTime >= shootCooldown)
+        if (cooldownTime >= shootCooldown)
         {
-            canShoot = true;
+            canShoot = true; // Tosser can shoot
         }
         else
         {
-            cooldownTime += Time.deltaTime;
-            canShoot = false;
+            cooldownTime += Time.deltaTime; // Increase cooldown time
+            canShoot = false; // Tosser cannot shoot yet
         }
     }
 }

@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8141119589829155813}
   - component: {fileID: 8931517256749724643}
   - component: {fileID: 1841082718464185501}
+  - component: {fileID: 4800161124050778467}
+  - component: {fileID: -3229194595975840929}
   m_Layer: 6
   m_Name: "tosser (smelly feet\U0001F924\U0001F924"
   m_TagString: Enemy
@@ -182,6 +184,8 @@ MonoBehaviour:
     m_Bits: 128
   shootCooldown: 5
   speed: 5
+  rb: {fileID: 0}
+  canShoot: 0
 --- !u!114 &8931517256749724643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +213,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4921915823746274229, guid: 5e7593c16ac79fb4581d32201aa7fe58, type: 3}
   velocity: 10
+--- !u!114 &4800161124050778467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5257908100452586845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2f38459b535544eb0f9435fa424743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &-3229194595975840929
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5257908100452586845}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1522257bed2b41b4aa04cc8f46dcde33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5283964700108181767
 GameObject:
   m_ObjectHideFlags: 0

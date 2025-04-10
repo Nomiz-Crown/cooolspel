@@ -151,7 +151,7 @@ public class Fister : MonoBehaviour
                 me.RestoreHealth(10);
             }
 
-            tally.UpdateTally("+ SUCKER PUNCH", "Add");
+            tally.UpdateTally("+ Lee Sin abuser", "Add");
 
             // Apply knockback
             Vector2 knockbackDirection = (punchLine[0].transform.position - transform.position).normalized;
