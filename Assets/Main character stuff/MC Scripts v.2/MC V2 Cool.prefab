@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPunch: 0
-  punchanimtime: 0.667
+  punchanimtime: 0.484
 --- !u!61 &6200049010693936850
 BoxCollider2D:
   m_ObjectHideFlags: 0
