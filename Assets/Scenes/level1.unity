@@ -23813,6 +23813,10 @@ PrefabInstance:
       propertyPath: Timer
       value: 
       objectReference: {fileID: 1176093134}
+    - target: {fileID: 2639272788709846380, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: punchanimtime
+      value: 0.647
+      objectReference: {fileID: 0}
     - target: {fileID: 5393428504082983903, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: death
       value: 
@@ -36795,7 +36799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 385111369485259046, guid: 9534dade43bf50347bd5b9bfe8c6cca4, type: 3}
       propertyPath: m_Offset.x
-      value: -4.2284684
+      value: -2.46
       objectReference: {fileID: 0}
     - target: {fileID: 385111369485259046, guid: 9534dade43bf50347bd5b9bfe8c6cca4, type: 3}
       propertyPath: m_Offset.y
