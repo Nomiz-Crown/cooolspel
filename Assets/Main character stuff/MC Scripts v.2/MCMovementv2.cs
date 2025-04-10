@@ -4,8 +4,12 @@ using UnityEngine;
 public class MCMovementv2 : MonoBehaviour
 {
     //speed definers
+    [Header("Horizontal speed")]
     [SerializeField] private float acceleration;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private float slideMult;
+
+    [Header("Vertical speed")]
     [SerializeField] private float JumpHeight;
 
     //endless tags
@@ -23,12 +27,12 @@ public class MCMovementv2 : MonoBehaviour
     [HideInInspector] protected bool checkSlamJumpInput = false;
 
     //misc values that are neccesary for some reason
-                     private int wallJumpCounter;
+    private int wallJumpCounter;
+    [Header("Jump Stuff :3")]
     [SerializeField] private int maxWallJumps;
                      private float timer = 0;
                      private float otherTimer = 0;
     [SerializeField] private float timerForJumpDuration;
-    [SerializeField] private float slideMult;
     [HideInInspector] private float slamJumpTimerMult = 0;
     [SerializeField] private float slamJumpWindow;
 

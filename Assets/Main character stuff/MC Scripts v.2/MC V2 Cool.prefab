@@ -182,6 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439c889c33f258647a49ba1b69eb6445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPunch: 0
+  punchanimtime: 0.667
 --- !u!61 &6200049010693936850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -259,6 +261,7 @@ MonoBehaviour:
   ParriedBulletVelocityMultiplier: 1.5
   myDamage: 5
   knockbackForce: 5
+  armCooldown: 0.3335
 --- !u!60 &3631745102670095708
 PolygonCollider2D:
   m_ObjectHideFlags: 0
