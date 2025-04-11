@@ -18875,11 +18875,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1829382816650284537, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1829382816650284537, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306760639385590409, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_Pivot.x
@@ -18967,7 +18967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22069,6 +22069,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &1025633796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1221203607320002496, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+  m_PrefabInstance: {fileID: 824825582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1205731077
 GameObject:
   m_ObjectHideFlags: 0
@@ -22356,6 +22361,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2018115683702002312, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: Timer
+      value: 
+      objectReference: {fileID: 1025633796}
     - target: {fileID: 6556145221014290406, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: m_Name
       value: MC V2 Cool
