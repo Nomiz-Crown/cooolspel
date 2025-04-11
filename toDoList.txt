@@ -2,6 +2,7 @@ generell kod; listy list
 Parry/punch mid air animation grej
 tosser animation handler
 temp-bar funkar inte utanför playground
+frying pan
 
 
 estetiska saker list
