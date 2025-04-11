@@ -19,18 +19,15 @@ public class animationsTozzer : MonoBehaviour
     {
         if (tosser != null)
         {
-            // Check if the Tosser can shoot
             if (tosser.canShoot)
             {
                 if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
                 {
-                    // Only trigger "Shoot" if it's not already playing
                     anim.SetTrigger("Shoot");
                 }
             }
             else
             {
-                // Set back to idle when not shooting
                 anim.SetTrigger("Idle");
             }
         }

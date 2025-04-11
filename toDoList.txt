@@ -1,18 +1,21 @@
 generell kod; listy list
-jump pad
+Parry/punch mid air animation grej
+tosser animation handler
+temp-bar funkar inte utanför playground
+
 
 estetiska saker list
 typ allt(förutom bullet)
-parry animation
-level 2 layout
 level 3 layout (boss fight?)
 death screen
 musik?
-level decorations (lit bara spamma tires och dumpsters)
+level decorations
 
 
 
 THINGS DONE:
+level 2 layout
+parry animation
 level 1 layout
 tosser enemy
 main menu graphics
