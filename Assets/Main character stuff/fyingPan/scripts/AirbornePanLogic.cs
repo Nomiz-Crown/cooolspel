@@ -31,6 +31,7 @@ public class AirbornePanLogic : MonoBehaviour
         {
             SecondaryCollider.isTrigger = false;
         }
+        CheckReturn();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -45,8 +46,32 @@ public class AirbornePanLogic : MonoBehaviour
         rb.gravityScale = 1;
 
     }
+    float timer = 0;
+    [SerializeField] float timeToReturn;
     private bool IsWithinProximity(Vector2 positionA, Vector2 positionB, float threshold)
     {
         return Vector2.Distance(positionA, positionB) <= threshold;
+    }
+    void CheckReturn()
+    {
+        if (isLethal) return;
+        if(Timer()) 
+        {
+            guy.hasPan = true;
+            Destroy(gameObject); 
+        }
+    }
+    bool Timer()
+    {
+        if(timer >= timeToReturn)
+        {
+            timer = 0;
+            return true;
+        }
+        else
+        {
+            timer += Time.deltaTime;
+        }
+        return false;
     }
 }

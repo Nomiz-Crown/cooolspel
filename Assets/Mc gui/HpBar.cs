@@ -52,6 +52,7 @@ public class HpBar : MonoBehaviour
             slider.value = playerHealth.TemperatureHealth;
             UpdateActiveImage();
         }
+        else { print("player health is null"); }
     }
 
 

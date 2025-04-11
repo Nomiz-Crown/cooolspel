@@ -333,9 +333,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overheatInterval: 1
-  heatIncPerInterval: 0
+  heatIncPerInterval: 1
   TemperatureHealth: 0
   death: {fileID: 0}
+  tutorialPassed: 0
 --- !u!114 &2018115683702002312
 MonoBehaviour:
   m_ObjectHideFlags: 0

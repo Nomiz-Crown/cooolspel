@@ -1,4 +1,6 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mchp : MonoBehaviour
 {
@@ -9,9 +11,16 @@ public class mchp : MonoBehaviour
     public GameObject death; //death är gameobject med death animation btw
 
     private float timer = 0;
+    [HideInInspector] public bool tutorialPassed;
     // Start is called before the first frame update
     void Start()
     {
+        int sceneID = SceneManager.GetActiveScene().buildIndex;
+        if (sceneID == 1|| sceneID == 2)
+        {
+            tutorialPassed = false;
+        }
+        else tutorialPassed = true;
         if (death != null)
         {
             death.SetActive(false);
@@ -22,7 +31,10 @@ public class mchp : MonoBehaviour
     void Update()
     {
         DieConditions();
-        PassivelyOverheat();
+        if (tutorialPassed)
+        {
+            PassivelyOverheat();    
+        }
     }
     void PassivelyOverheat()
     {

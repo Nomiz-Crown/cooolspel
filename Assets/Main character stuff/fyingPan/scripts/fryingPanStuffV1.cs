@@ -25,10 +25,15 @@ public class fryingPanStuffV1 : MonoBehaviour
              TossFryingPan(mousePosition);
         }
     }
-    void TossFryingPan(Vector2 Mouse)
+    void TossFryingPan(Vector2 mousePosition)
     {
         hasPan = false;
-        SpawnObject(CalculateAngle(transform.position, Mouse));
+
+        // Convert mouse position to world coordinates
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        worldMousePosition.z = 0; // Set z to 0 since we are working in 2D
+
+        SpawnObject(CalculateAngle(transform.position, worldMousePosition));
     }
     float CalculateAngle(Vector2 a, Vector2 b)
     {
