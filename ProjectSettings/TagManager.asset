@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - playersBullet
   - Bullet
+  - PanUi
+  - PanTimer
   layers:
   - Default
   - TransparentFX

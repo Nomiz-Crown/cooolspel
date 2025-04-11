@@ -135,6 +135,8 @@ MonoBehaviour:
     m_Bits: 128
   PickupRange: 1
   isLethal: 0
+  scobert: {fileID: 0}
+  trex: {fileID: 0}
   timeToReturn: 10
 --- !u!95 &89356221901702675
 Animator:

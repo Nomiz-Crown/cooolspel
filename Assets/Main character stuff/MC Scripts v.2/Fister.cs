@@ -78,10 +78,6 @@ public class Fister : MonoBehaviour
             {
                 Parry();
             }
-            else
-            {
-                Punch2();
-            }
             animOverride.isPunch = true;
             FOnCooldown("reset");
         }

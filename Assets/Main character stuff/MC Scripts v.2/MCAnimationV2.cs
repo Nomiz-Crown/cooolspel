@@ -18,14 +18,6 @@ public class MCAnimationV2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPunch)
-        {
-            animator.enabled = false;
-            animator.enabled = true;
-            animator.Play("PunchAnimation");
-            PunchTimer();
-            return;
-        }
         if (Player.isWalking && Player.isGrounded)
         {
             animator.Play("RunningAnimationV2");
