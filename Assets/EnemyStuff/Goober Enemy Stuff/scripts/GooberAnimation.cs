@@ -18,6 +18,8 @@ public class GooberAnimation : MonoBehaviour
     {
         if (me.isLunging)
         {
+            anim.enabled = false;
+            anim.enabled = true;
             anim.Play("Lunge");
         }
         else if (me.isIdle && me.LungeCooldown())
