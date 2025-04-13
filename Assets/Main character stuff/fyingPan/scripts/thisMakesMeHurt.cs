@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class thisMakesMeHurt : MonoBehaviour
 {
+    private PerformanceTallyLogicV1 tally;
     AirbornePanLogic fryingPan;
     [SerializeField] private float myDamage = 5f;
     EnemyHealth EnemyToDamage;
     // Start is called before the first frame update
     void Start()
     {
+        tally = FindObjectOfType<PerformanceTallyLogicV1>();
         fryingPan = GetComponent<AirbornePanLogic>();
     }
 
@@ -41,12 +43,13 @@ public class thisMakesMeHurt : MonoBehaviour
     void InflictDamage()
     {
         EnemyToDamage.myHealth -= myDamage;
+        tally.UpdateTally("+ P-l-anned", "Add");
     }
     void CheckIfDead()
     {
         if (EnemyToDamage.myHealth <= 0)
         {
-            EnemyToDamage.Kys("MANSLAUGHTER");
+            EnemyToDamage.Kys("Panetration");
         }
         else
         {

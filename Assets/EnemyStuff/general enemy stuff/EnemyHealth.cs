@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
     new Collider2D collider;
     public float myHealth;
     private PerformanceTallyLogicV1 tally;
+    private mchp hp;
 
     public GameObject deathEffectPrefab;
     public float effectLifetime = 2f;
@@ -12,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         tally = FindObjectOfType<PerformanceTallyLogicV1>();
+        hp = FindObjectOfType<mchp>();
         if (tally == null)
         {
             print("uuooohhhhhhhhhhhhh");

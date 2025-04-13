@@ -30,24 +30,22 @@ public class WaveHandler : MonoBehaviour
 
     private GameObject mainCharacterEnergyyy;
     private bool waveInProgress = false;
-
-    // Reference to the other GameObject that will trigger stats panel display
+    private PerformanceTallyLogicV1 tally;
     public GameObject triggerObject;
-
     void Start()
     {
-        // Ensure the correct player object is being found
+        tally = FindObjectOfType<PerformanceTallyLogicV1>();
         mainCharacterEnergyyy = GameObject.Find("MC V2 Cool");
         if (mainCharacterEnergyyy == null)
         {
             Debug.LogError("Player object not found! Make sure it's named correctly in the scene.");
         }
         StartCoroutine(HandleWave());
-        statsPanel.SetActive(false); // Hide the stats panel initially
+        statsPanel.SetActive(false);
 
         if (timePrefabText == null)
         {
-            Debug.LogError("Time prefab TextMeshProUGUI not assigned.");
+            Debug.LogError("du har inte adddat tmp ts pmo icl.");
         }
     }
 
@@ -57,13 +55,11 @@ public class WaveHandler : MonoBehaviour
 
         activeEnemies.RemoveAll(enemy => enemy == null);
 
-        // Copy the text from the prefab to the killsDisplay
         if (timePrefabText != null)
         {
-            killsDisplay.text = timePrefabText.text; // Copy prefab text to killsDisplay
+            killsDisplay.text = timePrefabText.text;
         }
 
-        // Check if the trigger object is active and if the wave is complete
         if (triggerObject != null && triggerObject.activeInHierarchy)
         {
             ShowStatsPanel();
@@ -71,8 +67,8 @@ public class WaveHandler : MonoBehaviour
 
         if (!waveInProgress && activeEnemies.Count == 0)
         {
-            // Proceed to next wave
             wave++;
+            tally.UpdateTally("+ Wave Cleared", "Add");
             mchp playerScript = mainCharacterEnergyyy.GetComponent<mchp>();
             playerScript.TemperatureHealth = 0;
             StartCoroutine(HandleWave());
@@ -114,7 +110,8 @@ public class WaveHandler : MonoBehaviour
         {
             activeEnemies.Remove(other.gameObject);
             Destroy(other.gameObject);
-            EnemiesKilled++; // Increment kills
+            tally.UpdateTally("+ is there fall damage?", "Add");
+            EnemiesKilled++;
         }
         else if (other.gameObject == mainCharacterEnergyyy)
         {

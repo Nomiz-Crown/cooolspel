@@ -17,6 +17,10 @@ public class FireyLayerLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.SetAsFirstSibling();
+                                                
+        transform.SetSiblingIndex(0);
+
         img = GetComponent<Image>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<mchp>();
 
