@@ -1,7 +1,6 @@
 generell kod; listy list
-Parry/punch mid air animation grej
 tosser animation handler
-jjjjjjjjjjump pad??????(?)
+jjjjjjjjjjump pad??????(?) idk man, är inte super jump typ samma sak
 
 estetiska saker list
 typ allt(förutom bullet)
@@ -13,6 +12,9 @@ level decorations
 
 
 THINGS DONE:
+Parry anim (JUICY EFFECTS)
+cybergrind :3
+blooooood (healar om man står nära en enemy som nyss dog)
 temp-bar funkar inte utanför playground
 frying pan
 level 2 layout
