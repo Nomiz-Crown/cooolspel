@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level3.unity
     guid: e6485b5325bb7fd44a18837935a8f6a3
+  - enabled: 1
+    path: Assets/Scenes/HeatWave.unity
+    guid: 950de717a48c23d4fb79ef49180b3a48
   m_configObjects: {}

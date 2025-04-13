@@ -1,6 +1,7 @@
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class mchp : MonoBehaviour
 {
@@ -67,8 +68,15 @@ public class mchp : MonoBehaviour
     }
     void Die()
     {
-        // mer debug
+        StartCoroutine(DieWithDelay());
+    }
 
+    IEnumerator DieWithDelay()
+    {
+        // Wait for 0.01 seconds
+        yield return new WaitForSeconds(0.01f);
+
+        // Now proceed with deactivating the object
         gameObject.SetActive(false);
 
         if (death != null)
@@ -76,12 +84,11 @@ public class mchp : MonoBehaviour
             death.transform.parent = null;
 
             death.SetActive(true);
-            death.transform.position = transform.position; 
-            death.transform.rotation = transform.rotation; 
-
-            // Deeeeeebuuuug
+            death.transform.position = transform.position;
+            death.transform.rotation = transform.rotation;
         }
     }
+
     public void TakeDamage(float amount)
     {
         TemperatureHealth += Random.Range(amount - 10, amount + 10);
