@@ -4604,7 +4604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e6e2400d82f764f88d64cd5d89bfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothSpeed: 0.1
+  smoothSpeed: 0.125
   offset: {x: 0, y: 2, z: 0}
 --- !u!1 &781097282
 GameObject:
@@ -5623,6 +5623,10 @@ PrefabInstance:
       propertyPath: Timer
       value: 
       objectReference: {fileID: 2121405086}
+    - target: {fileID: 2878174327193097717, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: mushy
+      value: 
+      objectReference: {fileID: 1850671862}
     - target: {fileID: 5393428504082983903, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: death
       value: 
@@ -11036,6 +11040,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1850671862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1850671863}
+  - component: {fileID: 1850671865}
+  - component: {fileID: 1850671864}
+  m_Layer: 5
+  m_Name: white effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1850671863
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850671862}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.98, y: 3.98, z: 3.98}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1682836329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1850671864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850671862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6431373}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 82e79e230c1f7014ca0086bad48a1171, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1850671865
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850671862}
+  m_CullTransparentMesh: 1
 --- !u!1 &1862558453
 GameObject:
   m_ObjectHideFlags: 0
@@ -11444,6 +11523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844773695234535138, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6345427445783863594, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -11466,6 +11549,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2306760639385590409, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1011490359}
+    - targetCorrespondingSourceObject: {fileID: 2306760639385590409, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1850671863}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5431299781241649462, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       insertIndex: -1
