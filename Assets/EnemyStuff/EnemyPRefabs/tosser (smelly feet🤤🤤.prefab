@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myHealth: 15
+  deathEffectPrefab: {fileID: 7390825485771638337, guid: 76151224fdf39f64da84de1689d5c300, type: 3}
+  effectLifetime: 0.535
 --- !u!114 &1841082718464185501
 MonoBehaviour:
   m_ObjectHideFlags: 0

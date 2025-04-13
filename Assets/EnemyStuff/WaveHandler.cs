@@ -73,6 +73,8 @@ public class WaveHandler : MonoBehaviour
         {
             // Proceed to next wave
             wave++;
+            mchp playerScript = mainCharacterEnergyyy.GetComponent<mchp>();
+            playerScript.TemperatureHealth = 0;
             StartCoroutine(HandleWave());
         }
     }

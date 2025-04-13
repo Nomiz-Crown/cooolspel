@@ -49,10 +49,27 @@ public class AirbornePanLogic : MonoBehaviour
 
     void Update()
     {
+        // Ensure guy is still referenced
+        if (guy == null)
+        {
+            guy = GameObject.FindGameObjectWithTag("Player").GetComponent<fryingPanStuffV1>();
+        }
+
+        // Only show the countdown GUI when the player DOESN'T have the pan
+        if (guy.hasPan)
+        {
+            SetGUIOpacity(0f); // Hide the timer UI
+        }
+        else
+        {
+            SetGUIOpacity(1f); // Show the timer UI
+        }
+
+        // Check for proximity pickup
         if (IsWithinProximity(transform.position, guy.transform.position, PickupRange) && !isLethal)
         {
             guy.hasPan = true;
-            SetGUIOpacity(0f); // Reset opacity when frying pan is picked up
+            SetGUIOpacity(0f);
             Destroy(gameObject);
         }
 
@@ -88,8 +105,9 @@ public class AirbornePanLogic : MonoBehaviour
 
         if (Timer())
         {
+            timer = 0; // Reset here, but only *after* completing the logic
             guy.hasPan = true;
-            SetGUIOpacity(0f); // Reset opacity after timer hits 0
+            SetGUIOpacity(0f);
             Destroy(gameObject);
         }
     }
@@ -98,8 +116,7 @@ public class AirbornePanLogic : MonoBehaviour
     {
         if (timer >= timeToReturn)
         {
-            timer = 0;
-            return true;
+            return true; // Don't reset here
         }
         else
         {
@@ -121,6 +138,7 @@ public class AirbornePanLogic : MonoBehaviour
 
             if (trex != null)
             {
+
                 trex.alpha = opacity; // Set opacity of "trex" text
             }
         }

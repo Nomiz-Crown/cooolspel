@@ -11316,11 +11316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8667569818365716547, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_fontColor.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8667569818365716547, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 16777215
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11328,7 +11328,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2306760639385590409, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1011490359}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5431299781241649462, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2058917494}
   m_SourcePrefab: {fileID: 100100000, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
 --- !u!1 &1970095864
 GameObject:
@@ -11818,6 +11821,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &2058917490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5431299781241649462, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+  m_PrefabInstance: {fileID: 1957390887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &2058917494
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058917490}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2094229078
 GameObject:
   m_ObjectHideFlags: 0

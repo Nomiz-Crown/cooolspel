@@ -6,7 +6,9 @@ public class EnemyHealth : MonoBehaviour
     public float myHealth;
     private PerformanceTallyLogicV1 tally;
 
-    // Start is called before the first frame update
+    public GameObject deathEffectPrefab;
+    public float effectLifetime = 2f;
+
     void Start()
     {
         tally = FindObjectOfType<PerformanceTallyLogicV1>();
@@ -21,29 +23,42 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
 
     }
+
     public void Kys(string cond)
     {
         tally.UpdateTally($"+ {cond}", "Add");
+        SpawnDeathEffect();
         Destroy(gameObject);
     }
+
     private void CheckDead()
     {
         if (myHealth <= 0)
         {
             tally.UpdateTally("+ MANSLAUGHTER", "Add");
+            SpawnDeathEffect();
             Destroy(gameObject);
         }
     }
+
     public bool InflictDamage(float dmg)
     {
         myHealth -= dmg;
         if (myHealth == 0) return true;
         CheckDead();
         return false;
+    }
+
+    private void SpawnDeathEffect()
+    {
+        if (deathEffectPrefab != null)
+        {
+            GameObject effect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, effectLifetime);
+        }
     }
 }
