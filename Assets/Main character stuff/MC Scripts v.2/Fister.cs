@@ -1,10 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Fister : MonoBehaviour
 {
     private List<GameObject> bulletListToParry = new();
-    private bool isBulletAvailableToParry = false;
+    public bool isBulletAvailableToParry = false;
 
     private List<Collider2D> punchLine = new();
 
@@ -14,6 +15,7 @@ public class Fister : MonoBehaviour
     private PerformanceTallyLogicV1 tally;
     [SerializeField] private float myDamage;
     public float knockbackForce;
+    [SerializeField] private GameObject mushy;
 
     mchp me;
     MCAnimationV2 animOverride;
@@ -77,6 +79,7 @@ public class Fister : MonoBehaviour
             if (isBulletAvailableToParry)
             {
                 Parry();
+                animOverride.isParry = true;
             }
             animOverride.isPunch = true;
             FOnCooldown("reset");
@@ -96,6 +99,8 @@ public class Fister : MonoBehaviour
 
     private void Parry()
     {
+        StartCoroutine(DoSlowMotion());
+
         if (bulletListToParry.Count == 0) return;
 
         GameObject bulletToParry = bulletListToParry[0];
@@ -124,6 +129,28 @@ public class Fister : MonoBehaviour
             me.RestoreHealth(35);
         }
     }
+
+    private IEnumerator DoSlowMotion()
+    {
+        float originalTimeScale = Time.timeScale;
+        float slowDownFactor = 0f;
+        float duration = 0.3f;
+
+        if (mushy != null)
+            mushy.SetActive(true);
+
+        Time.timeScale = slowDownFactor;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+        yield return new WaitForSecondsRealtime(duration);
+
+        Time.timeScale = originalTimeScale;
+        Time.fixedDeltaTime = 0.02f;
+
+        if (mushy != null)
+            mushy.SetActive(false);
+    }
+
 
     private void Punch2()
     {

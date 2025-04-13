@@ -184,7 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPunch: 0
-  punchanimtime: 0.484
+  isParry: 0
+  punchanimtime: 0.334
 --- !u!61 &6200049010693936850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -258,10 +259,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da2ddb63b05aa34da0791790fa4aa78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBulletAvailableToParry: 0
   parriedBulletPrefab: {fileID: 9012950063264432271, guid: 6da23f14f1939714a9be3842f98822a0, type: 3}
   ParriedBulletVelocityMultiplier: 1.5
   myDamage: 5
   knockbackForce: 5
+  mushy: {fileID: 0}
   armCooldown: 0.3335
 --- !u!60 &3631745102670095708
 PolygonCollider2D:

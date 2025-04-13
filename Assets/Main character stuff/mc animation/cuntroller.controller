@@ -153,7 +153,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8910805577848772325}
-    m_Position: {x: 170, y: 150, z: 0}
+    m_Position: {x: 100, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5450330965334440647}
     m_Position: {x: 440, y: 250, z: 0}
@@ -162,13 +162,13 @@ AnimatorStateMachine:
     m_Position: {x: 140, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8154150181519043850}
-    m_Position: {x: 449.21722, y: 149.85657, z: 0}
+    m_Position: {x: 450, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5343065837587704562}
-    m_Position: {x: 255.33862, y: 46.21074, z: 0}
+    m_Position: {x: 250, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6727447461665078985}
-    m_Position: {x: 466.2884, y: 353.49014, z: 0}
+    m_Position: {x: 470, y: 340, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4010599591513708069}
     m_Position: {x: 160, y: 360, z: 0}
@@ -178,6 +178,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -6564719941157192778}
     m_Position: {x: 787.8229, y: 236.22566, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 3773741368458807454}
+    m_Position: {x: 750, y: 360, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -211,6 +214,32 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &3773741368458807454
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: pepsi
+  m_Speed: 2
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 3b1d9be3d80be6f44a3a2c3daf9e774f, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &4010599591513708069
 AnimatorState:
   serializedVersion: 6

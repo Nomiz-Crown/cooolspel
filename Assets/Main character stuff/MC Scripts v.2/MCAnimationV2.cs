@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,19 +6,33 @@ using UnityEngine;
 public class MCAnimationV2 : MonoBehaviour
 {
     Animator animator;
+    Fister Fister;
     MCMovementv2 Player;
     [HideInInspector] public bool isPunch;
+    [HideInInspector] public bool isParry;
     // Start is called before the first frame update
     void Start()
     {
-        isPunch = false;
+        isParry = false;
         animator = GetComponent<Animator>();
         Player = GetComponent<MCMovementv2>();
+        Fister = GetComponent<Fister>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        bool parry = Fister.isBulletAvailableToParry;
+
+        if (isParry)
+        {
+            Debug.Log("playing anim");
+            animator.enabled = false;
+            animator.enabled = true;
+            animator.Play("pepsi");
+            PunchTimer();
+            return;
+        }
         if (Player.isWalking && Player.isGrounded)
         {
             animator.Play("RunningAnimationV2");
@@ -53,7 +68,7 @@ public class MCAnimationV2 : MonoBehaviour
     { 
         if(timer >= punchanimtime)
         {
-            isPunch = false;
+            isParry = false;
             timer = 0;
         }
         else
