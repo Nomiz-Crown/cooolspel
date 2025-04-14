@@ -11119,6 +11119,8 @@ MonoBehaviour:
     pointValue: 2
   - prefab: {fileID: 1308585987694771500, guid: 55fda1ecb95456d4a894161b47e03341, type: 3}
     pointValue: 1
+  - prefab: {fileID: 5257908100452586845, guid: 752fab3fa16d1e74c9c0938823418a6f, type: 3}
+    pointValue: 10
   activeEnemies: []
   wave: 1
   wavePoints: 0

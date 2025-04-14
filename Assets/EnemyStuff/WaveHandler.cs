@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement; // For loading scenes
 public class EnemyPrefab
 {
     public GameObject prefab;
-    public int pointValue;
+    public float pointValue;
 }
 
 public class WaveHandler : MonoBehaviour
@@ -18,7 +18,7 @@ public class WaveHandler : MonoBehaviour
     public List<GameObject> activeEnemies = new List<GameObject>();
 
     public int wave = 1;
-    public int wavePoints;
+    public float wavePoints;
     public int EnemiesKilled = 0; // Track number of kills
 
     public TextMeshProUGUI waveText;
