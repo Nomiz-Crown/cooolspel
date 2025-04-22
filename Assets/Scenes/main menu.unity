@@ -8446,6 +8446,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3e66a91c3373e4a922f9150ece0256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level2Button: {fileID: 50721612}
+  level3Button: {fileID: 1321813313}
+  receivedLevel: 0
   panelToActivate: {fileID: 102235728}
   scene1Name: spel
   scene2Name: spel

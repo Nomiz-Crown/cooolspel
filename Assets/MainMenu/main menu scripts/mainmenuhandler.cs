@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class mainmenuhandler : MonoBehaviour
 {
+    public string mainMenuSceneName = "main menu";
+    public GameObject level2Button;
+    public GameObject level3Button;
+
+    public int receivedLevel;
     public GameObject panelToActivate;
     public string scene1Name;
     public string scene2Name;
@@ -21,7 +26,6 @@ public class mainmenuhandler : MonoBehaviour
     public Vector3 leftPosition = new Vector3(-300f, 0f, 0f);
     public Vector3 rightPosition = new Vector3(300f, 0f, 0f);
 
-    // Reference to mainmenugraphicstuff
     public mainmenugraphicstuff graphicStuff;
 
     private Vector3 originalScale;
@@ -30,12 +34,38 @@ public class mainmenuhandler : MonoBehaviour
 
     void Start()
     {
+        receivedLevel = LevelData.levelCompleted;
+        Debug.Log("Level Completed: " + receivedLevel);
+
         if (graphicToZoom != null)
         {
             originalScale = graphicToZoom.transform.localScale;
             originalPosition = graphicToZoom.transform.localPosition;
         }
+
+        // Setup level buttons
+        SetButtonState(level2Button?.GetComponent<Button>(), receivedLevel >= 1);
+        SetButtonState(level3Button?.GetComponent<Button>(), receivedLevel >= 2);
     }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            // Check if we are in the Main Menu scene
+            if (SceneManager.GetActiveScene().name == mainMenuSceneName)
+            {
+                // Reset progress
+                PlayerPrefs.DeleteKey("levelCompleted");
+                PlayerPrefs.Save();
+                Debug.Log("Progress reset!");
+
+                // Reload the main menu scene
+                SceneManager.LoadScene(mainMenuSceneName);
+            }
+        }
+    }
+
+
 
     public void LoadScene(string sceneName)
     {
@@ -45,7 +75,6 @@ public class mainmenuhandler : MonoBehaviour
         }
     }
 
-    // ?? Play Button: zoom left + show panel
     public void OnPlayButtonClicked()
     {
         if (panelToActivate != null)
@@ -68,7 +97,22 @@ public class mainmenuhandler : MonoBehaviour
         }
     }
 
-    
+    private void SetButtonState(Button button, bool unlocked)
+    {
+        if (button == null) return;
+
+        button.interactable = unlocked;
+
+        ColorBlock colors = button.colors;
+        colors.normalColor = unlocked ? Color.white : new Color(0.5f, 0.5f, 0.5f); // Light gray when locked
+        colors.highlightedColor = unlocked ? new Color(0.9f, 0.9f, 0.9f) : new Color(0.5f, 0.5f, 0.5f);
+        colors.pressedColor = unlocked ? new Color(0.8f, 0.8f, 0.8f) : new Color(0.4f, 0.4f, 0.4f);
+        colors.disabledColor = new Color(0.4f, 0.4f, 0.4f);
+        button.colors = colors;
+    }
+
+
+
     public void OnSettingsButtonClicked()
     {
         if (settingsPanel != null)
