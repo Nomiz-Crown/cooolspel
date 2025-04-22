@@ -110,7 +110,7 @@ public class Fister : MonoBehaviour
         if (bulletRigidbody == null) return;
 
         Vector2 bulletVelocity = bulletRigidbody.velocity;
-        GameObject newBullet = Instantiate(parriedBulletPrefab, bulletPosition, Quaternion.identity, transform);
+        GameObject newBullet = Instantiate(parriedBulletPrefab, bulletPosition, Quaternion.identity);
         Rigidbody2D newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();
 
         if (newBulletRigidbody != null)
