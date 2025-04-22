@@ -1,12 +1,16 @@
 generell kod; listy list
-pause menu
 able to WIN levels
 tosser animation handler
+pause menu
+
+
 
 estetiska saker list
 death screen
-musik?
+ev fixa hitboxes på lvl 2
 level decorations
+musik?
+
 
 
 
