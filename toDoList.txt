@@ -4,6 +4,7 @@ able to WIN levels
 tosser animation handler
 
 estetiska saker list
+ev fixa hitboxes på lvl 2
 level 3 layout (boss fight?)
 death screen
 musik?
