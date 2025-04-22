@@ -76,6 +76,12 @@ public class Fister : MonoBehaviour
     private void HandleInput()
     {
         if (!FOnCooldown("nah")) return;
+        Physics2D.OverlapCollider(GetComponent<PolygonCollider2D>(), filter, results);
+        foreach(Collider2D cool in results)
+        {
+            if (punchLine.Contains<GameObject>(cool.gameObject)) return;
+            punchLine.Add(cool.gameObject);
+        }
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (isBulletAvailableToParry)
@@ -85,6 +91,7 @@ public class Fister : MonoBehaviour
             }
             if (punchLine.Count > 0)
             {
+                print(results[0]);
                 getthisbozoouttahere();
             }
             animOverride.isPunch = true;
