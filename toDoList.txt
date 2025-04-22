@@ -1,5 +1,4 @@
 generell kod; listy list
-able to WIN levels
 tosser animation handler
 pause menu
 
@@ -15,6 +14,7 @@ musik?
 
 
 THINGS DONE:
+able to WIN levels
 parry goober(lol)
 Parry anim (JUICY EFFECTS)
 cybergrind :3
