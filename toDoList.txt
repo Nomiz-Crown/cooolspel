@@ -1,9 +1,9 @@
 generell kod; listy list
+pause menu
+able to WIN levels
 tosser animation handler
-jjjjjjjjjjump pad??????(?) idk man, är inte super jump typ samma sak
 
 estetiska saker list
-typ allt(förutom bullet)
 level 3 layout (boss fight?)
 death screen
 musik?
