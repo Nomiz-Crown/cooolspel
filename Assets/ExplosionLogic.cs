@@ -9,6 +9,7 @@ public class ExplosionLogic : MonoBehaviour
     private PerformanceTallyLogicV1 tally;
 
     private EnemyHealth enemysHealth;
+    public bool IsGoobers;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,8 @@ public class ExplosionLogic : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             GankComponent(collision.gameObject);
-            enemysHealth.Kys("ZIGGS R");
+            if (IsGoobers) enemysHealth.Kys("GOOBER MISSILE");
+            else enemysHealth.Kys("ZIGGS R");
         }
     }
     void GankComponent(GameObject obj)

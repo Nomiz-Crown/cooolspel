@@ -79,22 +79,27 @@ public class Fister : MonoBehaviour
         Physics2D.OverlapCollider(GetComponent<PolygonCollider2D>(), filter, results);
         foreach(Collider2D cool in results)
         {
-            if (punchLine.Contains<GameObject>(cool.gameObject)) return;
+            if (punchLine.Contains<GameObject>(cool.gameObject) || !cool.gameObject.CompareTag("Enemy")) continue;
             punchLine.Add(cool.gameObject);
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
+            int o = 0;
             if (isBulletAvailableToParry)
             {
                 Parry();
-                animOverride.isParry = true;
+                o++;
             }
             if (punchLine.Count > 0)
             {
-                print(results[0]);
                 getthisbozoouttahere();
+                o++;
             }
-            animOverride.isPunch = true;
+            if (o > 0)
+            {
+                animOverride.isParry = true;
+                StartCoroutine(DoSlowMotion());
+            }
             FOnCooldown("reset");
         }
     }
@@ -112,21 +117,30 @@ public class Fister : MonoBehaviour
     public GameObject gooberMissile;
     private void getthisbozoouttahere()
     {
+        if (punchLine.Count == 0) return; // Check if punchLine is empty
+
         GameObject bozo = punchLine[0];
-        Quaternion bozoRotation = punchLine[0].transform.rotation;
-        GameObject newBozo = Instantiate(gooberMissile);
-        newBozo.transform.position = punchLine[0].transform.position;
         punchLine.Remove(bozo);
-        Rigidbody2D gooberBody = punchLine[0].GetComponent<Rigidbody2D>();
-        Vector2 bozoVelocity = gooberBody.velocity;
-        Destroy(punchLine[0]);
-        Rigidbody2D bozoMissile = newBozo.GetComponent<Rigidbody2D>();
-        bozoMissile.velocity = -bozoVelocity * ParriedBulletVelocityMultiplier;
-        newBozo.transform.rotation = bozoRotation;
+        Quaternion bozoRotation = bozo.transform.rotation;
+        GameObject newBozo = Instantiate(gooberMissile);
+        newBozo.transform.position = bozo.transform.position;
+
+        Rigidbody2D gooberBody = bozo.GetComponent<Rigidbody2D>();
+        if (gooberBody != null)
+        {
+            Vector2 bozoVelocity = gooberBody.velocity;
+            Destroy(bozo);
+            Rigidbody2D bozoMissile = newBozo.GetComponent<Rigidbody2D>();
+            if (bozoMissile != null)
+            {
+                bozoMissile.velocity = -bozoVelocity * ParriedBulletVelocityMultiplier;
+                newBozo.transform.rotation = bozoRotation;
+            }
+        }
+        tally.UpdateTally("+ IM WALKIN' HERE", "Add");
     }
     private void Parry()
     {
-        StartCoroutine(DoSlowMotion());
 
         if (bulletListToParry.Count == 0) return;
 

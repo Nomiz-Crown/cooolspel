@@ -47,6 +47,21 @@ public class GooberBehaviour : MonoBehaviour
             isIdle = true;
         }
     }
+    float windUpTimer = 0;
+    public float windUpDuration;
+    bool LungeWindUp()
+    {
+        print(windUpTimer);
+        if(windUpTimer >= windUpDuration)
+        {
+            return true;
+        }
+        else
+        {
+            windUpTimer += Time.deltaTime;
+            return false;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -101,6 +116,7 @@ public class GooberBehaviour : MonoBehaviour
     {
         if (canReachPlayer && isGrounded)
         {
+            if (!LungeWindUp()) { rb.velocity = new(0, 0);  return; }
             if (facingRight)
             {
                 LungeAtRight();
@@ -110,6 +126,7 @@ public class GooberBehaviour : MonoBehaviour
                 LungeAtLeft();
             }
             timer = 0; // Reset timer after lunging
+            windUpTimer = 0;
         }
     }
     bool MakeCanParry(bool smeg)
