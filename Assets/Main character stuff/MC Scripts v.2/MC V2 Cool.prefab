@@ -266,6 +266,7 @@ MonoBehaviour:
   knockbackForce: 5
   mushy: {fileID: 0}
   armCooldown: 0.3335
+  gooberMissile: {fileID: 6732599385359314152, guid: f4f71f4a09f0a8c418a90925c7dde4c5, type: 3}
 --- !u!60 &3631745102670095708
 PolygonCollider2D:
   m_ObjectHideFlags: 0

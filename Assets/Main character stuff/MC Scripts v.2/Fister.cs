@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fister : MonoBehaviour
@@ -7,7 +9,7 @@ public class Fister : MonoBehaviour
     private List<GameObject> bulletListToParry = new();
     public bool isBulletAvailableToParry = false;
 
-    private List<Collider2D> punchLine = new();
+    private List<GameObject> punchLine = new();
 
     public GameObject parriedBulletPrefab;
     public float ParriedBulletVelocityMultiplier;
@@ -38,6 +40,7 @@ public class Fister : MonoBehaviour
             isBulletAvailableToParry = true;
             bulletListToParry.Add(collision.gameObject);
         }
+
     }
 
     ContactFilter2D filter = new ContactFilter2D().NoFilter();
@@ -45,17 +48,16 @@ public class Fister : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Physics2D.OverlapCollider(GetComponent<PolygonCollider2D>(), filter, results);
-        foreach (Collider2D col in results)
-        {
-            if (col.gameObject.CompareTag("Enemy"))
-            {
-                if (!punchLine.Contains(col))  // den addar bara nya colliders om dem inte redan fins
-                {
-                    punchLine.Add(col);
-                }
-            }
-        }
+        if (!collision.gameObject.CompareTag("Enemy")) return;
+
+        GameObject snake = collision.gameObject;
+        GooberBehaviour bomba = snake.GetComponent<GooberBehaviour>();
+
+        if (bomba == null) return;
+
+        if (bomba.canParry && !punchLine.Contains(bomba.gameObject)) punchLine.Add(bomba.gameObject);
+        else if (bomba.canParry && punchLine.Contains(bomba.gameObject)) punchLine.Remove(bomba.gameObject);
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -65,9 +67,9 @@ public class Fister : MonoBehaviour
             bulletListToParry.Remove(collision.gameObject);
             isBulletAvailableToParry = bulletListToParry.Count > 0;
         }
-        else if (collision.gameObject.CompareTag("Enemy"))
+        else if (collision.gameObject.CompareTag("Enemy") && collision.gameObject.GetComponent<GooberBehaviour>() != null)
         {
-            punchLine.Remove(collision);
+            punchLine.Remove(collision.gameObject);
         }
     }
 
@@ -80,6 +82,10 @@ public class Fister : MonoBehaviour
             {
                 Parry();
                 animOverride.isParry = true;
+            }
+            if (punchLine.Count > 0)
+            {
+                getthisbozoouttahere();
             }
             animOverride.isPunch = true;
             FOnCooldown("reset");
@@ -96,7 +102,21 @@ public class Fister : MonoBehaviour
         else if (timer < armCooldown) timer += Time.deltaTime;
         return timer >= armCooldown;
     }
-
+    public GameObject gooberMissile;
+    private void getthisbozoouttahere()
+    {
+        GameObject bozo = punchLine[0];
+        Quaternion bozoRotation = punchLine[0].transform.rotation;
+        GameObject newBozo = Instantiate(gooberMissile);
+        newBozo.transform.position = punchLine[0].transform.position;
+        punchLine.Remove(bozo);
+        Rigidbody2D gooberBody = punchLine[0].GetComponent<Rigidbody2D>();
+        Vector2 bozoVelocity = gooberBody.velocity;
+        Destroy(punchLine[0]);
+        Rigidbody2D bozoMissile = newBozo.GetComponent<Rigidbody2D>();
+        bozoMissile.velocity = -bozoVelocity * ParriedBulletVelocityMultiplier;
+        newBozo.transform.rotation = bozoRotation;
+    }
     private void Parry()
     {
         StartCoroutine(DoSlowMotion());

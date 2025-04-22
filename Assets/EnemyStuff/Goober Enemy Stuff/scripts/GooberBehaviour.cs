@@ -18,6 +18,7 @@ public class GooberBehaviour : MonoBehaviour
     [HideInInspector] public bool isLunging;
     private bool inChase;
     [HideInInspector] public bool isIdle;
+    [HideInInspector] public bool canParry = false;
 
     void Start()
     {
@@ -56,6 +57,7 @@ public class GooberBehaviour : MonoBehaviour
             {
                 isLunging = false;
             }
+            MakeCanParry(false);
         }
     }
 
@@ -64,6 +66,7 @@ public class GooberBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            MakeCanParry(true);
         }
     }
 
@@ -108,6 +111,11 @@ public class GooberBehaviour : MonoBehaviour
             }
             timer = 0; // Reset timer after lunging
         }
+    }
+    bool MakeCanParry(bool smeg)
+    {
+        canParry = smeg;
+        return canParry;
     }
 
     void LungeAtRight()
