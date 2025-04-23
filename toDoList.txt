@@ -1,19 +1,14 @@
 generell kod; listy list
-parry är typ lite janky brosky
 tosser animation handler
-
-
-
+fix shitty lvl 1
 
 estetiska saker list
 level decorations
 hitbox fixing
 musik?
 
-
-
-
 THINGS DONE:
+parry är typ lite janky brosky
 death screen
 pause menu
 able to WIN levels
