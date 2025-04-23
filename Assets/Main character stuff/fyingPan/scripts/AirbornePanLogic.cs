@@ -101,8 +101,6 @@ public class AirbornePanLogic : MonoBehaviour
 
     void CheckReturn()
     {
-        if (isLethal) return;
-
         if (Timer())
         {
             timer = 0; // Reset here, but only *after* completing the logic
