@@ -51,7 +51,6 @@ public class GooberBehaviour : MonoBehaviour
     public float windUpDuration;
     bool LungeWindUp()
     {
-        print(windUpTimer);
         if(windUpTimer >= windUpDuration)
         {
             return true;

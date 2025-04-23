@@ -7,7 +7,7 @@ public class composterWin : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("composterWin script active");
+
     }
 
     private void OnTriggerStay(Collider other)

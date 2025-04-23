@@ -35,7 +35,6 @@ public class mainmenuhandler : MonoBehaviour
     void Start()
     {
         receivedLevel = LevelData.levelCompleted;
-        Debug.Log("Level Completed: " + receivedLevel);
 
         if (graphicToZoom != null)
         {

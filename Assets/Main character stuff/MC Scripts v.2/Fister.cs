@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fister : MonoBehaviour
 {
     private List<GameObject> bulletListToParry = new();
-    public bool isBulletAvailableToParry = false;
+    [HideInInspector] public bool isBulletAvailableToParry = false;
 
-    private List<GameObject> punchLine = new();
+    private List<GameObject> objectsMaybeParry = new();
 
     public GameObject parriedBulletPrefab;
     public float ParriedBulletVelocityMultiplier;
@@ -17,7 +16,7 @@ public class Fister : MonoBehaviour
     private PerformanceTallyLogicV1 tally;
     [SerializeField] private float myDamage;
     public float knockbackForce;
-    [SerializeField] private GameObject mushy;
+    [SerializeField] private GameObject parryVfx;
 
     mchp me;
     MCAnimationV2 animOverride;
@@ -55,8 +54,8 @@ public class Fister : MonoBehaviour
 
         if (bomba == null) return;
 
-        if (bomba.canParry && !punchLine.Contains(bomba.gameObject)) punchLine.Add(bomba.gameObject);
-        else if (bomba.canParry && punchLine.Contains(bomba.gameObject)) punchLine.Remove(bomba.gameObject);
+        if (bomba.canParry && !objectsMaybeParry.Contains(bomba.gameObject)) objectsMaybeParry.Add(bomba.gameObject);
+        else if (bomba.canParry && objectsMaybeParry.Contains(bomba.gameObject)) objectsMaybeParry.Remove(bomba.gameObject);
 
     }
 
@@ -69,19 +68,22 @@ public class Fister : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy") && collision.gameObject.GetComponent<GooberBehaviour>() != null)
         {
-            punchLine.Remove(collision.gameObject);
+            objectsMaybeParry.Remove(collision.gameObject);
         }
     }
-
+void UpdateParryableObject()
+    {
+        Physics2D.OverlapCollider(GetComponent<PolygonCollider2D>(), filter, results);
+        foreach (Collider2D cool in results)
+        {
+            if (objectsMaybeParry.Contains<GameObject>(cool.gameObject) || !cool.gameObject.CompareTag("Enemy")) continue;
+            objectsMaybeParry.Add(cool.gameObject);
+        }
+    }
     private void HandleInput()
     {
         if (!FOnCooldown("nah")) return;
-        Physics2D.OverlapCollider(GetComponent<PolygonCollider2D>(), filter, results);
-        foreach(Collider2D cool in results)
-        {
-            if (punchLine.Contains<GameObject>(cool.gameObject) || !cool.gameObject.CompareTag("Enemy")) continue;
-            punchLine.Add(cool.gameObject);
-        }
+        UpdateParryableObject();
         if (Input.GetKeyDown(KeyCode.F))
         {
             int o = 0;
@@ -90,7 +92,7 @@ public class Fister : MonoBehaviour
                 Parry();
                 o++;
             }
-            if (punchLine.Count > 0)
+            if (objectsMaybeParry.Count > 0)
             {
                 getthisbozoouttahere();
                 o++;
@@ -117,19 +119,29 @@ public class Fister : MonoBehaviour
     public GameObject gooberMissile;
     private void getthisbozoouttahere()
     {
-        if (punchLine.Count == 0) return; // Check if punchLine is empty
+        if (objectsMaybeParry.Count == 0) return; // Check if punchLine is empty
+        GameObject bozoToParry = null;
+        for (int i = 0; i < objectsMaybeParry.Count; i++)
+        {
+            if(GetComponent<GooberBehaviour>() != null)
+            {
+                bozoToParry = objectsMaybeParry[i];
+                continue;
+            }
+        }
 
-        GameObject bozo = punchLine[0];
-        punchLine.Remove(bozo);
-        Quaternion bozoRotation = bozo.transform.rotation;
+        if (bozoToParry == null) return; //return if no goober to parry was found
+
+        objectsMaybeParry.Remove(bozoToParry);
+        Quaternion bozoRotation = bozoToParry.transform.rotation;
         GameObject newBozo = Instantiate(gooberMissile);
-        newBozo.transform.position = bozo.transform.position;
+        newBozo.transform.position = bozoToParry.transform.position;
 
-        Rigidbody2D gooberBody = bozo.GetComponent<Rigidbody2D>();
+        Rigidbody2D gooberBody = bozoToParry.GetComponent<Rigidbody2D>();
         if (gooberBody != null)
         {
             Vector2 bozoVelocity = gooberBody.velocity;
-            Destroy(bozo);
+            Destroy(bozoToParry);
             Rigidbody2D bozoMissile = newBozo.GetComponent<Rigidbody2D>();
             if (bozoMissile != null)
             {
@@ -177,8 +189,8 @@ public class Fister : MonoBehaviour
         float slowDownFactor = 0f;
         float duration = 0.3f;
 
-        if (mushy != null)
-            mushy.SetActive(true);
+        if (parryVfx != null)
+            parryVfx.SetActive(true);
 
         Time.timeScale = slowDownFactor;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
@@ -188,26 +200,26 @@ public class Fister : MonoBehaviour
         Time.timeScale = originalTimeScale;
         Time.fixedDeltaTime = 0.02f;
 
-        if (mushy != null)
-            mushy.SetActive(false);
+        if (parryVfx != null)
+            parryVfx.SetActive(false);
     }
 
 
     private void Punch2()
     {
-        if (punchLine.Count == 0) return;
+        if (objectsMaybeParry.Count == 0) return;
 
         // explenation lite mer ner orka skriva här
-        punchLine.RemoveAll(col => col == null || !col.gameObject.activeInHierarchy);
+        objectsMaybeParry.RemoveAll(col => col == null || !col.gameObject.activeInHierarchy);
 
-        if (punchLine.Count == 0) return;
+        if (objectsMaybeParry.Count == 0) return;
 
-        EnemyHealth thisbozo = punchLine[0].GetComponent<EnemyHealth>();
+        EnemyHealth thisbozo = objectsMaybeParry[0].GetComponent<EnemyHealth>();
         if (thisbozo != null)
         {
             if (thisbozo.InflictDamage(myDamage))
             {
-                punchLine.RemoveAt(0);  //den tar bort enemie colliders när dem dör
+                objectsMaybeParry.RemoveAt(0);  //den tar bort enemie colliders när dem dör
                 me.RestoreHealth(40);
             }
             else
@@ -218,8 +230,8 @@ public class Fister : MonoBehaviour
             tally.UpdateTally("+ LEE-SIN WANNA-BE", "Add");
 
             // Apply knockback
-            Vector2 knockbackDirection = (punchLine[0].transform.position - transform.position).normalized;
-            Rigidbody2D rb = punchLine[0].gameObject.GetComponent<Rigidbody2D>();
+            Vector2 knockbackDirection = (objectsMaybeParry[0].transform.position - transform.position).normalized;
+            Rigidbody2D rb = objectsMaybeParry[0].gameObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
                 rb.AddForce(-knockbackDirection * knockbackForce, ForceMode2D.Impulse);
