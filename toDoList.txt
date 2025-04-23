@@ -1,13 +1,15 @@
 generell kod; listy list
 tosser animation handler
-fix shitty lvl 1
+cant parry goober -_-
 
 estetiska saker list
+level3
 level decorations
 hitbox fixing
 musik?
 
 THINGS DONE:
+fix shitty lvl 1
 parry är typ lite janky brosky
 death screen
 pause menu
