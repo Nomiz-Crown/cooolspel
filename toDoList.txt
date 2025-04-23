@@ -1,20 +1,21 @@
 generell kod; listy list
 parry är typ lite janky brosky
 tosser animation handler
-pause menu
+
 
 
 
 estetiska saker list
-death screen
-ev fixa hitboxes på lvl 2
 level decorations
+hitbox fixing
 musik?
 
 
 
 
 THINGS DONE:
+death screen
+pause menu
 able to WIN levels
 parry goober(lol)
 Parry anim (JUICY EFFECTS)
