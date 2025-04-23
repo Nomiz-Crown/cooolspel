@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class deathScreen : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class deathScreen : MonoBehaviour
     public Vector2 targetPosition;
     public float slideDuration = 1f;
 
+    public Button retryButton;
+    public Button mainMenuButton;
+    public string retrySceneName;
+    public string mainMenuSceneName;
+
     void Start()
     {
         if (imageObject != null && animationFrames.Length > 0)
@@ -20,6 +26,12 @@ public class deathScreen : MonoBehaviour
             imageObject.gameObject.SetActive(true);
             StartCoroutine(PlayImageAnimation());
         }
+
+        if (retryButton != null)
+            retryButton.onClick.AddListener(LoadRetryScene);
+
+        if (mainMenuButton != null)
+            mainMenuButton.onClick.AddListener(LoadMainMenuScene);
     }
 
     IEnumerator PlayImageAnimation()
@@ -53,5 +65,17 @@ public class deathScreen : MonoBehaviour
         }
 
         rectTransform.anchoredPosition = targetPosition;
+    }
+
+    void LoadRetryScene()
+    {
+        if (!string.IsNullOrEmpty(retrySceneName))
+            SceneManager.LoadScene(retrySceneName);
+    }
+
+    void LoadMainMenuScene()
+    {
+        if (!string.IsNullOrEmpty(mainMenuSceneName))
+            SceneManager.LoadScene(mainMenuSceneName);
     }
 }
