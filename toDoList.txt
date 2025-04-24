@@ -1,6 +1,7 @@
 generell kod; listy list
 tosser animation handler
-cant parry goober -_-
+fixa potensiell issue med parry time freeze(oviktigt)
+fixa kasta stekpana mid-paus
 
 estetiska saker list
 level3
@@ -9,8 +10,9 @@ musik?
 
 THINGS DONE:
 hitbox fixing
+bugfixed parry goober (for real this time)-_-
 fix shitty lvl 1
-parry är typ lite janky brosky
+parry är typ lite janky brosky (fixade parry)
 death screen
 pause menu
 able to WIN levels
