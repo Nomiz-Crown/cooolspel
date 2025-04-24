@@ -1,15 +1,16 @@
 generell kod; listy list
-tosser animation handler (ughhhhhhhhhhhhhhhhhhh)
 fixa potensiell issue med parry time freeze(oviktigt)
 fixa kasta stekpana mid-paus
 
 estetiska saker list
 en cool font? 
-level3
 level decorations
 musik?
 
 THINGS DONE:
+parry enkligen funkar!!! (yipiii)
+tosser animation handler (ughhhhhhhhhhhhhhhhhhh)
+level3
 lvl1 training wheels
 hitbox fixing
 bugfixed parry goober (for real this time)-_-
