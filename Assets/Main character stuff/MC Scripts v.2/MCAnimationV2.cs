@@ -26,13 +26,10 @@ public class MCAnimationV2 : MonoBehaviour
 
         if (isParry)
         {
-            Debug.Log("playing anim");
-            animator.enabled = false;
-            animator.enabled = true;
             animator.Play("pepsi");
-            PunchTimer();
-            return;
         }
+        if (ParryAnimPlaying()) return;
+        print("hi");
         if (Player.isWalking && Player.isGrounded)
         {
             animator.Play("RunningAnimationV2");
@@ -63,17 +60,19 @@ public class MCAnimationV2 : MonoBehaviour
         }
     }
     float timer = 0;
-        public float punchanimtime;
-    void PunchTimer()
-    { 
-        if(timer >= punchanimtime)
+        public float parryAnimTime;
+    bool ParryAnimPlaying()
+    {
+        if (!isParry) return false;
+        if(timer >= parryAnimTime)
         {
             isParry = false;
-            timer = 0;
+            return true;
         }
         else
         {
             timer += Time.deltaTime;
+            return false;
         }
     }
 }

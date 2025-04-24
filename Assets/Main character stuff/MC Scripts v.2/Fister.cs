@@ -122,6 +122,11 @@ void UpdateParryableObject()
 
         for (int i = 0; i < objectsMaybeParry.Count; i++)
         {
+            if (objectsMaybeParry[i] == null)
+            {
+                objectsMaybeParry.Remove(objectsMaybeParry[i]);
+                continue;
+            }
             if((gooberToParry = objectsMaybeParry[i].GetComponent<GooberBehaviour>()) != null)
             {
                 bozoToParry = objectsMaybeParry[i];
