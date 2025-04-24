@@ -1,9 +1,10 @@
 generell kod; listy list
-tosser animation handler
+tosser animation handler (ughhhhhhhhhhhhhhhhhhh)
 fixa potensiell issue med parry time freeze(oviktigt)
 fixa kasta stekpana mid-paus
 
 estetiska saker list
+en cool font? 
 level3
 level decorations
 musik?
