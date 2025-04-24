@@ -5,17 +5,32 @@ using UnityEngine;
 
 public class realTimer : MonoBehaviour
 {
-    TextMeshProUGUI gromp;
+    TextMeshProUGUI tmp;
+    composterWin winner;
     [HideInInspector] public string displayMe;
+    float thisLevel;
+    public string highScore;
+    HighScoreDisplay bomb;
     // Start is called before the first frame update
     void Start()
     {
-        gromp = GetComponent<TextMeshProUGUI>();
+        bomb = GetComponent<HighScoreDisplay>();
+        winner = FindObjectOfType<composterWin>();
+        thisLevel = winner.levelCompleted;
+        tmp = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        gromp.text = displayMe;   
+        if (LevelData.levelCompleted != thisLevel)
+        {
+            tmp.text = displayMe;
+            highScore = displayMe;
+        }
+        else
+        {
+            bomb.SaveHighScore();
+        }
     }
 }
