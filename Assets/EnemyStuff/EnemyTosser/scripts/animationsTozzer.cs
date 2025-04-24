@@ -7,6 +7,8 @@ public class animationsTozzer : MonoBehaviour
     Animator anim;
     TosserScript tosser;
 
+    public float shootanimlength;
+    float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +21,25 @@ public class animationsTozzer : MonoBehaviour
     {
         if (tosser != null)
         {
-            if (tosser.canShoot)
+            if (tosser.canShoot && tosser.HasClearLineOfSight())
             {
-                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
-                {
-                    anim.SetTrigger("Shoot");
-                }
+                print("flipper");
+                anim.Play("Shoot");
+                timer = 0;
             }
             else
             {
-                anim.SetTrigger("Idle");
+                if(ShootTimer()) anim.Play("Idle");
             }
+        }
+    }
+    bool ShootTimer()
+    {
+        if (timer >= shootanimlength) return true;
+        else
+        {
+            timer += Time.deltaTime;
+            return false;
         }
     }
 }

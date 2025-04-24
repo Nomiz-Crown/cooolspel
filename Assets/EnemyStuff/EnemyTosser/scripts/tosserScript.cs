@@ -17,15 +17,12 @@ public class TosserScript : MonoBehaviour
     public bool canShoot = false;
     private ShootPlayer shooter;
 
-    private Animator anim;  // Animator reference
-
     // Start is called before the first frame update
     void Start()
     {
         shooter = GetComponent<ShootPlayer>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>(); // Get the Animator component
         UpdateRealTarget();
     }
 
@@ -45,7 +42,6 @@ public class TosserScript : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y); // Stop movement
             if (canShoot)
             {
-                anim.Play("Shoot");  // Play the "Shoot" animation directly
                 shooter.Shoot(); // Perform shooting
                 cooldownTime = 0f; // Reset cooldown timer after shooting
             }
@@ -54,7 +50,6 @@ public class TosserScript : MonoBehaviour
         {
             // Move towards the player
             MoveToPlayer();
-            anim.Play("Idle");  // Play the "Idle" animation when moving or not shooting
         }
     }
 
