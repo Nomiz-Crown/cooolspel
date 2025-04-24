@@ -49,8 +49,7 @@ public class Fister : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Enemy")) return;
 
-        GameObject snake = collision.gameObject;
-        GooberBehaviour bomba = snake.GetComponent<GooberBehaviour>();
+        GooberBehaviour bomba = collision.gameObject.GetComponent<GooberBehaviour>();
 
         if (bomba == null) return;
 
@@ -84,18 +83,17 @@ void UpdateParryableObject()
     {
         if (!FOnCooldown("nah")) return;
         UpdateParryableObject();
+        print(objectsMaybeParry);
         if (Input.GetKeyDown(KeyCode.F))
         {
             int o = 0;
             if (isBulletAvailableToParry)
             {
-                Parry();
-                o++;
+                if (Parry()) o++;
             }
             if (objectsMaybeParry.Count > 0)
             {
-                getthisbozoouttahere();
-                o++;
+                if (getthisbozoouttahere()) o++;
             }
             if (o > 0)
             {
@@ -117,21 +115,23 @@ void UpdateParryableObject()
         return timer >= armCooldown;
     }
     public GameObject gooberMissile;
-    private void getthisbozoouttahere()
+    private bool getthisbozoouttahere()
     {
-        if (objectsMaybeParry.Count == 0) return; // Check if punchLine is empty
+        if (objectsMaybeParry.Count == 0) return false; // Check if punchLine is empty
         GameObject bozoToParry = null;
+        GooberBehaviour gooberToParry = null;
+
         for (int i = 0; i < objectsMaybeParry.Count; i++)
         {
-            if(GetComponent<GooberBehaviour>() != null)
+            if((gooberToParry = objectsMaybeParry[i].GetComponent<GooberBehaviour>()) != null)
             {
                 bozoToParry = objectsMaybeParry[i];
                 continue;
             }
         }
 
-        if (bozoToParry == null) return; //return if no goober to parry was found
-
+        if (bozoToParry == null || !gooberToParry.canParry) return false; //return if no goober to parry was found OR if cant parry goober
+        
         objectsMaybeParry.Remove(bozoToParry);
         Quaternion bozoRotation = bozoToParry.transform.rotation;
         GameObject newBozo = Instantiate(gooberMissile);
@@ -150,17 +150,18 @@ void UpdateParryableObject()
             }
         }
         tally.UpdateTally("+ IM WALKIN' HERE", "Add");
+        return true;
     }
-    private void Parry()
+    private bool Parry()
     {
 
-        if (bulletListToParry.Count == 0) return;
+        if (bulletListToParry.Count == 0) return false;
 
         GameObject bulletToParry = bulletListToParry[0];
         Vector2 bulletPosition = bulletToParry.transform.position;
         Rigidbody2D bulletRigidbody = bulletToParry.GetComponent<Rigidbody2D>();
 
-        if (bulletRigidbody == null) return;
+        if (bulletRigidbody == null) return false;
 
         Vector2 bulletVelocity = bulletRigidbody.velocity;
         GameObject newBullet = Instantiate(parriedBulletPrefab, bulletPosition, Quaternion.identity);
@@ -181,6 +182,7 @@ void UpdateParryableObject()
         {
             me.RestoreHealth(35);
         }
+        return true;
     }
 
     private IEnumerator DoSlowMotion()

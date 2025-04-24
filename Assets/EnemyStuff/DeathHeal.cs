@@ -17,7 +17,6 @@ public class DeathEffect : MonoBehaviour
         {
             if (hp != null && !healed)
             {
-                print("yello");
                 hp.TemperatureHealth -= 5;
                 healed = true;
             }
