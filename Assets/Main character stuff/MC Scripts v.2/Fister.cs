@@ -149,6 +149,10 @@ void UpdateParryableObject()
             }
         }
         tally.UpdateTally("+ IM WALKIN' HERE", "Add");
+        if (me.TemperatureHealth > 0)
+        {
+            me.RestoreHealth(35);
+        }
         return true;
     }
     private bool Parry()
