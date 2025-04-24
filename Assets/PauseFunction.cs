@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseFunction : MonoBehaviour
 {
     public GameObject pausePanel;
-    public string sceneToLoad;
+    public string mainMenuScene;
 
     private bool isPaused = false;
 
@@ -46,7 +46,7 @@ public class PauseFunction : MonoBehaviour
     public void LoadScene()
     {
         Time.timeScale = 1f;
-        if (!string.IsNullOrEmpty(sceneToLoad))
-            SceneManager.LoadScene(sceneToLoad);
+        if (!string.IsNullOrEmpty(mainMenuScene))
+            SceneManager.LoadScene(mainMenuScene);
     }
 }

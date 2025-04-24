@@ -10,6 +10,7 @@ level decorations
 musik?
 
 THINGS DONE:
+lvl1 training wheels
 hitbox fixing
 bugfixed parry goober (for real this time)-_-
 fix shitty lvl 1
