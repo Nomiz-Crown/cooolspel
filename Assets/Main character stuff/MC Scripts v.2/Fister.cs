@@ -83,7 +83,6 @@ void UpdateParryableObject()
     {
         if (!FOnCooldown("nah")) return;
         UpdateParryableObject();
-        print(objectsMaybeParry);
         if (Input.GetKeyDown(KeyCode.F))
         {
             int o = 0;

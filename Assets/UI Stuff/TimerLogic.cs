@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class TimerLogic : MonoBehaviour
 {
-    public GameObject Timer;
-    private TextMeshProUGUI TimerTMP;
+    private realTimer TimerTMP;
 
     float secondsPassed = 0;
     string secondsToDisplay;
@@ -14,8 +13,7 @@ public class TimerLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Timer == null) print("uuuooooohhhh");
-        else TimerTMP = Timer.GetComponent<TextMeshProUGUI>();
+        TimerTMP = FindObjectOfType<realTimer>();
 
         if (TimerTMP == null) print("uuuooooohhhh2");
     }
@@ -38,7 +36,7 @@ public class TimerLogic : MonoBehaviour
     }
     void UpdateText()
     {
-        TimerTMP.text = ($"{minutesToDisplay}:{secondsToDisplay}");
+        TimerTMP.displayMe = ($"{minutesToDisplay}:{secondsToDisplay}");
     }
     void TimeyWimeyWibblyWobblyStuff()
     {
