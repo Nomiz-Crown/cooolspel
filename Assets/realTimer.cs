@@ -16,6 +16,11 @@ public class realTimer : MonoBehaviour
     {
         bomb = GetComponent<HighScoreDisplay>();
         winner = FindObjectOfType<composterWin>();
+        if (winner == null) 
+        {
+            Debug.LogError("Composter Win Script is missing from scene"); 
+            return;
+        }
         thisLevel = winner.levelCompleted;
         tmp = GetComponent<TextMeshProUGUI>();
     }
@@ -23,6 +28,8 @@ public class realTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (winner == null) return;
+
         if (LevelData.levelCompleted != thisLevel)
         {
             tmp.text = displayMe;
