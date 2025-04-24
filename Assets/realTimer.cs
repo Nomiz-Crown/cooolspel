@@ -18,7 +18,7 @@ public class realTimer : MonoBehaviour
         winner = FindObjectOfType<composterWin>();
         if (winner == null) 
         {
-            Debug.LogError("Composter Win Script is missing from scene"); 
+            Debug.LogWarning("Composter Win Script is missing from scene, Timer and highscores are disabled."); 
             return;
         }
         thisLevel = winner.levelCompleted;
