@@ -4,11 +4,11 @@ public static class LevelData
 {
     public static int levelCompleted
     {
-        get => PlayerPrefs.GetInt("levelCompleted", 0); // Default to 0 (no levels completed)
+        get => PlayerPrefs.GetInt("levelCompleted", 0);
         set
         {
             int current = PlayerPrefs.GetInt("levelCompleted", 0);
-            if (value > current) // only update if new level is higher
+            if (value > current)
             {
                 PlayerPrefs.SetInt("levelCompleted", value);
                 PlayerPrefs.Save();
