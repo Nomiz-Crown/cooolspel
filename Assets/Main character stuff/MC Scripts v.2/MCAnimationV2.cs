@@ -6,7 +6,6 @@ using UnityEngine;
 public class MCAnimationV2 : MonoBehaviour
 {
     Animator animator;
-    Fister Fister;
     MCMovementv2 Player;
     [HideInInspector] public bool isPunch;
     [HideInInspector] public bool isParry;
@@ -16,20 +15,13 @@ public class MCAnimationV2 : MonoBehaviour
         isParry = false;
         animator = GetComponent<Animator>();
         Player = GetComponent<MCMovementv2>();
-        Fister = GetComponent<Fister>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool parry = Fister.isBulletAvailableToParry;
 
-        if (isParry)
-        {
-            animator.Play("pepsi");
-        }
-        if (ParryAnimPlaying()) return;
-        print("hi");
+        if (isParry) { animator.Play("pepsi"); return; }
         if (Player.isWalking && Player.isGrounded)
         {
             animator.Play("RunningAnimationV2");
@@ -57,22 +49,6 @@ public class MCAnimationV2 : MonoBehaviour
         else if (Player.isIdle && Player.isGrounded)
         {
             animator.Play("BetterIdle");
-        }
-    }
-    float timer = 0;
-        public float parryAnimTime;
-    bool ParryAnimPlaying()
-    {
-        if (!isParry) return false;
-        if(timer >= parryAnimTime)
-        {
-            isParry = false;
-            return true;
-        }
-        else
-        {
-            timer += Time.deltaTime;
-            return false;
         }
     }
 }

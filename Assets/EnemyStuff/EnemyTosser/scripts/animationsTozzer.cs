@@ -23,7 +23,6 @@ public class animationsTozzer : MonoBehaviour
         {
             if (tosser.canShoot && tosser.HasClearLineOfSight())
             {
-                print("flipper");
                 anim.Play("Shoot");
                 timer = 0;
             }

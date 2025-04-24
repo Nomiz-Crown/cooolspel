@@ -17,11 +17,12 @@ public class Fister : MonoBehaviour
     [SerializeField] private float myDamage;
     public float knockbackForce;
     [SerializeField] private GameObject parryVfx;
-
+    private float parryTime;
     mchp me;
     MCAnimationV2 animOverride;
     private void Start()
     {
+        parryTime = armCooldown;
         tally = FindObjectOfType<PerformanceTallyLogicV1>();
         me = GetComponent<mchp>();
         animOverride = GetComponent<MCAnimationV2>();
@@ -31,7 +32,10 @@ public class Fister : MonoBehaviour
     {
         HandleInput();
     }
+    void ParryTimer()
+    {
 
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -96,11 +100,19 @@ void UpdateParryableObject()
             }
             if (o > 0)
             {
-                animOverride.isParry = true;
+                if (!animOverride.isParry)
+                {
+                    animOverride.isParry = true;
+                    Invoke("Skibidi", parryTime);
+                }
                 StartCoroutine(DoSlowMotion());
             }
             FOnCooldown("reset");
         }
+    }
+    void Skibidi()
+    {
+        animOverride.isParry = false;
     }
     [SerializeField] float armCooldown;
     float timer = 0;
