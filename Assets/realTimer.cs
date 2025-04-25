@@ -36,16 +36,37 @@ public class realTimer : MonoBehaviour
         tmp.text = displayMe;
         if (winner.saveScore)
         {
-            print("hi i got in");
             SaveHighScore();
         }
     }
 
     public void SaveHighScore()
     {
-        if (secondsPassed >= float.Parse(File.ReadAllText(filePath))) return;
-        string gurt = $"{Mathf.Round(secondsPassed * 1000) / 1000}";
-        print(gurt +" is what i save");
-        File.WriteAllText(filePath, gurt);
+        // Check if the file exists
+        if (!File.Exists(filePath))
+        {
+            // If the file does not exist, create it with the current score
+            string initialScore = "99999999"; // Default score
+            File.WriteAllText(filePath, initialScore);
+            Debug.Log("High score file created with initial score: " + initialScore);
+        }
+
+        // Read the high score from the file
+        string highScoreString = File.ReadAllText(filePath);
+
+        // Try to parse the high score
+        float highScoreValue;
+        if (!float.TryParse(highScoreString, out highScoreValue))
+        {
+            Debug.LogError("Failed to parse high score from file. Content: " + highScoreString);
+            return; // Exit if parsing fails
+        }
+
+        // Compare and save the new high score if it's higher
+        if (secondsPassed >= highScoreValue) return;
+        string newHighScore = $"{Mathf.Round(secondsPassed * 1000) / 1000}";
+        Debug.Log(newHighScore + " is what I save");
+        File.WriteAllText(filePath, newHighScore);
     }
+
 }

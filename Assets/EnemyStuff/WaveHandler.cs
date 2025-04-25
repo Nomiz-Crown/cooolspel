@@ -150,9 +150,9 @@ public class WaveHandler : MonoBehaviour
     {
         if (!File.Exists(filePath))
         {
-            File.WriteAllText(filePath, ""); // Initialize with an empty value
+            File.WriteAllText(filePath, "0"); // Initialize with an empty value
         }
-        if (wave >= float.Parse(File.ReadAllText(filePath))) return;
+        if (wave <= float.Parse(File.ReadAllText(filePath))) return;
         print(wave + " is what i save");
         File.WriteAllText(filePath, wave.ToString());
     }
