@@ -8,6 +8,7 @@ public class mainmenuhandler : MonoBehaviour
     public string mainMenuSceneName = "main menu";
     public GameObject level2Button;
     public GameObject level3Button;
+    public GameObject level4Button;
 
     public int receivedLevel;
     public GameObject panelToActivate;
@@ -45,6 +46,7 @@ public class mainmenuhandler : MonoBehaviour
         // Setup level buttons
         SetButtonState(level2Button?.GetComponent<Button>(), receivedLevel >= 1);
         SetButtonState(level3Button?.GetComponent<Button>(), receivedLevel >= 2);
+        SetButtonState(level4Button?.GetComponent<Button>(), receivedLevel >= 3);
     }
     void Update()
     {

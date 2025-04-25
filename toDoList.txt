@@ -4,10 +4,11 @@ fixa kasta stekpana mid-paus
 
 estetiska saker list
 en cool font? 
-level decorations
 musik?
 
 THINGS DONE:
+Ending
+level decorations
 parry enkligen funkar!!! (yipiii)
 tosser animation handler (ughhhhhhhhhhhhhhhhhhh)
 level3

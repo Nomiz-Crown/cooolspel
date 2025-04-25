@@ -8590,6 +8590,7 @@ MonoBehaviour:
   mainMenuSceneName: main menu
   level2Button: {fileID: 50721612}
   level3Button: {fileID: 1321813313}
+  level4Button: {fileID: 1411902841}
   receivedLevel: 0
   panelToActivate: {fileID: 102235728}
   scene1Name: spel
