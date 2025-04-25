@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 2878174327193097717}
   - component: {fileID: 3631745102670095708}
   - component: {fileID: 5393428504082983903}
-  - component: {fileID: 2018115683702002312}
   m_Layer: 7
   m_Name: MC V2 Cool
   m_TagString: Player
@@ -340,15 +339,3 @@ MonoBehaviour:
   TemperatureHealth: 0
   death: {fileID: 0}
   tutorialPassed: 0
---- !u!114 &2018115683702002312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6556145221014290406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4db1f601be3964f8cc0df3012faa10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

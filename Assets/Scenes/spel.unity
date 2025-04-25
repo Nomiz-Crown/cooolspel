@@ -668,6 +668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothSpeed: 0.05
   offset: {x: 0, y: 0, z: -10}
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
 --- !u!1 &895967945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,6 +1829,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+--- !u!1 &2210071255993302305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7770424449930939380, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
+  m_PrefabInstance: {fileID: 2210071255993302304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3199926538515440488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1892,6 +1899,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2878174327193097717, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: parryVfx
+      value: 
+      objectReference: {fileID: 2210071255993302305}
     - target: {fileID: 5393428504082983903, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: death
       value: 

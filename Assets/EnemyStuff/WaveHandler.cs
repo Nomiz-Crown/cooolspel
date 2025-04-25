@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 using UnityEngine.SceneManagement; // For loading scenes
 
 [System.Serializable]
@@ -32,8 +33,12 @@ public class WaveHandler : MonoBehaviour
     private bool waveInProgress = false;
     private PerformanceTallyLogicV1 tally;
     public GameObject triggerObject;
+
+    string filePath;
+    string myLevel = "heatwave";
     void Start()
     {
+        filePath = Path.Combine(Application.persistentDataPath, "highscore" + myLevel + ".json");
         tally = FindObjectOfType<PerformanceTallyLogicV1>();
         mainCharacterEnergyyy = GameObject.Find("MC V2 Cool");
         if (mainCharacterEnergyyy == null)
@@ -110,7 +115,7 @@ public class WaveHandler : MonoBehaviour
         {
             activeEnemies.Remove(other.gameObject);
             Destroy(other.gameObject);
-            tally.UpdateTally("+ is there fall damage?", "Add");
+            tally.UpdateTally("+ IS THERE FALL DAMAGAE?", "Add");
             EnemiesKilled++;
         }
         else if (other.gameObject == mainCharacterEnergyyy)
@@ -140,5 +145,11 @@ public class WaveHandler : MonoBehaviour
     public void LoadHeatWave()
     {
         SceneManager.LoadScene("HeatWave"); // Change to your actual HeatWave scene name
+    }
+    public void SaveWaveScore()
+    {
+        if (wave >= float.Parse(File.ReadAllText(filePath))) return;
+        print(wave + " is what i save");
+        File.WriteAllText(filePath, $"wave");
     }
 }
