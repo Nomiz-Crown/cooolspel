@@ -5627,6 +5627,10 @@ PrefabInstance:
       propertyPath: mushy
       value: 
       objectReference: {fileID: 1850671862}
+    - target: {fileID: 2878174327193097717, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: parryVfx
+      value: 
+      objectReference: {fileID: 1850671862}
     - target: {fileID: 5393428504082983903, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: death
       value: 
