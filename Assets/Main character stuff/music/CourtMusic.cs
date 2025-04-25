@@ -9,16 +9,18 @@ public class CourtMusic : MonoBehaviour
     public GameObject musicObject;
     public GameObject objectToActivateAfterMusic;
 
+    public bool hasTouched = false;
     private bool musicStarted = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !musicStarted)
         {
+            hasTouched = true;
             musicStarted = true;
 
-            if (objectToDisable1 != null) objectToDisable1.SetActive(false);
-            if (objectToDisable2 != null) objectToDisable2.SetActive(false);
+            objectToDisable1.SetActive(false);
+            objectToDisable2.SetActive(false);
 
             if (musicObject != null)
             {

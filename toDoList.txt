@@ -4,9 +4,10 @@ fixa kasta stekpana mid-paus
 
 estetiska saker list
 en cool font? 
-musik?
+
 
 THINGS DONE:
+musik?
 highscores(jag är en fucking gud och jag är ostopbar)
 parry vfx in bomb site A
 screenshake (sexy)
