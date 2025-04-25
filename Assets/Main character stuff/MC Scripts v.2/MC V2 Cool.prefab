@@ -185,7 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPunch: 0
   isParry: 0
-  parryAnimTime: 0.3335
 --- !u!61 &6200049010693936850
 BoxCollider2D:
   m_ObjectHideFlags: 0
