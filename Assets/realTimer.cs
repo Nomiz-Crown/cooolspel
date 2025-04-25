@@ -25,7 +25,6 @@ public class realTimer : MonoBehaviour
         }
         thisLevel = winner.levelCompleted;
         filePath = Path.Combine(Application.persistentDataPath, "highscore" + thisLevel + ".json");
-        print(filePath);
         tmp = GetComponent<TextMeshProUGUI>();
     }
 
