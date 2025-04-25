@@ -6,17 +6,20 @@ public class musichandler : MonoBehaviour
 {
     public GameObject introstuff;
     public GameObject RestOfTheLEvelStuff;
-    // Start is called before the first frame update
+    public CourtMusic courtMusicScript;
+
     void Start()
     {
         RestOfTheLEvelStuff.SetActive(false);
         introstuff.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (courtMusicScript != null && courtMusicScript.hasTouched)
+        {
+            RestOfTheLEvelStuff.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
