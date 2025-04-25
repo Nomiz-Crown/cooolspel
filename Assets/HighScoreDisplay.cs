@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class HighScoreDisplay : MonoBehaviour
 {
