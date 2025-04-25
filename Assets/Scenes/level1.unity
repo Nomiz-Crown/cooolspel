@@ -13270,6 +13270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introstuff: {fileID: 231295504}
   RestOfTheLEvelStuff: {fileID: 1986741054}
+  courtMusicScript: {fileID: 0}
 --- !u!61 &1840365335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57501,14 +57502,6 @@ PrefabInstance:
     - target: {fileID: 2306760639385590409, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5031710009353587101, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
-      propertyPath: PassiveOpacityDecrease
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 5031710009353587101, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
-      propertyPath: OpacityDecreaseEveryBlank
-      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8643288227859983768, guid: 5973cabc41bddd54fb262e5ff4d9021e, type: 3}
       propertyPath: m_Name

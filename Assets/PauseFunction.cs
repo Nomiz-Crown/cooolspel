@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseFunction : MonoBehaviour
 {
     public GameObject pausePanel;
     public string mainMenuScene;
+    public Slider volumeSlider; // assign in the Inspector
 
     private bool isPaused = false;
 
@@ -14,6 +14,13 @@ public class PauseFunction : MonoBehaviour
     {
         if (pausePanel != null)
             pausePanel.SetActive(false);
+
+        if (volumeSlider != null)
+        {
+            // Set the slider to match saved volume
+            volumeSlider.value = MusicVolumeManager.volumePercent;
+            volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
+        }
     }
 
     void Update()
@@ -48,5 +55,10 @@ public class PauseFunction : MonoBehaviour
         Time.timeScale = 1f;
         if (!string.IsNullOrEmpty(mainMenuScene))
             SceneManager.LoadScene(mainMenuScene);
+    }
+
+    void OnVolumeChanged(float value)
+    {
+        MusicVolumeManager.SetVolume(value);
     }
 }
