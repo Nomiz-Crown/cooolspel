@@ -10,30 +10,25 @@ public class HighScoreDisplay : MonoBehaviour
 {
     private string filePath;
     TextMeshProUGUI tmp;
-    realTimer ok;
+    public float myLevel;
+    string displayThis;
 
     void Start()
     {
         tmp = GetComponent<TextMeshProUGUI>();
-        ok = GetComponent<realTimer>();
-        filePath = Path.Combine(Application.persistentDataPath, "highscore.json");
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            LoadHighScore();
-        }
+        filePath = Path.Combine(Application.persistentDataPath, "highscore" + myLevel + ".json");
+        float temp = float.Parse(File.ReadAllText(filePath));
+        float minutesPassed = Mathf.Floor(temp / 60);
+        string secondsPassedToDisplay = $"{temp - minutesPassed * 60}";
+        LoadHighScore($"{minutesPassed}:"+secondsPassedToDisplay);
     }
 
-    public void SaveHighScore()
-    {
-        File.WriteAllText(filePath, ok.highScore);
-    }
 
-    public void LoadHighScore()
+    public void LoadHighScore(string score)
     {
         if (File.Exists(filePath))
         {
-            ok.highScore = File.ReadAllText(filePath);
-            tmp.text = "HighScore: " + ok.highScore;
+            tmp.text = "HighScore: " + score;
         }
     }
 }

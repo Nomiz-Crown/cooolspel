@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,12 @@ public class PlayersBulletLogic : MonoBehaviour
     Vector3 mypos;
     public  float bulletLifeTime;
     float timer = 0;
+    CameraMoveToPlayer cam1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        cam1 = FindObjectOfType<CameraMoveToPlayer>();
+        if (cam1 == null) Debug.LogWarning("unable to find camera. screenshake disabled");
     }
     void DestroyAfterExpire()
     {
@@ -27,6 +30,7 @@ public class PlayersBulletLogic : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         InstExplosion();
+        cam1.ShakeCamera();
         Destroy(gameObject);
     }
     void InstExplosion()

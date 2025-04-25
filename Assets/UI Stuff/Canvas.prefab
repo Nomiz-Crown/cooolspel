@@ -3620,7 +3620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 269356249824472272}
-  sceneToLoad: main menu
+  mainMenuScene: 
 --- !u!1 &9141214175269631094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,6 +3983,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4657304211363992102, guid: 37f95b089df690940a774b9cf569a65a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7036443814355378292}
+    - targetCorrespondingSourceObject: {fileID: 4657304211363992102, guid: 37f95b089df690940a774b9cf569a65a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7966138599494366939}
   m_SourcePrefab: {fileID: 100100000, guid: 37f95b089df690940a774b9cf569a65a, type: 3}
 --- !u!1 &1221203607320002496 stripped
 GameObject:
@@ -4002,6 +4005,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayMe: 
+--- !u!114 &7966138599494366939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221203607320002496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4db1f601be3964f8cc0df3012faa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2628911491356770407 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8370857615037607297, guid: 37f95b089df690940a774b9cf569a65a, type: 3}

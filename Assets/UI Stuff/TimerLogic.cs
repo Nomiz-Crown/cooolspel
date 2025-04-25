@@ -37,6 +37,7 @@ public class TimerLogic : MonoBehaviour
     void UpdateText()
     {
         TimerTMP.displayMe = ($"{minutesToDisplay}:{secondsToDisplay}");
+        TimerTMP.secondsPassed = secondsPassed;
     }
     void TimeyWimeyWibblyWobblyStuff()
     {

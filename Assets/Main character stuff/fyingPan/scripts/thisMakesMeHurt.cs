@@ -43,13 +43,13 @@ public class thisMakesMeHurt : MonoBehaviour
     void InflictDamage()
     {
         EnemyToDamage.myHealth -= myDamage;
-        tally.UpdateTally("+ P-l-anned", "Add");
+        tally.UpdateTally("+ P-L-ANNED", "Add");
     }
     void CheckIfDead()
     {
         if (EnemyToDamage.myHealth <= 0)
         {
-            EnemyToDamage.Kys("Panetration");
+            EnemyToDamage.Kys("PAN-ETRATION");
         }
         else
         {

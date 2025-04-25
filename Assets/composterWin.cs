@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class composterWin : MonoBehaviour
 {
     public int levelCompleted;
+    public bool saveScore = false;
 
     private void OnTriggerStay(Collider other)
     {
@@ -16,6 +17,7 @@ public class composterWin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("player touchy");
+            saveScore = true;
             LevelData.levelCompleted = levelCompleted;
 
             if (levelCompleted == 3)

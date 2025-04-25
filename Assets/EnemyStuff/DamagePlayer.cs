@@ -9,7 +9,6 @@ public class DamagePlayer : MonoBehaviour
     GooberBehaviour me;
     BoxCollider2D myCollider;
     mchp PlayerHealth;
-    public Vector2 colliderSize;
     public LayerMask PlayerLayer;
     // Start is called before the first frame update
     void Start()

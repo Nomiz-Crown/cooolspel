@@ -5198,6 +5198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothSpeed: 0.01
   offset: {x: 0, y: 0, z: -10}
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
 --- !u!1 &480389400
 GameObject:
   m_ObjectHideFlags: 0
@@ -9196,11 +9198,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6962211588470459255, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6
+      value: 127.5
       objectReference: {fileID: 0}
     - target: {fileID: 6962211588470459255, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 15.9
       objectReference: {fileID: 0}
     - target: {fileID: 6962211588470459255, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: m_LocalPosition.z

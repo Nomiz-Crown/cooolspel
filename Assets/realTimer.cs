@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.IO;
+
 
 public class realTimer : MonoBehaviour
 {
@@ -9,12 +11,12 @@ public class realTimer : MonoBehaviour
     composterWin winner;
     [HideInInspector] public string displayMe;
     float thisLevel;
-    public string highScore;
-    HighScoreDisplay bomb;
+    string highScore;
+    private string filePath;
+    [HideInInspector] public float secondsPassed;
     // Start is called before the first frame update
     void Start()
     {
-        bomb = GetComponent<HighScoreDisplay>();
         winner = FindObjectOfType<composterWin>();
         if (winner == null) 
         {
@@ -22,6 +24,8 @@ public class realTimer : MonoBehaviour
             return;
         }
         thisLevel = winner.levelCompleted;
+        filePath = Path.Combine(Application.persistentDataPath, "highscore" + thisLevel + ".json");
+        print(filePath);
         tmp = GetComponent<TextMeshProUGUI>();
     }
 
@@ -29,15 +33,19 @@ public class realTimer : MonoBehaviour
     void Update()
     {
         if (winner == null) return;
+        tmp.text = displayMe;
+        if (winner.saveScore)
+        {
+            print("hi i got in");
+            SaveHighScore();
+        }
+    }
 
-        if (LevelData.levelCompleted != thisLevel)
-        {
-            tmp.text = displayMe;
-            highScore = displayMe;
-        }
-        else
-        {
-            bomb.SaveHighScore();
-        }
+    public void SaveHighScore()
+    {
+        if (secondsPassed >= float.Parse(File.ReadAllText(filePath))) return;
+        string gurt = $"{Mathf.Round(secondsPassed * 1000) / 1000}";
+        print(gurt +" is what i save");
+        File.WriteAllText(filePath, gurt);
     }
 }
