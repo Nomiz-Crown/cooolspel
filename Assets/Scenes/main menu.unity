@@ -1595,7 +1595,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myLevel: 3
-  iAmHeatwave: 0
 --- !u!1 &68854370
 GameObject:
   m_ObjectHideFlags: 0
@@ -12505,7 +12504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myLevel: 1
-  iAmHeatwave: 0
 --- !u!114 &699901055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26761,8 +26759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb016f6f0eb659e4f9b8eea81cc0fabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myLevel: 0
-  iAmHeatwave: 1
+  myLevel: heatwave
 --- !u!114 &1553113157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27176,7 +27173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myLevel: 2
-  iAmHeatwave: 0
 --- !u!1 &1580068187
 GameObject:
   m_ObjectHideFlags: 0

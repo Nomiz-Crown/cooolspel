@@ -148,8 +148,12 @@ public class WaveHandler : MonoBehaviour
     }
     public void SaveWaveScore()
     {
+        if (!File.Exists(filePath))
+        {
+            File.WriteAllText(filePath, ""); // Initialize with an empty value
+        }
         if (wave >= float.Parse(File.ReadAllText(filePath))) return;
         print(wave + " is what i save");
-        File.WriteAllText(filePath, $"wave");
+        File.WriteAllText(filePath, wave.ToString());
     }
 }

@@ -11,41 +11,31 @@ public class HighScoreDisplay : MonoBehaviour
 {
     private string filePath;
     TextMeshProUGUI tmp;
-    public float myLevel;
-    public bool iAmHeatwave;
+    public string myLevel;
 
     void Start()
     {
         tmp = GetComponent<TextMeshProUGUI>();
-        if (iAmHeatwave)
+        filePath = Path.Combine(Application.persistentDataPath, "highscore" + myLevel + ".json");
+        if (!File.Exists(filePath))
         {
-            filePath = Path.Combine(Application.persistentDataPath, "highscoreheatwave.json");
-            string ContentsOfJson = File.ReadAllText(filePath);
-            if (ContentsOfJson == null || ContentsOfJson == "")
-            {
-                LoadHighScore("");
-            }
-            else
-            {
-                float waveHighScore = float.Parse(File.ReadAllText(filePath));
-                LoadHighScore("Wave " + waveHighScore);
-            }
+            File.WriteAllText(filePath, "");
+        }
+        string ContentsOfJson = File.ReadAllText(filePath);
+        if (ContentsOfJson == null || ContentsOfJson == "")
+        {
+            LoadHighScore("");
+        }
+        else if (myLevel == "heatwave")
+        {
+            LoadHighScore("Wave " + ContentsOfJson);
         }
         else
         {
-            filePath = Path.Combine(Application.persistentDataPath, "highscore" + myLevel + ".json");
-            string ContentsOfJson = File.ReadAllText(filePath);
-            if (ContentsOfJson == null || ContentsOfJson == "")
-            {
-                LoadHighScore("");
-            }
-            else
-            {
-                float temp = float.Parse(ContentsOfJson);
-                float minutesPassed = Mathf.Floor(temp / 60);
-                string secondsPassedToDisplay = $"{temp - minutesPassed * 60}";
-                LoadHighScore($"{minutesPassed}:" + secondsPassedToDisplay);
-            }
+            float temp = float.Parse(ContentsOfJson);
+            float minutesPassed = Mathf.Floor(temp / 60);
+            string secondsPassedToDisplay = $"{temp - minutesPassed * 60}";
+            LoadHighScore($"{minutesPassed}:" + secondsPassedToDisplay);
         }
     }
 
