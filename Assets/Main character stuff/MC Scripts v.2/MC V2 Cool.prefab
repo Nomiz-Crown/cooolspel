@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shockwave: {fileID: 6547365770044363023, guid: 24edd52c61a61ab45909dcf1a749e23d, type: 3}
-  acceleration: 0.2
+  acceleration: 0.5
   maxSpeed: 8
   slideMult: 1.5
   JumpHeight: 8

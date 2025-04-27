@@ -9286,6 +9286,10 @@ PrefabInstance:
       propertyPath: parryVfx
       value: 
       objectReference: {fileID: 1962781309}
+    - target: {fileID: 4409983366915117716, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
+      propertyPath: acceleration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5393428504082983903, guid: 34be4b0c9db0f2a47aaaf3eb29a20473, type: 3}
       propertyPath: death
       value: 
