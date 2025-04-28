@@ -35,7 +35,7 @@ public class HighScoreDisplay : MonoBehaviour
             float minutesPassed = Mathf.Floor(temp / 60);
             string secondsPassedToDisplay = (temp - minutesPassed * 60).ToString();
 
-            LoadHighScore(minutesPassed.ToString() + secondsPassedToDisplay);
+            LoadHighScore($"{minutesPassed.ToString()}:{secondsPassedToDisplay}");
         }
     }
 

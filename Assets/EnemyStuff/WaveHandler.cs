@@ -139,6 +139,7 @@ public class WaveHandler : MonoBehaviour
     // Methods for buttons to load scenes
     public void LoadMainMenu()
     {
+        SaveWaveScore();
         SceneManager.LoadScene("Main Menu"); // Change to your actual Main Menu scene name
     }
 
