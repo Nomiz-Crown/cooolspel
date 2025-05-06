@@ -139,6 +139,7 @@ public class mainmenuhandler : MonoBehaviour
    
     public void OnHidePanelButtonClicked()
     {
+        print("hi!");
         if (panelToActivate != null) panelToActivate.SetActive(false);
         if (settingsPanel != null) settingsPanel.SetActive(false);
 

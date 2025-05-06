@@ -32,10 +32,6 @@ public class Fister : MonoBehaviour
     {
         HandleInput();
     }
-    void ParryTimer()
-    {
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -57,8 +53,14 @@ public class Fister : MonoBehaviour
 
         if (bomba == null) return;
 
-        if (bomba.canParry && !objectsMaybeParry.Contains(bomba.gameObject)) objectsMaybeParry.Add(bomba.gameObject);
-        else if (bomba.canParry && objectsMaybeParry.Contains(bomba.gameObject)) objectsMaybeParry.Remove(bomba.gameObject);
+        if (bomba.canParry && !objectsMaybeParry.Contains(bomba.gameObject))
+        {
+            objectsMaybeParry.Add(bomba.gameObject);
+        }
+        else if (bomba.canParry && objectsMaybeParry.Contains(bomba.gameObject))
+        {
+            objectsMaybeParry.Remove(bomba.gameObject);
+        }
 
     }
 
@@ -69,14 +71,16 @@ public class Fister : MonoBehaviour
             bulletListToParry.Remove(collision.gameObject);
             isBulletAvailableToParry = bulletListToParry.Count > 0;
         }
+        
         else if (collision.gameObject.CompareTag("Enemy") && collision.gameObject.GetComponent<GooberBehaviour>() != null)
         {
             objectsMaybeParry.Remove(collision.gameObject);
         }
     }
-void UpdateParryableObject()
+    void UpdateParryableObject()
     {
         Physics2D.OverlapCollider(GetComponent<PolygonCollider2D>(), filter, results);
+
         foreach (Collider2D cool in results)
         {
             if (objectsMaybeParry.Contains<GameObject>(cool.gameObject) || !cool.gameObject.CompareTag("Enemy")) continue;
@@ -86,7 +90,9 @@ void UpdateParryableObject()
     private void HandleInput()
     {
         if (!FOnCooldown("nah")) return;
+
         UpdateParryableObject();
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             int o = 0;
@@ -103,7 +109,7 @@ void UpdateParryableObject()
                 if (!animOverride.isParry)
                 {
                     animOverride.isParry = true;
-                    Invoke("Skibidi", parryTime);
+                    Invoke(nameof(Skibidi), parryTime);
                 }
                 StartCoroutine(DoSlowMotion());
             }
@@ -122,13 +128,16 @@ void UpdateParryableObject()
         {
             timer = 0;
         }
+
         else if (timer < armCooldown) timer += Time.deltaTime;
+
         return timer >= armCooldown;
     }
     public GameObject gooberMissile;
     private bool getthisbozoouttahere()
     {
         if (objectsMaybeParry.Count == 0) return false; // Check if punchLine is empty
+
         GameObject bozoToParry = null;
         GooberBehaviour gooberToParry = null;
 
