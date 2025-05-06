@@ -4386,10 +4386,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5102166417405111772, guid: bfbfdf179d7937d43868d59f854e18cb, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5931967881506655392, guid: bfbfdf179d7937d43868d59f854e18cb, type: 3}
       propertyPath: m_Name
       value: PerformanceTally

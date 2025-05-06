@@ -6,8 +6,8 @@ using UnityEngine;
 public class PerformanceTallyLogicV1 : MonoBehaviour
 {
     TextMeshProUGUI tmp;
-    List<string> hamstringer = new();
-    [SerializeField] private float tallyDissapearTime;
+    List<string> TallyList = new();
+    [SerializeField] private float tallyDisappearTime;
     float timer = 0;
     // Start is called before the first frame update
     void Start()
@@ -26,34 +26,34 @@ public class PerformanceTallyLogicV1 : MonoBehaviour
         tmp.text = "";
         if (Scenario == "Add")
         {
-            hamstringer.Add(Act);
-            for (int i = 0; i < hamstringer.Count; i++)
+            TallyList.Add(Act);
+            for (int i = 0; i < TallyList.Count; i++)
             {
-                tmp.text += $"{hamstringer[i]} \n";
+                tmp.text += $"{TallyList[i]} \n";
             }
         }
         else if (Scenario == "Update")
         {
-            for (int i = 0; i < hamstringer.Count; i++)
+            for (int i = 0; i < TallyList.Count; i++)
             {
-                tmp.text += $"{hamstringer[i]} \n";
+                tmp.text += $"{TallyList[i]} \n";
             }
         }
     }
     void RemoveFirstTally()
     {
-        if (TallyTimer() && hamstringer.Count != 0)
+        if (TallyTimer() && TallyList.Count != 0)
         {
-            hamstringer.Remove(hamstringer[0]);
+            TallyList.Remove(TallyList[0]);
             timer = 0;
             UpdateTally("", "Update");
         }
     }
     bool TallyTimer()
     {
-        if(!IsListEmpty(hamstringer))
+        if(!IsListEmpty(TallyList))
         {
-            if (timer > tallyDissapearTime)
+            if (timer > tallyDisappearTime)
             {
                 return true;
             }
