@@ -6,6 +6,7 @@ public class CameraMoveToPlayer : MonoBehaviour
     private Transform player;
     [SerializeField] private float smoothSpeed = 0.125f;
     [SerializeField] private Vector3 offset;
+    [Header("camera stuff")]
     [SerializeField] private float shakeDuration = 0.5f;
     [SerializeField] private float shakeMagnitude = 0.1f;
 
@@ -35,20 +36,26 @@ public class CameraMoveToPlayer : MonoBehaviour
 
     private IEnumerator Shake(float duration)
     {
-        Vector3 originalPosition = transform.position;
         float elapsed = 0.0f;
+
+        Vector3 originalPosition = transform.position;
 
         while (elapsed < duration)
         {
             float x = Random.Range(-1f, 1f) * shakeMagnitude;
             float y = Random.Range(-1f, 1f) * shakeMagnitude;
 
-            transform.position = new Vector3(originalPosition.x + x, originalPosition.y + y, originalPosition.z);
-            elapsed += Time.deltaTime;
+            // Calculate the new position based on the player's current position
+            Vector3 newPosition = originalPosition + new Vector3(x, y, 0);
+            transform.position = newPosition;
 
+            elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.position = originalPosition;
+        // After shaking, smoothly transition back to the player's position
+        Vector3 desiredPosition = player.position + offset;
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
     }
+
 }
