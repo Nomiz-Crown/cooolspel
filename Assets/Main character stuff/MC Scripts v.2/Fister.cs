@@ -39,7 +39,6 @@ public class Fister : MonoBehaviour
             isBulletAvailableToParry = true;
             bulletListToParry.Add(collision.gameObject);
         }
-
     }
 
     ContactFilter2D filter = new ContactFilter2D().NoFilter();
