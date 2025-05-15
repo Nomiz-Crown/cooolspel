@@ -82,40 +82,41 @@ public class Fister : MonoBehaviour
 
         foreach (Collider2D cool in results)
         {
-            if (objectsMaybeParry.Contains<GameObject>(cool.gameObject) || !cool.gameObject.CompareTag("Enemy")) continue;
+            if (objectsMaybeParry.Contains<GameObject>(cool.gameObject)
+            || !cool.gameObject.CompareTag("Enemy")) continue; //if the object is an enemy add it to the list
             objectsMaybeParry.Add(cool.gameObject);
         }
     }
     private void HandleInput()
     {
-        if (!FOnCooldown("nah")) return;
+        if (!FOnCooldown("nah")) return; //check the cooldown on Parry
 
-        UpdateParryableObject();
-
+        UpdateParryableObject();//check Overlaping colliders with my parry-range trigger, fill them into punchLine list
+        // Bulletlist is sorted with exclusively enemy-bullets beforehand, using ontriggerstay & ontriggerexit and checking tags
         if (Input.GetKeyDown(KeyCode.F))
         {
-            int o = 0;
+            int animateParryIndex = 0;
             if (isBulletAvailableToParry)
             {
-                if (Parry()) o++;
+                if (Parry()) animateParryIndex++;
             }
             if (objectsMaybeParry.Count > 0)
             {
-                if (getthisbozoouttahere()) o++;
+                if (ParryGoober()) animateParryIndex++;
             }
-            if (o > 0)
+            if (animateParryIndex > 0) //animate parry, Slo-mo, etc
             {
                 if (!animOverride.isParry)
                 {
                     animOverride.isParry = true;
-                    Invoke(nameof(Skibidi), parryTime);
+                    Invoke(nameof(AnimateParry), parryTime);
                 }
                 StartCoroutine(DoSlowMotion());
             }
             FOnCooldown("reset");
         }
     }
-    void Skibidi()
+    void AnimateParry()
     {
         animOverride.isParry = false;
     }
@@ -133,7 +134,7 @@ public class Fister : MonoBehaviour
         return timer >= armCooldown;
     }
     public GameObject gooberMissile;
-    private bool getthisbozoouttahere()
+    private bool ParryGoober()
     {
         if (objectsMaybeParry.Count == 0) return false; // Check if punchLine is empty
 
@@ -174,10 +175,7 @@ public class Fister : MonoBehaviour
             }
         }
         tally.UpdateTally("+ IM WALKIN' HERE", "Add");
-        if (me.TemperatureHealth > 0)
-        {
-            me.RestoreHealth(35);
-        }
+        if (me.TemperatureHealth > 0) me.RestoreHealth(35);
         return true;
     }
     private bool Parry()
